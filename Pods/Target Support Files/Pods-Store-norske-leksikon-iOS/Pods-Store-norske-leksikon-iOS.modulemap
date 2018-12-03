@@ -1,0 +1,6 @@
+framework module Pods_Store_norske_leksikon_iOS {
+  umbrella header "Pods-Store-norske-leksikon-iOS-umbrella.h"
+
+  export *
+  module * { export * }
+}

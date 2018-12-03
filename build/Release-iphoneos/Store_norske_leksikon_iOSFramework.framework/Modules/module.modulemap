@@ -1,0 +1,4 @@
+framework module Store_norske_leksikon_iOSFramework {
+  header "Store_norske_leksikon_iOSFramework-Swift.h"
+  requires objc
+}

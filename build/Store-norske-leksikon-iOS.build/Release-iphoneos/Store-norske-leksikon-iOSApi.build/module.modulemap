@@ -1,0 +1,4 @@
+framework module Store_norske_leksikon_iOSApi {
+  header "Store_norske_leksikon_iOSApi-Swift.h"
+  requires objc
+}

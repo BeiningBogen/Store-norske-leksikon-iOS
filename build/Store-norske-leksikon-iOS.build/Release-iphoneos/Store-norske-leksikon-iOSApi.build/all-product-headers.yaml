@@ -1,0 +1,33 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [
+    {
+      'type': 'directory',
+      'name': "/Users/bogen/dev/Store-norske-leksikon-iOS/build/Release-iphoneos/Store_norske_leksikon_iOSApi.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "Store-norske-leksikon-iOSApi.h",
+          'external-contents': "/Users/bogen/dev/Store-norske-leksikon-iOS/Store-norske-leksikon-iOSApi/Store-norske-leksikon-iOSApi.h"
+        },
+        {
+          'type': 'file',
+          'name': "Store_norske_leksikon_iOSApi-Swift.h",
+          'external-contents': "/Users/bogen/dev/Store-norske-leksikon-iOS/build/Release-iphoneos/Store_norske_leksikon_iOSApi.framework/Headers/Store_norske_leksikon_iOSApi-Swift.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/bogen/dev/Store-norske-leksikon-iOS/build/Release-iphoneos/Store_norske_leksikon_iOSApi.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/bogen/dev/Store-norske-leksikon-iOS/build/Store-norske-leksikon-iOS.build/Release-iphoneos/Store-norske-leksikon-iOSApi.build/module.modulemap"
+        }
+      ]
+    }
+  ]
+}
