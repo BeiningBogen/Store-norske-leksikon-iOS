@@ -15,13 +15,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         let splitViewController =  UISplitViewController()
 
-        let exampleViewController = ExampleViewController.init(nibName: nil, bundle: nil)
+        let exampleViewController = BrowsingViewController.init(nibName: nil, bundle: nil)
         let rootNavigationController = UINavigationController(rootViewController: UIViewController.init(nibName: nil, bundle: nil))
         let exampleNavigationController = UINavigationController(rootViewController: exampleViewController)
 
         window?.backgroundColor = .white
 
-        splitViewController.viewControllers = [rootNavigationController, exampleNavigationController /*Exchange this for your own viewcontroller*/]
+        splitViewController.viewControllers = [rootNavigationController, exampleViewController /*Exchange this for your own viewcontroller*/]
         window?.rootViewController = splitViewController
         window?.makeKeyAndVisible()
 
