@@ -57,6 +57,10 @@ public protocol PathComponentsProvider {
 extension Never: Encodable {
     public func encode(to encoder: Encoder) throws {}
 }
+enum APIType {
+    case noBaseURL
+    case standard
+}
 
 public enum RequestableParameterEncoding {
     case query
@@ -166,7 +170,6 @@ extension Requestable {
             let auth: [String: String]? = serverConfig.basicHTTPAuth?.authorizationHeader
 
             var urlComponents = URLComponents(string: serverConfig.baseURL.absoluteString)!
-
 
             do {
                 if let baseUrl = urlComponents.url {
