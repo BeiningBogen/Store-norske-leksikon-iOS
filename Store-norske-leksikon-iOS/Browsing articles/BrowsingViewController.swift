@@ -13,7 +13,7 @@ import Store_norske_leksikon_iOSApi
 
 public class BrowsingViewController : UIViewController {
 
-    let viewModel = BrowsingViewModel()
+    let vm = BrowsingViewModel()
     
     let webView: WKWebView
 
@@ -63,10 +63,17 @@ public class BrowsingViewController : UIViewController {
     }
 
     func bindViewModel() {
-        viewModel.outputs.title.observeValues { [weak self] currentTitle in
+        
+        vm.outputs.title.observeValues { [weak self] currentTitle in
             self?.title = currentTitle
         }
+        
+        vm.outputs.html.observeValues { [weak self] html in
+            self?.webView.loadHTMLString(html, baseURL: nil)
+        }
+        
     }
+    
 }
 
 extension BrowsingViewController : WKNavigationDelegate {
@@ -79,9 +86,9 @@ extension BrowsingViewController : WKNavigationDelegate {
     
     public func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         
-        print(navigationAction.request)
+        vm.didBrowse(urlRequest: navigationAction.request)
         
-        decisionHandler(.allow)
+        decisionHandler(.cancel)
         
     }
     

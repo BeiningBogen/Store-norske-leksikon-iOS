@@ -11,11 +11,16 @@ import ReactiveSwift
 import Result
 
 protocol BrowsingViewModelInputs {
+    
+    func didBrowse(urlRequest: URLRequest)
 
 }
 
 protocol BrowsingViewModelOutputs {
+    
     var title: Signal<String, NoError> { get }
+    var html: Signal<String, NoError> { get }
+    
 }
 
 protocol BrowsingViewModelType {
@@ -24,11 +29,20 @@ protocol BrowsingViewModelType {
 }
 
 class BrowsingViewModel: BrowsingViewModelType, BrowsingViewModelInputs, BrowsingViewModelOutputs {
-    init() {
-        title = .empty
-    }
 
+    init() {
+        
+        title = .empty
+        html = .empty
+        
+    }
+    
+    func didBrowse(urlRequest: URLRequest) {
+        
+    }
+    
     let title: Signal<String, NoError>
+    var html: Signal<String, NoError>
 
     var inputs: BrowsingViewModelInputs { return self }
     var outputs: BrowsingViewModelOutputs { return self }
