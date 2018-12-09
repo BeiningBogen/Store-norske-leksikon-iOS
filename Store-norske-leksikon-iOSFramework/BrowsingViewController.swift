@@ -35,12 +35,12 @@ public class BrowsingViewController : UIViewController {
         bindStyles()
         bindViewModel()
         
+        vm.inputs.viewDidLoad()
     }
 
     func setupViews() {
         
         view.addSubview(webView)
-        webView.load(URLRequest.init(url: URL.init(string: "https://snl.no")!))
         webView.navigationDelegate = self
 
     }
@@ -68,28 +68,26 @@ public class BrowsingViewController : UIViewController {
             self?.title = currentTitle
         }
         
-        vm.outputs.html.observeValues { [weak self] html in
-            self?.webView.loadHTMLString(html, baseURL: nil)
+        vm.outputs.loadRequest.observeValues { [weak self] request in
+            self?.webView.load(request)
         }
         
     }
-    
+
 }
 
 extension BrowsingViewController : WKNavigationDelegate {
     
     public func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
         
-        print(navigation)
+        webView.removeHeaderAndFooter()
         
     }
     
-    public func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+    public func webView(_ webView: WKWebView, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
         
-        vm.didBrowse(urlRequest: navigationAction.request)
-        
-        decisionHandler(.cancel)
+        vm.inputs.didReceiveAuthChallenge(challenge: challenge, completionHandler: completionHandler)
         
     }
-    
+
 }

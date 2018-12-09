@@ -18,27 +18,19 @@
 		0A58AF7520FCE5080076F604 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6F45F720F9F0420062D5BE /* Environment.swift */; };
 		0A5C92972112FEEF00F7C7B0 /* TestObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1B51572112F94E009C0EAA /* TestObserver.swift */; };
 		0A774B2820FE2F3A00B83EFE /* OperatorOverload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A774B2720FE2F3A00B83EFE /* OperatorOverload.swift */; };
+		0A946A0A21BDB4DE00CABC5C /* WKWebview+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A946A0921BDB4DE00CABC5C /* WKWebview+Extension.swift */; };
+		0A946A0D21BDC14900CABC5C /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A946A0B21BDB7B200CABC5C /* Secrets.swift */; };
+		0A946A0F21BDC24700CABC5C /* BrowsingViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB39D8221B5CC28007235D1 /* BrowsingViewModelTests.swift */; };
+		0A946A1321BDC40900CABC5C /* lemen.examplehtml in Resources */ = {isa = PBXBuildFile; fileRef = 0A946A1121BDC40900CABC5C /* lemen.examplehtml */; };
 		0AB39D8C21B5CC52007235D1 /* BrowsingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB39D8121B5CC28007235D1 /* BrowsingViewModel.swift */; };
 		0AB39D8D21B5CC57007235D1 /* BrowsingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB39D8321B5CC28007235D1 /* BrowsingViewController.swift */; };
-		0AB39D8E21B5CC86007235D1 /* BrowsingViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB39D8221B5CC28007235D1 /* BrowsingViewModelTests.swift */; };
 		137362EB2A1D3AD76FBA00E6 /* Pods_Store_norske_leksikon_iOSApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B03AA059A94C96FEC8525D1 /* Pods_Store_norske_leksikon_iOSApi.framework */; };
 		CA71E17B544684ACE99FA77B /* Pods_Store_norske_leksikon_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88AAC25E7CD00FD60E8E6C52 /* Pods_Store_norske_leksikon_iOS.framework */; };
 		F11FF8A4213981B200344836 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3EBB1820DCE97D00B7D41D /* AppDelegate.swift */; };
-		F14DADB92179F9C100F9DD85 /* ExampleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14DADB32179F57700F9DD85 /* ExampleTableViewController.swift */; };
-		F14DADBA2179F9C600F9DD85 /* ExampleTableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14DADB42179F57700F9DD85 /* ExampleTableViewDataSource.swift */; };
-		F14DADBB2179F9C900F9DD85 /* ExampleTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14DADB52179F57700F9DD85 /* ExampleTableViewModel.swift */; };
-		F14DADBD2179FD3400F9DD85 /* ExampleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14DADBC2179FD3400F9DD85 /* ExampleCell.swift */; };
-		F166CDEC21429D70002D1D60 /* ExampleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DAC3FD21429AA100801657 /* ExampleViewModel.swift */; };
 		F176396621243DD400EDFC91 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A550C7720F62B2700F69F67 /* Service.swift */; };
 		F17F5C6D2134333A0082A36F /* MockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A550C7C20F62B2700F69F67 /* MockService.swift */; };
 		F1ABCB2F2188B55700D0BD9B /* ValueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E97EE2217BC72300BF2ECA /* ValueCell.swift */; };
 		F1ABCB302188B56100D0BD9B /* ValueCellDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E97EE0217BC68D00BF2ECA /* ValueCellDataSource.swift */; };
-		F1C74B4F218A004100B01FE0 /* ExampleCell2ViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C74B4E218A004100B01FE0 /* ExampleCell2ViewModelTests.swift */; };
-		F1C74B51218A004C00B01FE0 /* ExampleCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1C74B50218A004C00B01FE0 /* ExampleCellViewModelTests.swift */; };
-		F1DAC40321429AC300801657 /* ExampleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DAC3FB21429AA100801657 /* ExampleViewController.swift */; };
-		F1E97EDF217BBFC400BF2ECA /* ExampleCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E97EDE217BBFC400BF2ECA /* ExampleCellViewModel.swift */; };
-		F1F25BFC2189B642009F1AB0 /* ExampleCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F25BFB2189B642009F1AB0 /* ExampleCell2.swift */; };
-		F1F25BFE2189B68C009F1AB0 /* ExampleCell2ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F25BFD2189B68C009F1AB0 /* ExampleCell2ViewModel.swift */; };
 		F1F25BFF2189BA9A009F1AB0 /* ValueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E97EE2217BC72300BF2ECA /* ValueCell.swift */; };
 		F1F25C002189BA9D009F1AB0 /* ValueCellDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E97EE0217BC68D00BF2ECA /* ValueCellDataSource.swift */; };
 		F6ABC7FE5B62CCDCAA5C8306 /* Pods_Store_norske_leksikon_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8191F5E1D1854712E4C4DFD7 /* Pods_Store_norske_leksikon_iOSTests.framework */; };
@@ -102,6 +94,9 @@
 		0A6F45F520F9EFC60062D5BE /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 		0A6F45F720F9F0420062D5BE /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		0A774B2720FE2F3A00B83EFE /* OperatorOverload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorOverload.swift; sourceTree = "<group>"; };
+		0A946A0921BDB4DE00CABC5C /* WKWebview+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WKWebview+Extension.swift"; sourceTree = "<group>"; };
+		0A946A0B21BDB7B200CABC5C /* Secrets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Secrets.swift; path = "Store-norske-leksikon-iOSFramework/Secrets.swift"; sourceTree = SOURCE_ROOT; };
+		0A946A1121BDC40900CABC5C /* lemen.examplehtml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = lemen.examplehtml; sourceTree = "<group>"; };
 		0AB39D8121B5CC28007235D1 /* BrowsingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowsingViewModel.swift; sourceTree = "<group>"; };
 		0AB39D8221B5CC28007235D1 /* BrowsingViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowsingViewModelTests.swift; sourceTree = "<group>"; };
 		0AB39D8321B5CC28007235D1 /* BrowsingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowsingViewController.swift; sourceTree = "<group>"; };
@@ -116,26 +111,13 @@
 		C9FD84C954B7DCEC470DE92A /* Pods-Store-norske-leksikon-iOSApi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Store-norske-leksikon-iOSApi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Store-norske-leksikon-iOSApi/Pods-Store-norske-leksikon-iOSApi.debug.xcconfig"; sourceTree = "<group>"; };
 		DD96DD2D8C97B9712F2A1B1A /* Pods-Store-norske-leksikon-iOSApi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Store-norske-leksikon-iOSApi.release.xcconfig"; path = "Pods/Target Support Files/Pods-Store-norske-leksikon-iOSApi/Pods-Store-norske-leksikon-iOSApi.release.xcconfig"; sourceTree = "<group>"; };
 		E3847E63C7ACA16C1D39677B /* Pods-Store-norske-leksikon-iOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Store-norske-leksikon-iOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Store-norske-leksikon-iOSTests/Pods-Store-norske-leksikon-iOSTests.release.xcconfig"; sourceTree = "<group>"; };
-		F14DADB32179F57700F9DD85 /* ExampleTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleTableViewController.swift; sourceTree = "<group>"; };
-		F14DADB42179F57700F9DD85 /* ExampleTableViewDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleTableViewDataSource.swift; sourceTree = "<group>"; };
-		F14DADB52179F57700F9DD85 /* ExampleTableViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleTableViewModel.swift; sourceTree = "<group>"; };
-		F14DADBC2179FD3400F9DD85 /* ExampleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleCell.swift; sourceTree = "<group>"; };
 		F176F623214268290094BB29 /* Store-norske-leksikon-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Store-norske-leksikon-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F176F624214268290094BB29 /* Store-norske-leksikon-iOSApi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Store-norske-leksikon-iOSApi.framework"; path = Store_norske_leksikon_iOSApi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F176F625214268290094BB29 /* Store-norske-leksikon-iOSFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Store-norske-leksikon-iOSFramework.framework"; path = Store_norske_leksikon_iOSFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F176F626214268290094BB29 /* Store-norske-leksikon-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Store-norske-leksikon-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		F1C74B4C2189FF9B00B01FE0 /* ExampleTableViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleTableViewModelTests.swift; sourceTree = "<group>"; };
-		F1C74B4E218A004100B01FE0 /* ExampleCell2ViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleCell2ViewModelTests.swift; sourceTree = "<group>"; };
-		F1C74B50218A004C00B01FE0 /* ExampleCellViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleCellViewModelTests.swift; sourceTree = "<group>"; };
-		F1DAC3FB21429AA100801657 /* ExampleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleViewController.swift; sourceTree = "<group>"; };
-		F1DAC3FC21429AA100801657 /* ExampleViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleViewModelTests.swift; sourceTree = "<group>"; };
-		F1DAC3FD21429AA100801657 /* ExampleViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleViewModel.swift; sourceTree = "<group>"; };
-		F1DAC3FE21429AA100801657 /* ExampleViewController.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = ExampleViewController.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		F1E97EDE217BBFC400BF2ECA /* ExampleCellViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleCellViewModel.swift; sourceTree = "<group>"; };
+		F1DAC3FE21429AA100801657 /* BrowsingViewController.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = BrowsingViewController.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		F1E97EE0217BC68D00BF2ECA /* ValueCellDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueCellDataSource.swift; sourceTree = "<group>"; };
 		F1E97EE2217BC72300BF2ECA /* ValueCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ValueCell.swift; sourceTree = "<group>"; };
-		F1F25BFB2189B642009F1AB0 /* ExampleCell2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleCell2.swift; sourceTree = "<group>"; };
-		F1F25BFD2189B68C009F1AB0 /* ExampleCell2ViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExampleCell2ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +159,11 @@
 		0A22B2E620E586C4008E1F35 /* Store-norske-leksikon-iOSFramework */ = {
 			isa = PBXGroup;
 			children = (
+				0AB39D8121B5CC28007235D1 /* BrowsingViewModel.swift */,
+				0AB39D8221B5CC28007235D1 /* BrowsingViewModelTests.swift */,
+				0AB39D8321B5CC28007235D1 /* BrowsingViewController.swift */,
+				0A946A0921BDB4DE00CABC5C /* WKWebview+Extension.swift */,
+				0A946A0B21BDB7B200CABC5C /* Secrets.swift */,
 				F1ABCB2E2188B54700D0BD9B /* valueCell */,
 				0A6F45F420F9EF8B0062D5BE /* Library */,
 				0A22B2E720E586C4008E1F35 /* Store-norske-leksikon-iOSFramework.h */,
@@ -205,7 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				0AB39D8A21B5CC30007235D1 /* Browsing articles */,
-				F1DAC40221429AA700801657 /* example */,
+				F1DAC40221429AA700801657 /* Playgrounds */,
 				0A3EBB1820DCE97D00B7D41D /* AppDelegate.swift */,
 				0A3EBB2220DCE97F00B7D41D /* Assets.xcassets */,
 				0A3EBB2420DCE97F00B7D41D /* LaunchScreen.storyboard */,
@@ -218,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				0A550C7C20F62B2700F69F67 /* MockService.swift */,
+				0A946A1121BDC40900CABC5C /* lemen.examplehtml */,
 				0A42D3EE2114390A000CD37C /* Helpers */,
 				0A3EBB3220DCE97F00B7D41D /* Info.plist */,
 			);
@@ -255,9 +243,6 @@
 		0AB39D8A21B5CC30007235D1 /* Browsing articles */ = {
 			isa = PBXGroup;
 			children = (
-				0AB39D8121B5CC28007235D1 /* BrowsingViewModel.swift */,
-				0AB39D8221B5CC28007235D1 /* BrowsingViewModelTests.swift */,
-				0AB39D8321B5CC28007235D1 /* BrowsingViewController.swift */,
 			);
 			path = "Browsing articles";
 			sourceTree = "<group>";
@@ -308,41 +293,12 @@
 			path = valueCell;
 			sourceTree = "<group>";
 		};
-		F1DAC40221429AA700801657 /* example */ = {
+		F1DAC40221429AA700801657 /* Playgrounds */ = {
 			isa = PBXGroup;
 			children = (
-				F1F25BF92189B5C8009F1AB0 /* tableView */,
-				F1DAC3FB21429AA100801657 /* ExampleViewController.swift */,
-				F1DAC3FD21429AA100801657 /* ExampleViewModel.swift */,
-				F1DAC3FC21429AA100801657 /* ExampleViewModelTests.swift */,
-				F1DAC3FE21429AA100801657 /* ExampleViewController.playground */,
+				F1DAC3FE21429AA100801657 /* BrowsingViewController.playground */,
 			);
-			path = example;
-			sourceTree = "<group>";
-		};
-		F1F25BF92189B5C8009F1AB0 /* tableView */ = {
-			isa = PBXGroup;
-			children = (
-				F1F25BFA2189B5FA009F1AB0 /* cell */,
-				F14DADB32179F57700F9DD85 /* ExampleTableViewController.swift */,
-				F14DADB42179F57700F9DD85 /* ExampleTableViewDataSource.swift */,
-				F14DADB52179F57700F9DD85 /* ExampleTableViewModel.swift */,
-				F1C74B4C2189FF9B00B01FE0 /* ExampleTableViewModelTests.swift */,
-			);
-			path = tableView;
-			sourceTree = "<group>";
-		};
-		F1F25BFA2189B5FA009F1AB0 /* cell */ = {
-			isa = PBXGroup;
-			children = (
-				F1C74B50218A004C00B01FE0 /* ExampleCellViewModelTests.swift */,
-				F1C74B4E218A004100B01FE0 /* ExampleCell2ViewModelTests.swift */,
-				F1F25BFD2189B68C009F1AB0 /* ExampleCell2ViewModel.swift */,
-				F1F25BFB2189B642009F1AB0 /* ExampleCell2.swift */,
-				F14DADBC2179FD3400F9DD85 /* ExampleCell.swift */,
-				F1E97EDE217BBFC400BF2ECA /* ExampleCellViewModel.swift */,
-			);
-			path = cell;
+			path = Playgrounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -521,6 +477,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A946A1321BDC40900CABC5C /* lemen.examplehtml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -669,21 +626,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				F1F25C002189BA9D009F1AB0 /* ValueCellDataSource.swift in Sources */,
-				F14DADB92179F9C100F9DD85 /* ExampleTableViewController.swift in Sources */,
-				F166CDEC21429D70002D1D60 /* ExampleViewModel.swift in Sources */,
-				F14DADBA2179F9C600F9DD85 /* ExampleTableViewDataSource.swift in Sources */,
-				F14DADBD2179FD3400F9DD85 /* ExampleCell.swift in Sources */,
+				0A946A0D21BDC14900CABC5C /* Secrets.swift in Sources */,
 				0A774B2820FE2F3A00B83EFE /* OperatorOverload.swift in Sources */,
 				0AB39D8D21B5CC57007235D1 /* BrowsingViewController.swift in Sources */,
-				F1DAC40321429AC300801657 /* ExampleViewController.swift in Sources */,
+				0A946A0A21BDB4DE00CABC5C /* WKWebview+Extension.swift in Sources */,
 				0A58AF7520FCE5080076F604 /* Environment.swift in Sources */,
 				F1F25BFF2189BA9A009F1AB0 /* ValueCell.swift in Sources */,
 				0AB39D8C21B5CC52007235D1 /* BrowsingViewModel.swift in Sources */,
-				F14DADBB2179F9C900F9DD85 /* ExampleTableViewModel.swift in Sources */,
-				F1F25BFE2189B68C009F1AB0 /* ExampleCell2ViewModel.swift in Sources */,
 				0A58AF7420FCE5080076F604 /* AppEnvironment.swift in Sources */,
-				F1F25BFC2189B642009F1AB0 /* ExampleCell2.swift in Sources */,
-				F1E97EDF217BBFC400BF2ECA /* ExampleCellViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -699,10 +649,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F1C74B51218A004C00B01FE0 /* ExampleCellViewModelTests.swift in Sources */,
-				0AB39D8E21B5CC86007235D1 /* BrowsingViewModelTests.swift in Sources */,
-				F1C74B4F218A004100B01FE0 /* ExampleCell2ViewModelTests.swift in Sources */,
 				0A5C92972112FEEF00F7C7B0 /* TestObserver.swift in Sources */,
+				0A946A0F21BDC24700CABC5C /* BrowsingViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

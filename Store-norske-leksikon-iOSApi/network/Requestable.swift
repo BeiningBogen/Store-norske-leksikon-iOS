@@ -57,7 +57,7 @@ public protocol PathComponentsProvider {
 extension Never: Encodable {
     public func encode(to encoder: Encoder) throws {}
 }
-enum APIType {
+public enum APIType {
     case noBaseURL
     case standard
 }
@@ -116,7 +116,8 @@ public protocol Requestable {
     associatedtype Parameter: Encodable
     associatedtype Path: PathComponentsProvider
     associatedtype Response
-
+    
+    static var apiType: APIType { get }
     static var method: HTTPMethod { get }
     static var dateEncodingStrategy: JSONEncoder.DateEncodingStrategy { get }
     static var dataEncodingStrategy: JSONEncoder.DataEncodingStrategy { get }
@@ -169,7 +170,14 @@ extension Requestable {
 
             let auth: [String: String]? = serverConfig.basicHTTPAuth?.authorizationHeader
 
-            var urlComponents = URLComponents(string: serverConfig.baseURL.absoluteString)!
+            var urlComponents: URLComponents = {
+            
+            if apiType == .noBaseURL {
+                return URLComponents.init()
+            } else {
+                 return URLComponents(string: serverConfig.baseURL.absoluteString)!
+            }
+            }()
 
             do {
                 if let baseUrl = urlComponents.url {
@@ -186,10 +194,12 @@ extension Requestable {
                         urlComponents.queryItems = dictionary.map { URLQueryItem(name: $0, value: String(describing: $1)) }
                     }
 
-                    let url = path.pathComponents.path.reduce(baseUrl, { $0.appendingPathComponent($1) })
+
+                    let url = URL(string:  path.pathComponents.path.first!)!
                     var request = URLRequest(url: url)
                     request.httpMethod = method.rawValue
                     request.httpBody = try parameters.map(encoder.encode)
+                    
                     mainHeaders
                         .merging(auth ?? [:], uniquingKeysWith: { $1 })
                         .forEach { request.setValue($0.value, forHTTPHeaderField: $0.key) }

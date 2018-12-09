@@ -8,7 +8,9 @@ import ReactiveSwift
 
 
 public struct MockService : ServiceType {
-
+    public func getArticle(path: Requests.GetArticleRequestable.Path) -> SignalProducer<Requests.GetArticleRequestable.Response, RequestableError> {
+        return .empty
+    }
 
     public static var lastPerformedRequest: Any?
 
