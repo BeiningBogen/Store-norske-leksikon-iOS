@@ -31,6 +31,7 @@ target 'Store-norske-leksikon-iOS' do
   pod "ReactiveSwift"
   pod "ReactiveCocoa"
   pod "Result"
+  pod 'AMScrollingNavbar'
 end
 
 target 'Store-norske-leksikon-iOSTests' do
@@ -39,6 +40,7 @@ target 'Store-norske-leksikon-iOSTests' do
     pod "ReactiveSwift"
     pod "ReactiveCocoa"
     pod "Result"
+    
 end
 
 target 'Store-norske-leksikon-iOSFramework' do
@@ -46,6 +48,7 @@ target 'Store-norske-leksikon-iOSFramework' do
     pod "ReactiveCocoa"
     pod "ReactiveSwift"
     pod "Result"
+    pod 'AMScrollingNavbar'
     downgrade_swift
 end
 

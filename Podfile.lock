@@ -1,4 +1,5 @@
 PODS:
+  - AMScrollingNavbar (5.1.0)
   - Cartography (3.1.0)
   - ReactiveCocoa (8.0.0):
     - ReactiveSwift (~> 4.0)
@@ -7,6 +8,7 @@ PODS:
   - Result (4.0.0)
 
 DEPENDENCIES:
+  - AMScrollingNavbar
   - Cartography
   - ReactiveCocoa
   - ReactiveSwift
@@ -14,17 +16,19 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - AMScrollingNavbar
     - Cartography
     - ReactiveCocoa
     - ReactiveSwift
     - Result
 
 SPEC CHECKSUMS:
+  AMScrollingNavbar: e10b5e259a3d7fea30ed537cd57e6ba4fbb23d65
   Cartography: 1988b7578871a56c036e7af17195cb2190edf18c
   ReactiveCocoa: 87cb64d78424d749a0bbfd9b07e4825e8d834066
   ReactiveSwift: a2bb9ace428a109e9c0209615645d9d286c8c433
   Result: 7645bb3f50c2ce726dd0ff2fa7b6f42bbe6c3713
 
-PODFILE CHECKSUM: 550ee1c2a77ecb5d2da0c54d6f55047f28006131
+PODFILE CHECKSUM: ecf589780bfa4a607673d6154e7d3a7200b1949e
 
 COCOAPODS: 1.5.3

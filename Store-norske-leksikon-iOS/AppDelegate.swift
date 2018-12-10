@@ -2,6 +2,7 @@ import UIKit
 import CoreData
 import Store_norske_leksikon_iOSFramework
 import Store_norske_leksikon_iOSApi
+import AMScrollingNavbar
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -18,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let splitViewController =  UISplitViewController()
 
         let exampleViewController = BrowsingViewController.init(nibName: nil, bundle: nil)
-        let rootNavigationController = UINavigationController(rootViewController: UIViewController.init(nibName: nil, bundle: nil))
+        let rootNavigationController = ScrollingNavigationController(rootViewController: UIViewController.init(nibName: nil, bundle: nil))
 
         window?.backgroundColor = .white
 
