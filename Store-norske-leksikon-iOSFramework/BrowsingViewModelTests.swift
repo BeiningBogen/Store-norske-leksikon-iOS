@@ -9,6 +9,7 @@
 import XCTest
 import ReactiveCocoa
 import ReactiveSwift
+import Result
 
 class BrowsingViewModelTests: XCTestCase {
 

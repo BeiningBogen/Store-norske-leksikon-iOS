@@ -10,6 +10,7 @@ import UIKit
 import Cartography
 import WebKit
 import Store_norske_leksikon_iOSApi
+import AMScrollingNavbar
 
 public class BrowsingViewController : UIViewController {
 
@@ -26,6 +27,14 @@ public class BrowsingViewController : UIViewController {
     required public init?(coder aDecoder: NSCoder) {
         webView = WKWebView.init(frame: .zero, configuration: WKWebViewConfiguration.init())
         super.init(coder: aDecoder)
+    }
+    
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let navigationController = navigationController as? ScrollingNavigationController {
+            navigationController.followScrollView(webView.scrollView, delay: 50.0)
+        }
     }
 
     override public func viewDidLoad() {
