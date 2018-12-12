@@ -35,6 +35,13 @@ public class BrowsingViewController : UIViewController {
         if let navigationController = navigationController as? ScrollingNavigationController {
             navigationController.followScrollView(webView.scrollView, delay: 50.0)
         }
+        let searchVC = SearchTableViewController.init(nibName: nil, bundle: nil)
+        let searchController = UISearchController.init(searchResultsController: searchVC)
+        searchController.delegate = searchVC
+        searchController.searchResultsUpdater = searchVC
+        searchController.searchBar.delegate = searchVC
+        navigationItem.searchController = searchController
+        
     }
 
     override public func viewDidLoad() {

@@ -32,7 +32,7 @@ public struct Requests {
     public struct SearchArticlesRequestable : Requestable {
         
         public typealias Parameter = Never
-        public typealias Response = Data
+        public typealias Response = [Article]
         public static let apiType: APIType = .noBaseURL
         public static let method: HTTPMethod = .get
         

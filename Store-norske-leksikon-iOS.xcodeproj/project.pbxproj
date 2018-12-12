@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0A08F00521BFA7A50007A3B1 /* SearchTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A08EFFF21BFA7A50007A3B1 /* SearchTableViewCellViewModel.swift */; };
+		0A08F00621BFA7A50007A3B1 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A08F00021BFA7A50007A3B1 /* SearchTableViewController.swift */; };
+		0A08F00821BFA7A50007A3B1 /* SearchTableViewDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A08F00221BFA7A50007A3B1 /* SearchTableViewDatasource.swift */; };
+		0A08F00921BFA7A50007A3B1 /* SearchTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A08F00321BFA7A50007A3B1 /* SearchTableViewModel.swift */; };
+		0A08F00D21BFA80C0007A3B1 /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A08F00C21BFA80C0007A3B1 /* SearchTableViewCell.swift */; };
+		0A08F00E21BFA88E0007A3B1 /* SearchTableViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A08F00121BFA7A50007A3B1 /* SearchTableViewModelTests.swift */; };
 		0A22B2F720E586C5008E1F35 /* Store-norske-leksikon-iOSFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A22B2E720E586C4008E1F35 /* Store-norske-leksikon-iOSFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0A3EBB2320DCE97F00B7D41D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A3EBB2220DCE97F00B7D41D /* Assets.xcassets */; };
 		0A3EBB2620DCE97F00B7D41D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A3EBB2420DCE97F00B7D41D /* LaunchScreen.storyboard */; };
@@ -17,6 +23,7 @@
 		0A58AF7420FCE5080076F604 /* AppEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6F45F520F9EFC60062D5BE /* AppEnvironment.swift */; };
 		0A58AF7520FCE5080076F604 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6F45F720F9F0420062D5BE /* Environment.swift */; };
 		0A5C92972112FEEF00F7C7B0 /* TestObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A1B51572112F94E009C0EAA /* TestObserver.swift */; };
+		0A6965AF21C17107007FB57E /* Article.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6965AE21C17107007FB57E /* Article.swift */; };
 		0A774B2820FE2F3A00B83EFE /* OperatorOverload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A774B2720FE2F3A00B83EFE /* OperatorOverload.swift */; };
 		0A946A0A21BDB4DE00CABC5C /* WKWebview+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A946A0921BDB4DE00CABC5C /* WKWebview+Extension.swift */; };
 		0A946A0D21BDC14900CABC5C /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A946A0B21BDB7B200CABC5C /* Secrets.swift */; };
@@ -76,6 +83,12 @@
 
 /* Begin PBXFileReference section */
 		051E6B6803C7672DAC05EC5B /* Pods-Store-norske-leksikon-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Store-norske-leksikon-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Store-norske-leksikon-iOS/Pods-Store-norske-leksikon-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		0A08EFFF21BFA7A50007A3B1 /* SearchTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCellViewModel.swift; sourceTree = "<group>"; };
+		0A08F00021BFA7A50007A3B1 /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
+		0A08F00121BFA7A50007A3B1 /* SearchTableViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewModelTests.swift; sourceTree = "<group>"; };
+		0A08F00221BFA7A50007A3B1 /* SearchTableViewDatasource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewDatasource.swift; sourceTree = "<group>"; };
+		0A08F00321BFA7A50007A3B1 /* SearchTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewModel.swift; sourceTree = "<group>"; };
+		0A08F00C21BFA80C0007A3B1 /* SearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchTableViewCell.swift; path = "Store-norske-leksikon-iOSFramework/SearchTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		0A1B51572112F94E009C0EAA /* TestObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestObserver.swift; sourceTree = "<group>"; };
 		0A22B2E720E586C4008E1F35 /* Store-norske-leksikon-iOSFramework.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Store-norske-leksikon-iOSFramework.h"; sourceTree = "<group>"; };
 		0A22B2E820E586C4008E1F35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -91,6 +104,7 @@
 		0A550C7A20F62B2700F69F67 /* Requestables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Requestables.swift; sourceTree = "<group>"; };
 		0A550C7B20F62B2700F69F67 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A550C7C20F62B2700F69F67 /* MockService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockService.swift; sourceTree = "<group>"; };
+		0A6965AE21C17107007FB57E /* Article.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Article.swift; sourceTree = "<group>"; };
 		0A6F45F520F9EFC60062D5BE /* AppEnvironment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppEnvironment.swift; sourceTree = "<group>"; };
 		0A6F45F720F9F0420062D5BE /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		0A774B2720FE2F3A00B83EFE /* OperatorOverload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorOverload.swift; sourceTree = "<group>"; };
@@ -156,12 +170,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0A08F00A21BFA7BA0007A3B1 /* Browsing */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Browsing;
+			sourceTree = "<group>";
+		};
+		0A08F00B21BFA7C60007A3B1 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				0A08EFFF21BFA7A50007A3B1 /* SearchTableViewCellViewModel.swift */,
+				0A08F00C21BFA80C0007A3B1 /* SearchTableViewCell.swift */,
+				0A08F00021BFA7A50007A3B1 /* SearchTableViewController.swift */,
+				0A08F00121BFA7A50007A3B1 /* SearchTableViewModelTests.swift */,
+				0A08F00221BFA7A50007A3B1 /* SearchTableViewDatasource.swift */,
+				0A08F00321BFA7A50007A3B1 /* SearchTableViewModel.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
 		0A22B2E620E586C4008E1F35 /* Store-norske-leksikon-iOSFramework */ = {
 			isa = PBXGroup;
 			children = (
+				0A08F00A21BFA7BA0007A3B1 /* Browsing */,
 				0AB39D8121B5CC28007235D1 /* BrowsingViewModel.swift */,
 				0AB39D8221B5CC28007235D1 /* BrowsingViewModelTests.swift */,
 				0AB39D8321B5CC28007235D1 /* BrowsingViewController.swift */,
+				0A08F00B21BFA7C60007A3B1 /* Search */,
 				0A946A0921BDB4DE00CABC5C /* WKWebview+Extension.swift */,
 				0A946A0B21BDB7B200CABC5C /* Secrets.swift */,
 				F1ABCB2E2188B54700D0BD9B /* valueCell */,
@@ -280,6 +316,7 @@
 				0A550C7A20F62B2700F69F67 /* Requestables.swift */,
 				0A550C7720F62B2700F69F67 /* Service.swift */,
 				0A550C7520F62B2700F69F67 /* ServiceType.swift */,
+				0A6965AE21C17107007FB57E /* Article.swift */,
 			);
 			path = network;
 			sourceTree = "<group>";
@@ -617,6 +654,7 @@
 				0A550C7E20F62B2700F69F67 /* Requestable.swift in Sources */,
 				F1ABCB2F2188B55700D0BD9B /* ValueCell.swift in Sources */,
 				0A550C8220F62B2700F69F67 /* Requestables.swift in Sources */,
+				0A6965AF21C17107007FB57E /* Article.swift in Sources */,
 				F176396621243DD400EDFC91 /* Service.swift in Sources */,
 				0A550C7D20F62B2700F69F67 /* ServiceType.swift in Sources */,
 				F17F5C6D2134333A0082A36F /* MockService.swift in Sources */,
@@ -629,13 +667,18 @@
 			files = (
 				F1F25C002189BA9D009F1AB0 /* ValueCellDataSource.swift in Sources */,
 				0A946A0D21BDC14900CABC5C /* Secrets.swift in Sources */,
+				0A08F00921BFA7A50007A3B1 /* SearchTableViewModel.swift in Sources */,
 				0A774B2820FE2F3A00B83EFE /* OperatorOverload.swift in Sources */,
 				0AB39D8D21B5CC57007235D1 /* BrowsingViewController.swift in Sources */,
 				0A946A0A21BDB4DE00CABC5C /* WKWebview+Extension.swift in Sources */,
 				0A58AF7520FCE5080076F604 /* Environment.swift in Sources */,
+				0A08F00621BFA7A50007A3B1 /* SearchTableViewController.swift in Sources */,
 				F1F25BFF2189BA9A009F1AB0 /* ValueCell.swift in Sources */,
+				0A08F00D21BFA80C0007A3B1 /* SearchTableViewCell.swift in Sources */,
+				0A08F00821BFA7A50007A3B1 /* SearchTableViewDatasource.swift in Sources */,
 				0AB39D8C21B5CC52007235D1 /* BrowsingViewModel.swift in Sources */,
 				0A58AF7420FCE5080076F604 /* AppEnvironment.swift in Sources */,
+				0A08F00521BFA7A50007A3B1 /* SearchTableViewCellViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -653,6 +696,7 @@
 			files = (
 				0A5C92972112FEEF00F7C7B0 /* TestObserver.swift in Sources */,
 				0A946A0F21BDC24700CABC5C /* BrowsingViewModelTests.swift in Sources */,
+				0A08F00E21BFA88E0007A3B1 /* SearchTableViewModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -702,7 +746,11 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Store-norske-leksikon-iOSApi/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "beiningbogen.Store-norske-leksikon-iOSApi";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -727,7 +775,11 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Store-norske-leksikon-iOSApi/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "beiningbogen.Store-norske-leksikon-iOSApi";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -752,7 +804,11 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Store-norske-leksikon-iOSFramework/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "beiningbogen.Store-norske-leksikon-iOSFramework";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -777,7 +833,11 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = "Store-norske-leksikon-iOSFramework/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "beiningbogen.Store-norske-leksikon-iOSFramework";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -912,7 +972,10 @@
 				DEVELOPMENT_TEAM = 5PKTA338CL;
 				INFOPLIST_FILE = "Store-norske-leksikon-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "beiningbogen.Store-norske-leksikon-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -930,7 +993,10 @@
 				DEVELOPMENT_TEAM = 5PKTA338CL;
 				INFOPLIST_FILE = "Store-norske-leksikon-iOS/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "beiningbogen.Store-norske-leksikon-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -947,7 +1013,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5PKTA338CL;
 				INFOPLIST_FILE = "Store-norske-leksikon-iOSTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "beiningbogen.Store-norske-leksikon-iOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -965,7 +1035,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5PKTA338CL;
 				INFOPLIST_FILE = "Store-norske-leksikon-iOSTests/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "beiningbogen.Store-norske-leksikon-iOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;

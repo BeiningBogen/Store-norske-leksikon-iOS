@@ -11,6 +11,8 @@ import ReactiveCocoa
 import ReactiveSwift
 import Result
 
+@testable import Store_norske_leksikon_iOSFramework
+
 class BrowsingViewModelTests: XCTestCase {
 
     let viewModel = BrowsingViewModel()
@@ -20,7 +22,8 @@ class BrowsingViewModelTests: XCTestCase {
     override func setUp() {
         super.setUp()
 
-        viewModel.outputs.test.observe(test.observer)
+//        viewModel.outputs.test.observe(test.observer)
+        
     }
 
     override func tearDown() {
