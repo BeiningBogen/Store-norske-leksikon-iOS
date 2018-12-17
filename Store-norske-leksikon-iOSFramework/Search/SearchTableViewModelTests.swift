@@ -11,24 +11,56 @@ import ReactiveCocoa
 import ReactiveSwift
 import Result
 
-//@testable import ___VARIABLE_productName___Framework
-//@testable import ___VARIABLE_productName___Api
 @testable import Store_norske_leksikon_iOSFramework
+@testable import Store_norske_leksikon_iOSApi
+
+
+extension XCTestCase {
+    
+    func asyncMockResponsesTest(mockService: MockService, expectationTimeout: TimeInterval = 10, expectationDescription: String = #function, body: (XCTestExpectation) -> Void) {
+        
+        let exp = expectation(description: expectationDescription)
+        let environment = Environment.init(service: mockService, apiDelayInterval: DispatchTimeInterval.milliseconds(3000))
+        AppEnvironment.pushEnvironment(environment: environment)
+
+        body(exp)
+
+        AppEnvironment.popEnvironment()
+        waitForExpectations(timeout: expectationTimeout, handler: nil)
+        
+    }
+    
+}
 
 class SearchViewModelTests: XCTestCase {
 
-    let viewModel = SearchTableViewController()
+    let vm = SearchTableViewModel()
     let goBack = TestObserver<Void, NoError>()
+    let articles = TestObserver<[Article], NoError>()
 
     override func setUp() {
         super.setUp()
-//        viewModel.outputs.goBack.observe(goBack.observer)
+        vm.outputs.articles.observe(articles.observer)
+        
     }
 
-    override func tearDown() {}
-
-    func testGoBack() {
-//        viewModel.inputs.closeTapped()
-//        goBack.assertDidEmitValue()
+    func testShowArticles() {
+        
+        let article = Article.template
+        
+        let mockService = MockService.template
+            |> (\MockService.searchArticlesResponse) .~ [article]
+        
+        asyncMockResponsesTest(mockService: mockService) { (exp) in
+            
+            vm.inputs.viewDidLoad()
+            vm.inputs.searchTextChanged(text: "Sau")
+            articles.assertDidEmitValue()
+            
+            exp.fulfill()
+            
+        }
+        
     }
+    
 }

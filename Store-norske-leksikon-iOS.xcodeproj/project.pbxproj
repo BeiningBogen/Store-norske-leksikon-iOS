@@ -16,6 +16,7 @@
 		0A22B2F720E586C5008E1F35 /* Store-norske-leksikon-iOSFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 0A22B2E720E586C4008E1F35 /* Store-norske-leksikon-iOSFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		0A3EBB2320DCE97F00B7D41D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A3EBB2220DCE97F00B7D41D /* Assets.xcassets */; };
 		0A3EBB2620DCE97F00B7D41D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A3EBB2420DCE97F00B7D41D /* LaunchScreen.storyboard */; };
+		0A542F0921C7994C0041139F /* Templates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A542F0821C7994C0041139F /* Templates.swift */; };
 		0A550C7D20F62B2700F69F67 /* ServiceType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A550C7520F62B2700F69F67 /* ServiceType.swift */; };
 		0A550C7E20F62B2700F69F67 /* Requestable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A550C7620F62B2700F69F67 /* Requestable.swift */; };
 		0A550C8220F62B2700F69F67 /* Requestables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A550C7A20F62B2700F69F67 /* Requestables.swift */; };
@@ -31,6 +32,7 @@
 		0A946A1321BDC40900CABC5C /* lemen.examplehtml in Resources */ = {isa = PBXBuildFile; fileRef = 0A946A1121BDC40900CABC5C /* lemen.examplehtml */; };
 		0AB39D8C21B5CC52007235D1 /* BrowsingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB39D8121B5CC28007235D1 /* BrowsingViewModel.swift */; };
 		0AB39D8D21B5CC57007235D1 /* BrowsingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB39D8321B5CC28007235D1 /* BrowsingViewController.swift */; };
+		0AE50ACE21C82C490030F6F7 /* SearchTableViewCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE50ACD21C82C490030F6F7 /* SearchTableViewCellViewModelTests.swift */; };
 		137362EB2A1D3AD76FBA00E6 /* Pods_Store_norske_leksikon_iOSApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B03AA059A94C96FEC8525D1 /* Pods_Store_norske_leksikon_iOSApi.framework */; };
 		CA71E17B544684ACE99FA77B /* Pods_Store_norske_leksikon_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88AAC25E7CD00FD60E8E6C52 /* Pods_Store_norske_leksikon_iOS.framework */; };
 		F11FF8A4213981B200344836 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3EBB1820DCE97D00B7D41D /* AppDelegate.swift */; };
@@ -97,6 +99,7 @@
 		0A3EBB2520DCE97F00B7D41D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0A3EBB2720DCE97F00B7D41D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0A3EBB3220DCE97F00B7D41D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0A542F0821C7994C0041139F /* Templates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Templates.swift; sourceTree = "<group>"; };
 		0A550C7520F62B2700F69F67 /* ServiceType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ServiceType.swift; sourceTree = "<group>"; };
 		0A550C7620F62B2700F69F67 /* Requestable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Requestable.swift; sourceTree = "<group>"; };
 		0A550C7720F62B2700F69F67 /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
@@ -114,6 +117,7 @@
 		0AB39D8121B5CC28007235D1 /* BrowsingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowsingViewModel.swift; sourceTree = "<group>"; };
 		0AB39D8221B5CC28007235D1 /* BrowsingViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowsingViewModelTests.swift; sourceTree = "<group>"; };
 		0AB39D8321B5CC28007235D1 /* BrowsingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowsingViewController.swift; sourceTree = "<group>"; };
+		0AE50ACD21C82C490030F6F7 /* SearchTableViewCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCellViewModelTests.swift; sourceTree = "<group>"; };
 		239841D214334E695E234A3A /* Pods-Store-norske-leksikon-iOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Store-norske-leksikon-iOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Store-norske-leksikon-iOSTests/Pods-Store-norske-leksikon-iOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2CEA771DF236BE6D381E2CBD /* Pods_Store_norske_leksikon_iOSFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Store_norske_leksikon_iOSFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CD71EF609D9E0479F8F0DC2 /* Pods-Store-norske-leksikon-iOSFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Store-norske-leksikon-iOSFramework.release.xcconfig"; path = "Pods/Target Support Files/Pods-Store-norske-leksikon-iOSFramework/Pods-Store-norske-leksikon-iOSFramework.release.xcconfig"; sourceTree = "<group>"; };
@@ -180,12 +184,13 @@
 		0A08F00B21BFA7C60007A3B1 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				0A08EFFF21BFA7A50007A3B1 /* SearchTableViewCellViewModel.swift */,
 				0A08F00C21BFA80C0007A3B1 /* SearchTableViewCell.swift */,
+				0A08EFFF21BFA7A50007A3B1 /* SearchTableViewCellViewModel.swift */,
+				0AE50ACD21C82C490030F6F7 /* SearchTableViewCellViewModelTests.swift */,
 				0A08F00021BFA7A50007A3B1 /* SearchTableViewController.swift */,
-				0A08F00121BFA7A50007A3B1 /* SearchTableViewModelTests.swift */,
 				0A08F00221BFA7A50007A3B1 /* SearchTableViewDatasource.swift */,
 				0A08F00321BFA7A50007A3B1 /* SearchTableViewModel.swift */,
+				0A08F00121BFA7A50007A3B1 /* SearchTableViewModelTests.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -241,6 +246,7 @@
 			isa = PBXGroup;
 			children = (
 				0A550C7C20F62B2700F69F67 /* MockService.swift */,
+				0A542F0821C7994C0041139F /* Templates.swift */,
 				0A946A1121BDC40900CABC5C /* lemen.examplehtml */,
 				0A42D3EE2114390A000CD37C /* Helpers */,
 				0A3EBB3220DCE97F00B7D41D /* Info.plist */,
@@ -694,7 +700,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0AE50ACE21C82C490030F6F7 /* SearchTableViewCellViewModelTests.swift in Sources */,
 				0A5C92972112FEEF00F7C7B0 /* TestObserver.swift in Sources */,
+				0A542F0921C7994C0041139F /* Templates.swift in Sources */,
 				0A946A0F21BDC24700CABC5C /* BrowsingViewModelTests.swift in Sources */,
 				0A08F00E21BFA88E0007A3B1 /* SearchTableViewModelTests.swift in Sources */,
 			);

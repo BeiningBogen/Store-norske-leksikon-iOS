@@ -27,25 +27,33 @@ public struct Requests {
             }
         }
     }
-    
-    
+
     public struct SearchArticlesRequestable : Requestable {
         
         public typealias Parameter = Never
         public typealias Response = [Article]
-        public static let apiType: APIType = .noBaseURL
+        public static let apiType: APIType = .standard
         public static let method: HTTPMethod = .get
-        
+        public static var parameterEncoding: RequestableParameterEncoding {
+            return .query
+        }
+
         public struct Path: PathComponentsProvider {
             
+        
             public typealias Query = SearchQuery
             
             let searchWord : String
-            let query: Query
-            
-            public init(searchWord: String, query: Query) {
+            let limit : Int?
+            let offset : Int?
+            private var query: Query
+
+            public init(searchWord: String, limit: Int = 10, offset: Int? = nil) {
                 self.searchWord = searchWord
-                self.query = query
+                self.limit = limit
+                self.offset = offset
+                self.query = Query.init(query: searchWord, limit: limit, offset: offset)
+                
             }
             
             public var pathComponents: (path: [String], query: Query?) {

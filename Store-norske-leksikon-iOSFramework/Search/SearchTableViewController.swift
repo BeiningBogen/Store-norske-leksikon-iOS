@@ -41,12 +41,14 @@ final class SearchTableViewController: UIViewController {
     }
 
     func setupConstraints() {
+        
         constrain(view, tableView) { viewProxy, tableViewProxy in
             tableViewProxy.top == viewProxy.top
             tableViewProxy.left == viewProxy.left
             tableViewProxy.right == viewProxy.right
             tableViewProxy.bottom == viewProxy.bottom
         }
+        
     }
 
     func bindStyles() {
@@ -54,9 +56,12 @@ final class SearchTableViewController: UIViewController {
     }
 
     func bindViewModel() {
-        vm.outputs.cells.observeValues{ [weak self] cells in
-            self?.dataSource.loadData(examples: cells)
-            self?.tableView.reloadData()
+        vm.outputs.articles.observeValues{ [weak self] articles in
+            
+            DispatchQueue.main.async {
+                self?.dataSource.loadData(articles: articles)
+                self?.tableView.reloadData()
+            }
         }
     }
 }
@@ -70,7 +75,7 @@ extension SearchTableViewController : UITableViewDelegate {
 
 extension SearchTableViewController : UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        print(searchText)
+        vm.inputs.searchTextChanged(text: searchText)
     }
 }
 

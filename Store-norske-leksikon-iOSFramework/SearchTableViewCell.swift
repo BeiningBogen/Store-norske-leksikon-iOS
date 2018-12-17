@@ -10,50 +10,45 @@ import UIKit
 import ReactiveCocoa
 import ReactiveSwift
 import Cartography
+import Store_norske_leksikon_iOSApi
 
 class SearchTableViewCell: UITableViewCell, ValueCell {
 
     static var defaultReusableId: String = String.init(describing: SearchTableViewCell.self)
     
-//    typealias Value = ReactiveSwift.Property<Mood>
+    let vm = SearchTableViewCellViewModel()
+    var titleLabel: UILabel!
+    var excerptLabel: UILabel!
 
-    let vm = SearchTableViewCellCellViewModel()
-
-//    var titleLabel: UILabel!
-//    var imageView: UIImageView!
-//    var clickableButton: UIButton!
-//    var spinner: SpinnerView!
-
-//    override init(frame: CGRect) {
-//        super.init(frame: frame)
-//        
-//    }
-//        setupViews()
-//        addSubviews()
-//        addGestures()
-//        setupConstraints()
-//        bindStyles()
-//        bindViewModel()
-//    }
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        setupViews()
+        addGestures()
+        setupConstraints()
+        bindStyles()
+        bindViewModel()
+        
+    }
 
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func configureWith(value: ReactiveSwift.Property<String>) {
-//        cm.configureWith(mood: value)
+    func configureWith(value: Article) {
+        vm.inputs.configureWith(article: value)
+        
     }
 
     func setupViews() {
-//        titleLabel = UILabel.init(frame: .zero)
-//        imageView = UIImageView(frame: .zero)
-//        clickableButton = UIButton(frame: .zero)
-    }
-
-    func addSubviews() {
-//        addSubview(titleLabel)
-//        addSubview(imageView)
-//        addSubview(clickableButton)
+        
+        titleLabel = UILabel.init(frame: .zero)
+        excerptLabel = UILabel.init(frame: .zero)
+        titleLabel.text = "asdfasf"
+        
+        addSubview(titleLabel)
+        addSubview(excerptLabel)
+        
     }
 
     func addGestures() {
@@ -61,11 +56,18 @@ class SearchTableViewCell: UITableViewCell, ValueCell {
     }
 
     func setupConstraints() {
-//        constrain(self, titleLabel, imageView, clickableButton) { cellProxy, titleLabelProxy, imageViewProxy, clickableButtonProxy in
-//            titleLabelProxy.left == cellProxy.left
+        constrain(self, titleLabel, excerptLabel) { cellProxy, titleLabelProxy, excerptProxy  in
+            
+            titleLabelProxy.left == cellProxy.left
 //            titleLabelProxy.right == cellProxy.right
-//            titleLabelProxy.bottom == cellProxy.bottom
-//
+            titleLabelProxy.bottom == cellProxy.bottom
+            
+            excerptProxy.left == titleLabelProxy.right + 15
+            excerptProxy.bottom == titleLabelProxy.bottom
+            excerptProxy.top == titleLabelProxy.top
+            excerptProxy.right == cellProxy.right
+            
+
 //            imageViewProxy.top == cellProxy.top + 8
 //            imageViewProxy.height == 60
 //            imageViewProxy.width == 60
@@ -75,7 +77,7 @@ class SearchTableViewCell: UITableViewCell, ValueCell {
 //            clickableButtonProxy.left == cellProxy.left
 //            clickableButtonProxy.right == cellProxy.right
 //            clickableButtonProxy.bottom == cellProxy.bottom
-//        }
+        }
     }
 
     func bindStyles() {
@@ -85,13 +87,18 @@ class SearchTableViewCell: UITableViewCell, ValueCell {
     }
 
     func bindViewModel() {
-//        vm.outputs.title.observeValues { [weak self] title in
-//            self?.titleLabel.text = title
-//        }
-//
-//        vm.outputs.image.observeValues { [weak self] image in
-//            self?.imageView.image = image
-//        }
+        
+        vm.outputs.title.observeValues { [weak self] title in
+            DispatchQueue.main.async {
+            self?.titleLabel.text = title
+            }
+        }
+        
+        vm.outputs.excerpt.observeValues { [weak self] text in
+            DispatchQueue.main.async {
+            self?.excerptLabel.text = text
+            }
+        }
 
 //        vm.outputs.shouldAnimate.observeValues { [weak self] shouldAnimate in
 //            guard let s = self else { return }

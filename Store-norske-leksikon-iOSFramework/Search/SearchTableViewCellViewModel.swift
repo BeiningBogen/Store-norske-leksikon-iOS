@@ -1,13 +1,15 @@
 import ReactiveCocoa
 import ReactiveSwift
 import Result
+import Store_norske_leksikon_iOSApi
 
 public protocol SearchTableViewCellViewModelInputs {
-    func configureWith(example: String)
+    func configureWith(article: Article)
 }
 
 public protocol SearchTableViewCellViewModelOutputs {
     var title: Signal<String, NoError> { get }
+    var excerpt: Signal<String, NoError> { get }
 }
 
 public protocol SearchTableViewCellViewModelType {
@@ -15,18 +17,24 @@ public protocol SearchTableViewCellViewModelType {
     var outputs: SearchTableViewCellViewModelOutputs { get }
 }
 
-class SearchTableViewCellCellViewModel: SearchTableViewCellViewModelType, SearchTableViewCellViewModelInputs, SearchTableViewCellViewModelOutputs {
+class SearchTableViewCellViewModel: SearchTableViewCellViewModelType, SearchTableViewCellViewModelInputs, SearchTableViewCellViewModelOutputs {
 
     init() {
-        title = configureWithProperty.signal.skipNil()
+        
+        let value = configureWithProperty.signal.skipNil()
+        title = value.map { $0.headword }
+        excerpt = value.map { $0.firstTwoSentences }
+        
     }
 
-    private let configureWithProperty = MutableProperty<String?>(nil)
-    func configureWith(example: String) {
-        configureWithProperty.value = example
+    private let configureWithProperty = MutableProperty<Article?>(nil)
+    func configureWith(article: Article) {
+        configureWithProperty.value = article
     }
-
+    
+    
     public let title: Signal<String, NoError>
+    public let excerpt: Signal<String, NoError>
 
     var inputs: SearchTableViewCellViewModelInputs { return self }
     var outputs: SearchTableViewCellViewModelOutputs { return self }

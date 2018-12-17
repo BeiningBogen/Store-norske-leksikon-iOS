@@ -180,7 +180,7 @@ extension Requestable {
             }()
 
             do {
-                if let baseUrl = urlComponents.url {
+                if let _ = urlComponents.url {
                     let encoder = JSONEncoder()
                     encoder.dataEncodingStrategy = dataEncodingStrategy
                     encoder.dateEncodingStrategy = dateEncodingStrategy
@@ -192,11 +192,10 @@ extension Requestable {
                             throw EncodingError.invalidValue(decoded, .init(codingPath: [], debugDescription: "Expected to decode Dictionary<String, _> but found a Dictionary<_, _> instead"))
                         }
                         urlComponents.queryItems = dictionary.map { URLQueryItem(name: $0, value: String(describing: $1)) }
+                               print(urlComponents)
                     }
-
-
-                    let url = URL(string:  path.pathComponents.path.first!)!
-                    var request = URLRequest(url: url)
+                    urlComponents.path = path.pathComponents.path.reduce("", { $0 + "/" + $1 })
+                    var request = URLRequest(url: urlComponents.url!)
                     request.httpMethod = method.rawValue
                     request.httpBody = try parameters.map(encoder.encode)
                     

@@ -9,23 +9,21 @@
 import Foundation
 import ReactiveCocoa
 import ReactiveSwift
+import Store_norske_leksikon_iOSApi
 
 class SearchTableViewDataSource: ValueCellDataSource {
 
-    internal func loadData(examples: [String]) {
-//        set(values: examples, cellClass: SearchTableViewCell.self, inSection: 0)
+    internal func loadData(articles: [Article]) {
+        set(values: articles, cellClass: SearchTableViewCell.self, inSection: 0)
     }
 
     override func configureCell(tableCell cell: UITableViewCell, withValue value: Any) {
-//        if let cell = cell as SearchTableViewCell {
-//            if let value = value as? String {
-//                cell.configureWith(value: value)
-//            }
-//        }
+        if let cell = cell as? SearchTableViewCell, let value = value as? Article {
+            cell.configureWith(value: value)
+        }
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        return section == 0 ? "Section 1" : "Secion 2"
         return nil
     }
 }
