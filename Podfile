@@ -31,6 +31,7 @@ target 'Store-norske-leksikon-iOS' do
   pod "ReactiveSwift"
   pod "ReactiveCocoa"
   pod "Result"
+  pod "SDWebImage"
   pod 'AMScrollingNavbar'
 end
 
@@ -48,6 +49,7 @@ target 'Store-norske-leksikon-iOSFramework' do
     pod "ReactiveCocoa"
     pod "ReactiveSwift"
     pod "Result"
+    pod "SDWebImage"
     pod 'AMScrollingNavbar'
     downgrade_swift
 end
@@ -57,4 +59,6 @@ target 'Store-norske-leksikon-iOSApi' do
     pod "ReactiveCocoa"
     pod "ReactiveSwift"
     pod "Result"
+    pod 'AMScrollingNavbar'
+    pod "SDWebImage"
 end

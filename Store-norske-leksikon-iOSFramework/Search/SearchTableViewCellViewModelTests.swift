@@ -21,14 +21,12 @@ class SearchTableViewCellViewModelTests: XCTestCase {
     let title = TestObserver<String, NoError>()
     let excerpt = TestObserver<String, NoError>()
 
-
     override func setUp() {
         super.setUp()
         vm.outputs.title.observe(title.observer)
         vm.outputs.excerpt.observe(excerpt.observer)
         
     }
-
 
     func testShowAttributes() {
         

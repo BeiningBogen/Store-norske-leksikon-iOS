@@ -15,6 +15,8 @@ public struct Article : Decodable {
     public private(set) var permalink: String
     public private(set) var rank: Float
     public private(set) var snippet: String
+    public private(set) var imageURL: String?
+    public private(set) var articleURL: String
     public private(set) var firstTwoSentences: String
     
     enum CodingKeys: String, CodingKey {
@@ -24,6 +26,8 @@ public struct Article : Decodable {
         case permalink
         case rank
         case snippet
+        case imageURL = "first_image_url"
+        case articleURL = "article_url"
         case firstTwoSentences = "first_two_sentences"
         
 //        rticle_id    Artikkelens ID-nummer.

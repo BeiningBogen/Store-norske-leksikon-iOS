@@ -10,6 +10,7 @@ import UIKit
 import ReactiveCocoa
 import ReactiveSwift
 import Cartography
+import SDWebImage
 import Store_norske_leksikon_iOSApi
 
 class SearchTableViewCell: UITableViewCell, ValueCell {
@@ -19,6 +20,7 @@ class SearchTableViewCell: UITableViewCell, ValueCell {
     let vm = SearchTableViewCellViewModel()
     var titleLabel: UILabel!
     var excerptLabel: UILabel!
+    var previewImage: UIImageView!
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -31,6 +33,10 @@ class SearchTableViewCell: UITableViewCell, ValueCell {
         
     }
 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        imageView?.image = nil
+    }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -43,30 +49,55 @@ class SearchTableViewCell: UITableViewCell, ValueCell {
     func setupViews() {
         
         titleLabel = UILabel.init(frame: .zero)
+        titleLabel.font = UIFont.boldSystemFont(ofSize: 17)
         excerptLabel = UILabel.init(frame: .zero)
-        titleLabel.text = "asdfasf"
-        
+        previewImage = UIImageView.init(frame: .zero)
+        previewImage.contentMode = .scaleAspectFit
+
         addSubview(titleLabel)
         addSubview(excerptLabel)
+        addSubview(previewImage)
         
     }
+    
 
     func addGestures() {
 //        clickableButton.addTarget(self, action: #selector(SearchTableViewCell.moodClicked), for: .touchUpInside)
     }
 
     func setupConstraints() {
-        constrain(self, titleLabel, excerptLabel) { cellProxy, titleLabelProxy, excerptProxy  in
+        struct Layout {
             
-            titleLabelProxy.left == cellProxy.left
+            static let marginTop : CGFloat = 10
+            static let marginLeft: CGFloat = 10
+            static let marginBottom: CGFloat = 10
+            static let marginRight: CGFloat = 10
+            
+            static let imageWidth: CGFloat = 60
+            static let imageHeight: CGFloat = 60
+            
+        }
+        
+        constrain(self, titleLabel, excerptLabel, previewImage) { cellProxy, titleLabelProxy, excerptProxy, imageProxy  in
+
+            titleLabelProxy.top == cellProxy.top + Layout.marginTop
+            titleLabelProxy.left == cellProxy.left + Layout.marginLeft
 //            titleLabelProxy.right == cellProxy.right
-            titleLabelProxy.bottom == cellProxy.bottom
+            titleLabelProxy.bottom == excerptProxy.top
+
+            excerptProxy.left == titleLabelProxy.left
+//            excerptProxy.right ==
+            excerptProxy.bottom == cellProxy.bottom - Layout.marginBottom
             
-            excerptProxy.left == titleLabelProxy.right + 15
-            excerptProxy.bottom == titleLabelProxy.bottom
-            excerptProxy.top == titleLabelProxy.top
-            excerptProxy.right == cellProxy.right
+            imageProxy.width == Layout.imageWidth
+            imageProxy.height == Layout.imageHeight
             
+//            imageProxy.left == excerptProxy.left
+            imageProxy.right == cellProxy.right - Layout.marginRight
+            imageProxy.left == excerptProxy.right + Layout.marginRight
+            imageProxy.top == titleLabelProxy.top
+            imageProxy.bottom == excerptProxy.bottom
+
 
 //            imageViewProxy.top == cellProxy.top + 8
 //            imageViewProxy.height == 60
@@ -100,6 +131,23 @@ class SearchTableViewCell: UITableViewCell, ValueCell {
             }
         }
 
+        SDWebImageDownloader.shared().username = Secrets.qaUsername
+        SDWebImageDownloader.shared().password = Secrets.qaPassword
+        
+        vm.outputs.imageURL.observeValues { [weak self] imageURL in
+            
+            DispatchQueue.main.async {
+                guard let imageURL = imageURL else {
+                    self?.previewImage.image = nil
+                    return
+                }
+                    
+                if let url = URL.init(string: imageURL) {
+                    self?.previewImage.sd_setImage(with: url, completed: nil)
+                }
+                
+            }
+        }
 //        vm.outputs.shouldAnimate.observeValues { [weak self] shouldAnimate in
 //            guard let s = self else { return }
 

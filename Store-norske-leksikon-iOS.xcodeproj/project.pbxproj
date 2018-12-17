@@ -33,8 +33,9 @@
 		0AB39D8C21B5CC52007235D1 /* BrowsingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB39D8121B5CC28007235D1 /* BrowsingViewModel.swift */; };
 		0AB39D8D21B5CC57007235D1 /* BrowsingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB39D8321B5CC28007235D1 /* BrowsingViewController.swift */; };
 		0AE50ACE21C82C490030F6F7 /* SearchTableViewCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE50ACD21C82C490030F6F7 /* SearchTableViewCellViewModelTests.swift */; };
+		0AE50AD021C84C100030F6F7 /* Store-norske-leksikon-iOSApi.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F176F624214268290094BB29 /* Store-norske-leksikon-iOSApi.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0AE50AD121C84C140030F6F7 /* Store-norske-leksikon-iOSFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F176F625214268290094BB29 /* Store-norske-leksikon-iOSFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		137362EB2A1D3AD76FBA00E6 /* Pods_Store_norske_leksikon_iOSApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B03AA059A94C96FEC8525D1 /* Pods_Store_norske_leksikon_iOSApi.framework */; };
-		CA71E17B544684ACE99FA77B /* Pods_Store_norske_leksikon_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88AAC25E7CD00FD60E8E6C52 /* Pods_Store_norske_leksikon_iOS.framework */; };
 		F11FF8A4213981B200344836 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3EBB1820DCE97D00B7D41D /* AppDelegate.swift */; };
 		F176396621243DD400EDFC91 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A550C7720F62B2700F69F67 /* Service.swift */; };
 		F17F5C6D2134333A0082A36F /* MockService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A550C7C20F62B2700F69F67 /* MockService.swift */; };
@@ -77,6 +78,8 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				0AE50AD121C84C140030F6F7 /* Store-norske-leksikon-iOSFramework.framework in Embed Frameworks */,
+				0AE50AD021C84C100030F6F7 /* Store-norske-leksikon-iOSApi.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -159,7 +162,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA71E17B544684ACE99FA77B /* Pods_Store_norske_leksikon_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,6 +179,9 @@
 		0A08F00A21BFA7BA0007A3B1 /* Browsing */ = {
 			isa = PBXGroup;
 			children = (
+				0AB39D8121B5CC28007235D1 /* BrowsingViewModel.swift */,
+				0AB39D8221B5CC28007235D1 /* BrowsingViewModelTests.swift */,
+				0AB39D8321B5CC28007235D1 /* BrowsingViewController.swift */,
 			);
 			path = Browsing;
 			sourceTree = "<group>";
@@ -199,9 +204,6 @@
 			isa = PBXGroup;
 			children = (
 				0A08F00A21BFA7BA0007A3B1 /* Browsing */,
-				0AB39D8121B5CC28007235D1 /* BrowsingViewModel.swift */,
-				0AB39D8221B5CC28007235D1 /* BrowsingViewModelTests.swift */,
-				0AB39D8321B5CC28007235D1 /* BrowsingViewController.swift */,
 				0A08F00B21BFA7C60007A3B1 /* Search */,
 				0A946A0921BDB4DE00CABC5C /* WKWebview+Extension.swift */,
 				0A946A0B21BDB7B200CABC5C /* Secrets.swift */,
@@ -599,6 +601,7 @@
 				"${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactiveSwift/ReactiveSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -607,6 +610,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

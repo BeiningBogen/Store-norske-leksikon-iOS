@@ -12,6 +12,7 @@ import ReactiveCocoa
 import ReactiveSwift
 import Result
 import Cartography
+import Store_norske_leksikon_iOSApi
 
 final class SearchTableViewController: UIViewController {
     
@@ -20,6 +21,8 @@ final class SearchTableViewController: UIViewController {
     let vm = SearchTableViewModel()
     let dataSource = SearchTableViewDataSource()
 
+    
+    var didSelectHandler: ((Article) -> ())?
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
@@ -33,7 +36,7 @@ final class SearchTableViewController: UIViewController {
         
         tableView = UITableView.init(frame: .zero)
         view.addSubview(tableView)
-
+        navigationItem.title = "Artikkelsøk"
         tableView.register(SearchTableViewCell.self, forCellReuseIdentifier: SearchTableViewCell.defaultReusableId)
         tableView.delegate = self
         tableView.dataSource = dataSource
@@ -63,14 +66,20 @@ final class SearchTableViewController: UIViewController {
                 self?.tableView.reloadData()
             }
         }
+        
+        vm.outputs.didSearchForArticle.observeValues { [weak self] article in
+            self?.didSelectHandler?(article)
+            self?.dismiss(animated: true, completion: nil)
+        }
     }
 }
 
 extension SearchTableViewController : UITableViewDelegate {
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 50
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        vm.inputs.didSelect(indexPath: indexPath)
     }
+    
 }
 
 extension SearchTableViewController : UISearchBarDelegate {

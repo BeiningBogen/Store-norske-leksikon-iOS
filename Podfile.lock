@@ -6,6 +6,9 @@ PODS:
   - ReactiveSwift (4.0.0):
     - Result (~> 4.0)
   - Result (4.0.0)
+  - SDWebImage (4.4.2):
+    - SDWebImage/Core (= 4.4.2)
+  - SDWebImage/Core (4.4.2)
 
 DEPENDENCIES:
   - AMScrollingNavbar
@@ -13,6 +16,7 @@ DEPENDENCIES:
   - ReactiveCocoa
   - ReactiveSwift
   - Result
+  - SDWebImage
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -21,6 +25,7 @@ SPEC REPOS:
     - ReactiveCocoa
     - ReactiveSwift
     - Result
+    - SDWebImage
 
 SPEC CHECKSUMS:
   AMScrollingNavbar: e10b5e259a3d7fea30ed537cd57e6ba4fbb23d65
@@ -28,7 +33,8 @@ SPEC CHECKSUMS:
   ReactiveCocoa: 87cb64d78424d749a0bbfd9b07e4825e8d834066
   ReactiveSwift: a2bb9ace428a109e9c0209615645d9d286c8c433
   Result: 7645bb3f50c2ce726dd0ff2fa7b6f42bbe6c3713
+  SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
 
-PODFILE CHECKSUM: ecf589780bfa4a607673d6154e7d3a7200b1949e
+PODFILE CHECKSUM: d866014cfe2f3bb5889997dbe933df2596fa2777
 
 COCOAPODS: 1.5.3
