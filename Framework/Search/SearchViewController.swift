@@ -20,6 +20,8 @@ final class SearchViewController: UIViewController {
     let vm = SearchViewModel()
     var outputs: SearchViewModel.Outputs!
     let dataSource = SearchTableViewDataSource()
+    
+    var searchBar: UISearchBar?
 
     var didSelectArticleHandler: ((Article) -> ())?
     
@@ -49,7 +51,7 @@ final class SearchViewController: UIViewController {
         tableView.register(SearchTableViewCell.self, forCellReuseIdentifier: SearchTableViewCell.defaultReusableId)
         tableView.delegate = self
         tableView.dataSource = dataSource
-        
+
     }
 
     func setupConstraints() {
@@ -75,6 +77,9 @@ final class SearchViewController: UIViewController {
                 self?.tableView.reloadData()
             }
         }
+        outputs!.dismissKeyboard.observeValuesForUI { [ weak self] in
+            self?.searchBar?.resignFirstResponder()
+        }
         
         outputs.openArticle.observeValues{ [weak self] article in
             self?.didSelectArticleHandler?(article)
@@ -92,10 +97,15 @@ extension SearchViewController: UITableViewDelegate {
         vm.inputs.didSelectIndexPathObserver.send(value: indexPath)
     }
     
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        vm.inputs.scrollViewWillBeingDraggingObserver.send(value: ())
+    }
+    
 }
 
 extension SearchViewController : UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         vm.inputs.searchTextChangedObserver.send(value: searchText)
+        self.searchBar = searchBar
     }
 }

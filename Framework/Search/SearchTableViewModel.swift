@@ -23,6 +23,9 @@ public final class SearchViewModel {
         /// Call when an indexpath is selected
         public let (didSelectIndexPath, didSelectIndexPathObserver) = Signal<IndexPath, NoError>.pipe()
         
+        /// Call when user starts dragging scroll view
+        public let (scrollViewWillBeginDragging, scrollViewWillBeingDraggingObserver) = Signal<Void, NoError>.pipe()
+        
         init() { }
         
     }
@@ -42,7 +45,10 @@ public final class SearchViewModel {
         showLoader: Signal<Bool, NoError>,
         
         /// Emit when the spinner should show
-        showError: Signal<RequestableAlertModel, NoError>
+        showError: Signal<RequestableAlertModel, NoError>,
+        
+        /// Emit when keyboard should dismiss
+        dismissKeyboard: Signal<Void, NoError>
     )
     
     public let inputs = Inputs()
@@ -65,6 +71,8 @@ public final class SearchViewModel {
         
         let openArticle = inputs.didSelectIndexPath
             .withLatest(from: articles).map { $0.1[$0.0.row]}
+        
+        let dismissKeyboard = inputs.scrollViewWillBeginDragging
 
         // Not used yet
         let showLoader = inputs
@@ -78,7 +86,8 @@ public final class SearchViewModel {
                 articles: articles,
                 openArticle: openArticle,
                 showLoader: showLoader,
-                showError: showError
+                showError: showError,
+                dismissKeyboard: dismissKeyboard
         )
     }
 }
