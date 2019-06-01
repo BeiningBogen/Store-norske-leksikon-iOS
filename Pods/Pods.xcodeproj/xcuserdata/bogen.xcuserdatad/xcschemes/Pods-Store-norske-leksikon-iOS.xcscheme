@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9C9792AEE32109AFC4653438F4EF4280"
+               BlueprintIdentifier = "166D6869D2CF9598051DFDBD555DD634"
                BuildableName = "Pods_Store_norske_leksikon_iOS.framework"
                BlueprintName = "Pods-Store-norske-leksikon-iOS"
                ReferencedContainer = "container:Pods.xcodeproj">
@@ -45,7 +45,7 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9C9792AEE32109AFC4653438F4EF4280"
+            BlueprintIdentifier = "166D6869D2CF9598051DFDBD555DD634"
             BuildableName = "Pods_Store_norske_leksikon_iOS.framework"
             BlueprintName = "Pods-Store-norske-leksikon-iOS"
             ReferencedContainer = "container:Pods.xcodeproj">

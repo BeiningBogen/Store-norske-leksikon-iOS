@@ -33,8 +33,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "0A3EBB2B20DCE97F00B7D41D"
-               BuildableName = "Store-norske-leksikon-iOSTests.xctest"
-               BlueprintName = "Store-norske-leksikon-iOSTests"
+               BuildableName = "SNLTests.xctest"
+               BlueprintName = "SNLTests"
                ReferencedContainer = "container:Store-norske-leksikon-iOS.xcodeproj">
             </BuildableReference>
          </TestableReference>
