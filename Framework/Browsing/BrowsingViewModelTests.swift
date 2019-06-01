@@ -55,11 +55,8 @@ class BrowsingViewModelTests: XCTestCase {
         
         vm.inputs.viewDidLoadObserver.send(value: ())
         vm.inputs.configureObserver.send(value: URLRequest.init(url: URL.init(string: "snl.no")!))
-        
+        showLoader.assertDidEmitValue()
 
-        
-//        loadRequest.assertDidEmitValue()
-        
 //        let request = loadRequest.values.first
 //        XCTAssertEqual(request?.url?.absoluteString, AppEnvironment.current.service.serverConfig.baseURL.absoluteString)
 

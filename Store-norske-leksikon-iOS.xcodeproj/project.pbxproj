@@ -35,7 +35,6 @@
 		0AE50ACE21C82C490030F6F7 /* SearchTableViewCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE50ACD21C82C490030F6F7 /* SearchTableViewCellViewModelTests.swift */; };
 		0AE50AD121C84C140030F6F7 /* Store_norske_leksikon_iOSFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F176F625214268290094BB29 /* Store_norske_leksikon_iOSFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0AF566B9228D4A8C00CF10FD /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF566B5228D4A4900CF10FD /* SearchTableViewCell.swift */; };
-		0AF566BA228D4A9400CF10FD /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF566B7228D4A5200CF10FD /* Secrets.swift */; };
 		0AF566BD228D4E8B00CF10FD /* Signal+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF566BB228D4DEC00CF10FD /* Signal+Extensions.swift */; };
 		1A947C5EC814177EDCDE94E8 /* Pods_Store_norske_leksikon_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88AAC25E7CD00FD60E8E6C52 /* Pods_Store_norske_leksikon_iOS.framework */; };
 		9DCD318FFC555C7E3F7D7C55 /* Pods_SNLTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9369F29DDCEEC9F469DC02A8 /* Pods_SNLTests.framework */; };
@@ -109,7 +108,6 @@
 		0AB39D8321B5CC28007235D1 /* BrowsingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowsingViewController.swift; sourceTree = "<group>"; };
 		0AE50ACD21C82C490030F6F7 /* SearchTableViewCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCellViewModelTests.swift; sourceTree = "<group>"; };
 		0AF566B5228D4A4900CF10FD /* SearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchTableViewCell.swift; path = Framework/SearchTableViewCell.swift; sourceTree = SOURCE_ROOT; };
-		0AF566B7228D4A5200CF10FD /* Secrets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		0AF566BB228D4DEC00CF10FD /* Signal+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Signal+Extensions.swift"; sourceTree = "<group>"; };
 		2CEA771DF236BE6D381E2CBD /* Pods_Store_norske_leksikon_iOSFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Store_norske_leksikon_iOSFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CD71EF609D9E0479F8F0DC2 /* Pods-Store-norske-leksikon-iOSFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Store-norske-leksikon-iOSFramework.release.xcconfig"; path = "Pods/Target Support Files/Pods-Store-norske-leksikon-iOSFramework/Pods-Store-norske-leksikon-iOSFramework.release.xcconfig"; sourceTree = "<group>"; };
@@ -299,7 +297,6 @@
 		F1DAC40221429AA700801657 /* Playgrounds */ = {
 			isa = PBXGroup;
 			children = (
-				0AF566B7228D4A5200CF10FD /* Secrets.swift */,
 				F1DAC3FE21429AA100801657 /* BrowsingViewController.playground */,
 			);
 			path = Playgrounds;
@@ -569,7 +566,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0AF566BA228D4A9400CF10FD /* Secrets.swift in Sources */,
 				F1F25C002189BA9D009F1AB0 /* ValueCellDataSource.swift in Sources */,
 				0A08F00921BFA7A50007A3B1 /* SearchTableViewModel.swift in Sources */,
 				0A774B2820FE2F3A00B83EFE /* OperatorOverload.swift in Sources */,
@@ -819,8 +815,8 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 23YR74W2XM;
 				INFOPLIST_FILE = "$(SRCROOT)/SNL/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -830,7 +826,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "no.snl.ios-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "app distribution";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -842,8 +838,8 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 23YR74W2XM;
 				INFOPLIST_FILE = "$(SRCROOT)/SNL/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -853,7 +849,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "no.snl.ios-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "app distribution";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
