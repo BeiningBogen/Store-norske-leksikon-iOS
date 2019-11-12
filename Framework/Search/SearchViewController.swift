@@ -13,19 +13,22 @@ import ReactiveSwift
 import Result
 import Cartography
 
-final class SearchViewController: UIViewController {
+final public class SearchViewController: UITableViewController, UISearchBarDelegate {
     
-    var tableView: UITableView!
-
-    let vm = SearchViewModel()
+    public let vm = SearchViewModel()
     var outputs: SearchViewModel.Outputs!
-    let dataSource = SearchTableViewDataSource()
+    let dataSource = SearchHistoryTableViewDataSource()
     
-    var searchBar: UISearchBar?
-
+    var clearOrCancelSearchHandler: (() -> ())?
+    
     var didSelectArticleHandler: ((Article) -> ())?
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+    public override init(style: UITableViewStyle) {
+        super.init(style: style)
+        outputs = vm.outputs()
+    }
+    
+    override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         outputs = vm.outputs()
     }
@@ -34,7 +37,7 @@ final class SearchViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
         setupConstraints()
@@ -43,26 +46,33 @@ final class SearchViewController: UIViewController {
         vm.inputs.viewDidLoadObserver.send(value: ())
         
     }
-
-    func setupViews() {
+    
+    public func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        vm.inputs.searchTextChangedObserver.send(value: searchText)
+    }
+    public func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        vm.inputs.cancelButtonTappedObserver.send(value: ())
+    }
+    
+    public override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.prefersLargeTitles = true
         
-        tableView = UITableView.init(frame: .zero, style: .grouped)
-        view.addSubview(tableView)
+        if let selectedRow = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: selectedRow, animated: true)
+        }
+    }
+    
+    func setupViews() {
         tableView.register(SearchTableViewCell.self, forCellReuseIdentifier: SearchTableViewCell.defaultReusableId)
         tableView.delegate = self
         tableView.dataSource = dataSource
+        navigationItem.title = "Søk"
 
     }
 
     func setupConstraints() {
-        
-        constrain(view, tableView) { viewProxy, tableViewProxy in
-            tableViewProxy.top == viewProxy.top
-            tableViewProxy.left == viewProxy.left
-            tableViewProxy.right == viewProxy.right
-            tableViewProxy.bottom == viewProxy.bottom
-        }
-        
+ 
     }
 
     func bindStyles() {
@@ -77,35 +87,37 @@ final class SearchViewController: UIViewController {
                 self?.tableView.reloadData()
             }
         }
-        outputs!.dismissKeyboard.observeValuesForUI { [ weak self] in
-            self?.searchBar?.resignFirstResponder()
+        outputs!.searchCanceled.observeValues { [weak self] _ in
+            self?.clearOrCancelSearchHandler?()
+        }
+        
+        outputs.dismissKeyboard.observeValues { [weak self] _ in
+            self?.navigationController?.navigationItem.searchController?.searchBar.resignFirstResponder()
+            self?.navigationItem.searchController?.searchBar.resignFirstResponder()
         }
         
         outputs.openArticle.observeValues{ [weak self] article in
             self?.didSelectArticleHandler?(article)
-            self?.dismiss(animated: true, completion: nil)
-//            let viewController = BrowsingViewController.init(nibName: nil, bundle: nil)
-//            viewController.vm.inputs.configureObserver.send(value: URLRequest.init(url: URL(string: article.articleURL)!))
-//            self?.navigationController?.pushViewController(viewController, animated: true)
         }
+        
     }
 }
 
-extension SearchViewController: UITableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+extension SearchViewController {
+
+    public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         vm.inputs.didSelectIndexPathObserver.send(value: indexPath)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
-    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+    public override func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
         vm.inputs.scrollViewWillBeingDraggingObserver.send(value: ())
     }
     
 }
 
-extension SearchViewController : UISearchBarDelegate {
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        vm.inputs.searchTextChangedObserver.send(value: searchText)
-        self.searchBar = searchBar
-    }
-}
+//extension SearchViewController : UISearchBarDelegate {
+//    private func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+////        self.searchBar = searchBar
+//    }
+//}

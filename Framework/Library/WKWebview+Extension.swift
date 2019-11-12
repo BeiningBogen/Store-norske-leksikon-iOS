@@ -11,6 +11,7 @@ import WebKit
 
 extension WKWebView {
     
+    /// Strips the header and footer elements from the DOM
     func removeHeaderAndFooter(completionHandler: ((Any?, Error?) -> ())? = nil) {
 
         let removeElementIdScript = """
@@ -25,6 +26,7 @@ extension WKWebView {
         }
     }
     
+    /// Injects a script to that strips out header and footer elements on event: DOM content loaded
     func removeHeaderAndFooterOnDOMLoad(completionHandler: ((Any?, Error?) -> ())? = nil) {
         
         let javascript = """
@@ -38,9 +40,9 @@ extension WKWebView {
         self.evaluateJavaScript(javascript) { (response, error) in
             completionHandler?(response, error)
         }
-            
     }
     
+    /// Finds the title of the document, then a strips out the unecessary name of the encyclopedia
     func titleInDocument(completionHandler: @escaping ((String) -> ())) {
         let titleInDocument = """
         document.title;

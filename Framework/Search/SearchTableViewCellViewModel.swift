@@ -26,7 +26,7 @@ class SearchTableViewCellViewModel: SearchTableViewCellViewModelType, SearchTabl
     init() {
         
         let value = configureWithProperty.signal.skipNil()
-        title = value.map { $0.headword }
+        title = value.map { $0.fullName }
         excerpt = value.map { $0.firstTwoSentences }
         
         imageURL = value

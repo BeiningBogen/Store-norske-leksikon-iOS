@@ -5,7 +5,7 @@ public struct Requests {
     public struct GetArticleRequestable : Requestable {
         
         public typealias Parameter = Never
-        public typealias Response = Data
+        public typealias Response = ArticleContent
         public static let apiType: APIType = .noBaseURL
         public static let method: HTTPMethod = .get
         

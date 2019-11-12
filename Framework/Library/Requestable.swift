@@ -201,7 +201,14 @@ extension Requestable {
                         urlComponents.queryItems = dictionary.map { URLQueryItem(name: $0, value: String(describing: $1)) }
                                print(urlComponents)
                     }
-                    urlComponents.path = path.pathComponents.path.reduce("", { $0 + "/" + $1 })
+                    if path.pathComponents.path.count == 1 {
+                        urlComponents.path = path.pathComponents.path.reduce("", { $0 + "" + $1 })
+                    } else {
+                        urlComponents.path = path.pathComponents.path.reduce("", { $0 + "/" + $1 })
+                    }
+                    
+
+                    
                     var request = URLRequest(url: urlComponents.url!)
                     request.httpMethod = method.rawValue
                     request.httpBody = try parameters.map(encoder.encode)
@@ -209,6 +216,7 @@ extension Requestable {
                     mainHeaders
                         .merging(auth ?? [:], uniquingKeysWith: { $1 })
                         .forEach { request.setValue($0.value, forHTTPHeaderField: $0.key) }
+                    
                     let task = URLSession(configuration: sessionConfig ?? self.sessionConfig).dataTask(with: request) { data, response, error in
                         debugPrintYAML(request: request, response: response, received: data, error: error.map(RequestableError.underlying))
                         switch (data, response, error) {

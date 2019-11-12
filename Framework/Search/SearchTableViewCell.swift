@@ -54,10 +54,10 @@ class SearchTableViewCell: UITableViewCell, ValueCell {
         previewImage.clipsToBounds = true
         excerptLabel.numberOfLines = 2
 
+        addSubview(previewImage)
         addSubview(titleLabel)
         addSubview(excerptLabel)
-        addSubview(previewImage)
-        
+
     }
     
     func setupConstraints() {

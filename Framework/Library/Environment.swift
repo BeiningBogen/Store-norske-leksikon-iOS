@@ -9,9 +9,14 @@ public func searchArticles(path: Requests.SearchArticlesRequestable.Path) -> Sig
     return Requests.SearchArticlesRequestable.request(serverConfig: serverConfig, path: path)
 }
 
+public func getArticle(path: Requests.GetArticleRequestable.Path) -> SignalProducer<Requests.GetArticleRequestable.Response, RequestableError> {
+    return Requests.GetArticleRequestable.request(serverConfig: serverConfig, path: path)
+}
+
 public struct Environment {
     
     public var api = Api()
+    public var database = Database()
 
 }
 
@@ -27,7 +32,7 @@ public struct Api {
     }
     
     var searchArticles = searchArticles(path:)
-    
+    var getArticle = getArticle(path:)
 }
 
 
