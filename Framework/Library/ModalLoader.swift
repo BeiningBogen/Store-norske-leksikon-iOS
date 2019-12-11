@@ -1,7 +1,7 @@
 
 import Foundation
 import UIKit
-
+import Cartography
 
 class ModalLoader: UIView {
     
@@ -11,27 +11,33 @@ class ModalLoader: UIView {
     static public func show(inView view: UIView?) {
         
         guard let view = view else { return }
+
         let loader = ModalLoader.init()
         view.addSubview(loader)
-    
-        loader.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        loader.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        loader.widthAnchor.constraint(equalToConstant: 70).isActive = true
-        loader.heightAnchor.constraint(equalToConstant: 70).isActive = true
-        loader.tag = viewTag
-        loader.transform = CGAffineTransform.init(scaleX: 2.0, y: 2.0)
         loader.alpha = 1
-        
+
         let imageView = UIImageView.init(image: UIImage.init(named: "SNLspinner01"))
-        imageView.centerYAnchor.constraint(equalTo: loader.centerYAnchor).isActive = true
-        imageView.centerXAnchor.constraint(equalTo: loader.centerXAnchor).isActive = true
+        loader.addSubview(imageView)
+        
+        constrain(view, loader, imageView) { view, loader, imageView in
+
+            loader.center == view.center
+
+            imageView.width == 60
+
+            imageView.top == loader.top
+            imageView.bottom == loader.bottom
+            imageView.left == loader.left
+            imageView.right == loader.right
+
+        }
+        
         loader.tag = viewTag
-        imageView.animationImages = [UIImage.init(named: "SNLspinner01")!, UIImage.init(named: "SNLspinner02")!, UIImage.init(named: "SNLspinner03")!, UIImage.init(named: "SNLspinner04")!, UIImage.init(named: "SNLspinner05")!]
+        imageView.animationImages = [UIImage.init(named: "SNLspinner02")!, UIImage.init(named: "SNLspinner03")!, UIImage.init(named: "SNLspinner04")!, UIImage.init(named: "SNLspinner05")!]
         imageView.animationDuration = 3
         imageView.contentMode = .scaleAspectFit
         imageView.startAnimating()
         imageView.layer.masksToBounds = true
-        loader.translatesAutoresizingMaskIntoConstraints = false
 
         UIView.animate(withDuration: 0.4, delay: 0, options: UIViewAnimationOptions.curveEaseIn, animations: {
             
