@@ -14,6 +14,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil { return true }
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
+        if #available(iOS 13.0, *) {
+            window?.overrideUserInterfaceStyle = .light
+        }
         
         let tabbarController = UITabBarController.init(nibName: nil, bundle: nil)
 
