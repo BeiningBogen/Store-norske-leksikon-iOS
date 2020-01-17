@@ -9,6 +9,7 @@
 import ReactiveCocoa
 import ReactiveSwift
 import Result
+import ModelFramework
 
 public final class SearchViewModel {
     

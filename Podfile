@@ -19,6 +19,23 @@ target 'SNLTests' do
   pod "ReactiveSwift"
 end
 
+target 'ComposableArchitecture' do
+  pod "Result"
+  pod "ReactiveSwift"
+end
+
+target 'ModelFramework' do
+  pod "Result"
+  pod "ReactiveSwift"
+end
+
+target 'Search' do
+  pod "Result"
+  pod "ReactiveSwift"
+  pod "Eureka"
+  pod "Cartography"
+end
+
 target 'Store-norske-leksikon-iOSFramework' do
     pod "Cartography"
     pod "ReactiveCocoa"

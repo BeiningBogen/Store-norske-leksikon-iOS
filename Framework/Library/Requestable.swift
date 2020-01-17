@@ -1,5 +1,4 @@
 import Foundation
-import ReactiveCocoa
 import ReactiveSwift
 import Result
 
@@ -77,8 +76,14 @@ public enum RequestableParameterEncoding {
 }
 
 public struct RequestableAlertModel {
-    let title: String
-    let message: String
+    public let title: String
+    public let message: String
+
+    public init(title: String, message: String) {
+        self.title = title
+        self.message = message
+    }
+    
 }
 
 public enum RequestableError: Error, CustomDebugStringConvertible {
@@ -170,7 +175,15 @@ extension Requestable {
     }
 }
 
+public typealias Effect<A> = SignalProducer<A, Never>
+
 extension Requestable {
+    
+    internal static func requestData(serverConfig: ServerConfigType, path: Path, parameters: Parameter?, sessionConfig: URLSessionConfiguration? = nil) -> Effect<Data> {
+        
+            fatalError()
+    }
+    
     internal static func requestData(serverConfig: ServerConfigType, path: Path, parameters: Parameter?, sessionConfig: URLSessionConfiguration? = nil) -> SignalProducer<Data, RequestableError> {
 
         return SignalProducer<Data, RequestableError> { observer, lifetime in

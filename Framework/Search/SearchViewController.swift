@@ -12,6 +12,7 @@ import ReactiveCocoa
 import ReactiveSwift
 import Result
 import Cartography
+import ModelFramework
 
 final public class SearchViewController: UITableViewController, UISearchBarDelegate {
     

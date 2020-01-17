@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import ModelFramework
 
 private func _fetchSearchHistory() -> [Article] {
     
@@ -21,8 +22,8 @@ private func addToSearchHistory(_ article: Article) {
 
 public struct Database {
     
-    var fetchSearchHistory = _fetchSearchHistory
-    var addToSearchHistory = addToSearchHistory(_:)
+    public var fetchSearchHistory = _fetchSearchHistory
+    public var addToSearchHistory = addToSearchHistory(_:)
     
     public init() { }
     

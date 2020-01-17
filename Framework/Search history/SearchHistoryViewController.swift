@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import ModelFramework
 
 public class SearchHistoryViewController : UITableViewController, UISearchBarDelegate {
     
@@ -65,23 +66,22 @@ public class SearchHistoryViewController : UITableViewController, UISearchBarDel
         definesPresentationContext = true
         navigationItem.title = "Søk"
         tabBarItem = UITabBarItem.init(title: "Søk", image: UIImage.init(named: "search"), tag: 0)
-        navigationItem.searchController?.searchBar.delegate = self.navigationItem.searchController?.searchResultsController as! SearchViewController
         navigationItem.hidesSearchBarWhenScrolling = false
         
-        let searchViewController = (self.navigationItem.searchController?.searchResultsController as! SearchViewController)
-        
-        searchViewController.didSelectArticleHandler = { article in
-
-            let viewController = BrowsingViewController.init(nibName: nil, bundle: nil)
-            viewController.vm.inputs.configureObserver.send(value: URLRequest.init(url: URL(string: article.articleURL)!))
-            self.navigationController?.pushViewController(viewController, animated: true)
-            self.navigationController?.navigationBar.prefersLargeTitles = false
-        }
-        
-        searchViewController.clearOrCancelSearchHandler = {
-            self.vm.inputs.searchClearedOrCanceledObserver.send(value: ())
-            self.navigationItem.searchController?.searchBar.resignFirstResponder()
-        }
+//        let searchViewController = (self.navigationItem.searchController?.searchResultsController as! SearchViewController)
+//
+//        searchViewController.didSelectArticleHandler = { article in
+//
+//            let viewController = BrowsingViewController.init(nibName: nil, bundle: nil)
+//            viewController.vm.inputs.configureObserver.send(value: URLRequest.init(url: URL(string: article.articleURL)!))
+//            self.navigationController?.pushViewController(viewController, animated: true)
+//            self.navigationController?.navigationBar.prefersLargeTitles = false
+//        }
+//
+//        searchViewController.clearOrCancelSearchHandler = {
+//            self.vm.inputs.searchClearedOrCanceledObserver.send(value: ())
+//            self.navigationItem.searchController?.searchBar.resignFirstResponder()
+//        }
         
     }
     

@@ -10,7 +10,7 @@ import Foundation
 
 extension String {
     
-    func stripOutHtml() -> String? {
+    public func stripOutHtml() -> String? {
         do {
             guard let data = self.data(using: .unicode) else {
                 return nil

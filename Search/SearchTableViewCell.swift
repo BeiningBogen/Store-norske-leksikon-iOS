@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import ReactiveCocoa
 import ReactiveSwift
 import Cartography
 import SDWebImage

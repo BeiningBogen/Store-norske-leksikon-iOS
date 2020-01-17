@@ -1,4 +1,5 @@
 import Foundation
+import ModelFramework
 
 public struct Requests {
     
@@ -39,8 +40,7 @@ public struct Requests {
         }
 
         public struct Path: PathComponentsProvider {
-            
-        
+
             public typealias Query = SearchQuery
             
             let searchWord : String

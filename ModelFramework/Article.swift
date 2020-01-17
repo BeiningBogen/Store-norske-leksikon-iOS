@@ -8,7 +8,6 @@
 
 import Foundation
 
-
 public struct ArticleContent: Codable {
     
     public private(set) var xhtml_body: String
@@ -54,7 +53,7 @@ public struct Article : Codable, Equatable {
 //        title    Artikkelens fulle tittel.
     }
     
-    var fullName : String {
+    public var fullName : String {
         if let clarification = self.clarification {
             return headword + " - " + clarification
         }

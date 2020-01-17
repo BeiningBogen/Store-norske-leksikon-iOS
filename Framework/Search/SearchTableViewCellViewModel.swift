@@ -1,7 +1,7 @@
 import ReactiveCocoa
 import ReactiveSwift
 import Result
-
+import ModelFramework
 
 public protocol SearchTableViewCellViewModelInputs {
     func configureWith(article: Article)

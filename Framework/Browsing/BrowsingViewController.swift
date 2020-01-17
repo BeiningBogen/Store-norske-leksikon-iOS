@@ -12,108 +12,130 @@ import WebKit
 import AVFoundation
 import ReactiveSwift
 import Result
+import ComposableArchitecture
 
-struct AppState {
-    
-    var count = 0
-    var url: URL? = URL.init(string: "snl.no")
-    var showError = false
-    var showMoreOptionsMenu = false
-    
-    struct Activity {
-        let type: ActivityType
-        let timestamp = Date()
-        
-        enum ActivityType {
-            case didBrowseToArticle(URL)
-            case didTapMoreOptionsButton
+public func after(_ duration: Double, closure: @escaping () -> Void) {
+    let delayTime = DispatchTime.now() + Double(Int64(duration * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
+
+    DispatchQueue.main.asyncAfter(deadline: delayTime) {
+        closure()
+    }
+}
+
+struct BigState {
+
+    var names = [String]()
+    var selectedName : String? = nil
+
+
+    var detailState: DetailState {
+        get {
+            return DetailState.init(selectedName: selectedName)
+        }
+        set {
+            self.selectedName = newValue.selectedName
         }
     }
+
 }
 
-public enum BrowsingAction {
-    case tappedLink(URLRequest)
-    case moreButtonTapped
+struct DetailState {
+    var selectedName: String? = nil
 }
 
-func browsingReducer(state: AppState, action: BrowsingAction) -> AppState {
-    
-    switch action {
-        
-    case .tappedLink(let urlRequest):
-        return AppState.init(count: state.count, url: urlRequest.url, showError: state.showError, showMoreOptionsMenu: state.showMoreOptionsMenu)
-
-    case .moreButtonTapped:
-        return AppState.init(count: state.count + 900, url: state.url, showError: state.showError, showMoreOptionsMenu: true)
-    }
+struct NameListAction {
+    let nameSelected : String
 }
 
-final class Store<Value, Action> {
-    
-    let reducer : (Value, Action) -> Value
-    
-    var value: MutableProperty<Value>
-    
-    init(value: MutableProperty<Value>, reducer: @escaping (Value, Action) -> Value) {
-        self.value = value
-        self.reducer = reducer
-    }
-    
-    func send(_ action: Action) {
-        value.value = self.reducer(self.value.value, action)
-    }
+public enum DetailStateAction {
+    case nameChanged(String)
 }
 
-class ArticleViewController : UIViewController {
-    
-    var store : Store<AppState, BrowsingAction>
-    
-    init(store: Store<AppState, BrowsingAction>) {
-        self.store = store
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError()
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        store.value.signal
-            .map(\.count)
-            .observeValues { value in
-                print("count : \(value)")
-        }
-        
-        store.value.signal
-            .filterMap { $0.showError }
-            .skipRepeats()
-            .observeValues { value in
-                print("show error")
+ func nameListReducer(state: inout BigState, action: AppAction) -> [Effect<AppAction>] {
 
-        }
-        
-        setupUI()
-    }
-    
-    func setupUI() {
-        
-        let stackView = UIStackView.init(frame: UIScreen.main.bounds)
-        view.addSubview(stackView)
-        let tapButton = UIButton(type: .contactAdd)
-        tapButton.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
-        stackView.addArrangedSubview(tapButton)
-    }
-    
-    @objc
-    func didTapButton() {
-        store.send(.moreButtonTapped)
-//        let newValue = browsingState.value
-//        newValue.url = nil
-//        browsingState.value = newValue
-    }
+    return []
 }
+
+func nameListReducer2(state: inout BigState, action: AppAction) -> [SignalProducer<AppAction, Never>] {
+    
+    return []
+}
+
+ func detailStateReducer(state: inout DetailState, action: DetailStateAction) -> [Effect<DetailStateAction>] {
+
+    return []
+}
+
+
+
+func testStuff() {
+    
+    after(1) {
+        
+//        let store = Store<BigState, AppAction>.init(initialValue: BigState(), reducer: nameListReducer, reducer2: nameListReducer2)
+        
+        
+//        let appReducer = pullback(_appReducer, value: \.self)
+//        combine(pull detailStateReducer
+//        pullback(detailStateReducer, \.state)
+    }
+    
+}
+//let appReducer = combine(detailStateReducer, nameListReducer)
+
+
+//class ArticleViewController : UIViewController {
+//
+//    var store : Store<AppState, BrowsingAction>
+//
+//    init(store: Store<AppState, BrowsingAction>) {
+//        self.store = store
+//        super.init(nibName: nil, bundle: nil)
+//    }
+//
+//    required init?(coder: NSCoder) {
+//        fatalError()
+//    }
+//
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        testStuff()
+//
+//        store.value.signal
+//            .map(\.count)
+//            .observeValues { value in
+//                print("count : \(value)")
+//        }
+//
+//        store.value.signal
+//            .filterMap { $0.showError }
+//            .skipRepeats()
+//            .observeValues { value in
+//                print("show error")
+//
+//        }
+//
+//        setupUI()
+//    }
+//
+//    func setupUI() {
+//
+//        let stackView = UIStackView.init(frame: UIScreen.main.bounds)
+//        view.addSubview(stackView)
+//        let tapButton = UIButton(type: .contactAdd)
+//        tapButton.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
+//        stackView.addArrangedSubview(tapButton)
+//    }
+//
+//    @objc
+//    func didTapButton() {
+//        store.send(.increaseButtonTapped)
+////        let newValue = browsingState.value
+////        newValue.url = nil
+////        browsingState.value = newValue
+//    }
+//}
+
 
 public class BrowsingViewController : UIViewController {
 
@@ -143,16 +165,16 @@ public class BrowsingViewController : UIViewController {
     override public func viewDidLoad() {
         super.viewDidLoad()
         
-        let initialValue = (AppState(), browsingReducer(state:action:))
+//        let initialValue = (AppState(), browsingReducer(state:action:))
     
-        let store = Store<AppState, BrowsingAction>.init(value: MutableProperty<AppState>.init(AppState()), reducer:browsingReducer)
-
-        let myViewController = ArticleViewController.init(store: store)
+//        let store = Store<AppState, BrowsingAction>.init(initialValue: AppState(), reducer:browsingReducer)
+//
+//        let myViewController = ArticleViewController.init(store: store)
 
 ////            MutableProperty<BrowsingState>.init(BrowsingState.init(state: appState)
 //            )
 //        )
-        present(myViewController, animated: true, completion: nil)
+//        present(myViewController, animated: true, completion: nil)
 
 //        self.store.send(AppAction.increase)
 

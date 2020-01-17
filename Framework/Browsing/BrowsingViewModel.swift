@@ -10,6 +10,7 @@ import ReactiveCocoa
 import ReactiveSwift
 import Result
 import WebKit
+import ModelFramework
 
 public final class BrowsingViewModel {
     

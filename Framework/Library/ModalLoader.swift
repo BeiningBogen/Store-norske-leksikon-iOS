@@ -23,6 +23,7 @@ class ModalLoader: UIView {
         loader.alpha = 1
         
         let imageView = UIImageView.init(image: UIImage.init(named: "SNLspinner01"))
+        loader.addSubview(imageView)
         imageView.centerYAnchor.constraint(equalTo: loader.centerYAnchor).isActive = true
         imageView.centerXAnchor.constraint(equalTo: loader.centerXAnchor).isActive = true
         loader.tag = viewTag

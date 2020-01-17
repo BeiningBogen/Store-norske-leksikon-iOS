@@ -1,6 +1,5 @@
 import Foundation
 import ReactiveSwift
-import ReactiveCocoa
 
 public struct Service : ServiceType {
     

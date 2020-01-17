@@ -1,11 +1,13 @@
 import Foundation
 import ReactiveSwift
 
-
-
 private var serverConfig: ServerConfigType = ServerConfig.local
 
 public func searchArticles(path: Requests.SearchArticlesRequestable.Path) -> SignalProducer<Requests.SearchArticlesRequestable.Response, RequestableError> {
+    return Requests.SearchArticlesRequestable.request(serverConfig: serverConfig, path: path)
+}
+
+public func searchEffect(path: Requests.SearchArticlesRequestable.Path) -> SignalProducer<Requests.SearchArticlesRequestable.Response, RequestableError> {
     return Requests.SearchArticlesRequestable.request(serverConfig: serverConfig, path: path)
 }
 
@@ -31,8 +33,8 @@ public struct Api {
         self.basicAuth = newServerConfig.basicHTTPAuth
     }
     
-    var searchArticles = searchArticles(path:)
-    var getArticle = getArticle(path:)
+    public var searchArticles = searchArticles(path:)
+    public var getArticle = getArticle(path:)
 }
 
 

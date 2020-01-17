@@ -9,6 +9,7 @@
 import Foundation
 import ReactiveCocoa
 import ReactiveSwift
+import ModelFramework
 
 class SearchTableViewDataSource: ValueCellDataSource {
 
