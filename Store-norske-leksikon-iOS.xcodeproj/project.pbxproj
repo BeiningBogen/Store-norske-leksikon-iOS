@@ -123,6 +123,7 @@
 		0AE50ACD21C82C490030F6F7 /* SearchTableViewCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCellViewModelTests.swift; sourceTree = "<group>"; };
 		0AF566B5228D4A4900CF10FD /* SearchTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SearchTableViewCell.swift; path = Framework/Search/SearchTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		0AF566BB228D4DEC00CF10FD /* Signal+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Signal+Extensions.swift"; sourceTree = "<group>"; };
+		179348452418ED0A0090AD20 /* Store-norske-leksikon-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Store-norske-leksikon-iOS.entitlements"; sourceTree = "<group>"; };
 		2CEA771DF236BE6D381E2CBD /* Pods_Store_norske_leksikon_iOSFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Store_norske_leksikon_iOSFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CD71EF609D9E0479F8F0DC2 /* Pods-Store-norske-leksikon-iOSFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Store-norske-leksikon-iOSFramework.release.xcconfig"; path = "Pods/Target Support Files/Pods-Store-norske-leksikon-iOSFramework/Pods-Store-norske-leksikon-iOSFramework.release.xcconfig"; sourceTree = "<group>"; };
 		58F7BEFA6E14E05ED24EA6E3 /* Pods-Store-norske-leksikon-iOSFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Store-norske-leksikon-iOSFramework.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Store-norske-leksikon-iOSFramework/Pods-Store-norske-leksikon-iOSFramework.debug.xcconfig"; sourceTree = "<group>"; };
@@ -213,6 +214,7 @@
 		0A3EBB0C20DCE97D00B7D41D = {
 			isa = PBXGroup;
 			children = (
+				179348452418ED0A0090AD20 /* Store-norske-leksikon-iOS.entitlements */,
 				0A3EBB1720DCE97D00B7D41D /* SNL */,
 				0A22B2E620E586C4008E1F35 /* Framework */,
 				0A3EBB2F20DCE97F00B7D41D /* SNLTests */,
@@ -851,6 +853,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Store-norske-leksikon-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 23YR74W2XM;
 				INFOPLIST_FILE = "$(SRCROOT)/SNL/Info.plist";
@@ -873,6 +876,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Store-norske-leksikon-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 23YR74W2XM;
 				INFOPLIST_FILE = "$(SRCROOT)/SNL/Info.plist";
