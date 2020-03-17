@@ -10,7 +10,6 @@ import UIKit
 import Cartography
 import WebKit
 import AVFoundation
-import Chimney
 
 public class BrowsingViewController : UIViewController {
 
