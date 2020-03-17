@@ -12,6 +12,7 @@ import ReactiveCocoa
 import ReactiveSwift
 import Result
 import Cartography
+import Chimney
 
 final public class SearchViewController: UITableViewController, UISearchBarDelegate {
     

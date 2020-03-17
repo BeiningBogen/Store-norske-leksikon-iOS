@@ -9,6 +9,7 @@
 import ReactiveCocoa
 import ReactiveSwift
 import Result
+import Chimney
 
 public final class SearchViewModel {
     

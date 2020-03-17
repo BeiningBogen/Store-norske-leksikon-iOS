@@ -10,6 +10,7 @@ import UIKit
 import Cartography
 import WebKit
 import AVFoundation
+import Chimney
 
 public class BrowsingViewController : UIViewController {
 
@@ -65,7 +66,6 @@ public class BrowsingViewController : UIViewController {
         webView.scrollView.isDirectionalLockEnabled = true
 
     }
-    
 
     func setupConstraints() {
         

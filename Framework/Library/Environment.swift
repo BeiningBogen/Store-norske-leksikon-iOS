@@ -1,39 +1,53 @@
 import Foundation
 import ReactiveSwift
+import Chimney
 
-
-
-private var serverConfig: ServerConfigType = ServerConfig.local
-
-public func searchArticles(path: Requests.SearchArticlesRequestable.Path) -> SignalProducer<Requests.SearchArticlesRequestable.Response, RequestableError> {
-    return Requests.SearchArticlesRequestable.request(serverConfig: serverConfig, path: path)
+private func searchArticles(path: Requests.SearchArticlesRequestable.Path) -> SignalProducer<Requests.SearchArticlesRequestable.Response, RequestableError> {
+    return SignalProducer<Requests.SearchArticlesRequestable.Response, RequestableError> { observer, _ in
+        Requests.SearchArticlesRequestable.request(path: path) { result in
+            switch result {
+                case .success(let response):
+                    observer.send(value: response)
+                case .failure(let error):
+                    observer.send(error: error)
+            }
+        }
+    }
 }
 
-public func getArticle(path: Requests.GetArticleRequestable.Path) -> SignalProducer<Requests.GetArticleRequestable.Response, RequestableError> {
-    return Requests.GetArticleRequestable.request(serverConfig: serverConfig, path: path)
+private func getArticle(path: Requests.GetArticleRequestable.Path) -> SignalProducer<Requests.GetArticleRequestable.Response, RequestableError> {
+    return SignalProducer<Requests.GetArticleRequestable.Response, RequestableError> { observer, _ in
+        Requests.GetArticleRequestable.request(path: path) { result in
+            switch result {
+                case .success(let response):
+                    observer.send(value: response)
+                case .failure(let error):
+                    observer.send(error: error)
+            }
+        }
+    }
 }
 
-public struct Environment {
+struct Environment {
     
     public var api = Api()
     public var database = Database()
+    init() {
+        Chimney.environment = Chimney.Environment(configuration: Configuration.init(basicHTTPAuth: nil, baseURL: URL.init(string: "https://snl.no")!))
+    }
 
 }
 
-public struct Api {
-    
-    public let basicAuth: BasicHTTPAuth?
-    
-    public init() { self.basicAuth = nil }
-    
-    public init(serverConfig newServerConfig: ServerConfigType) {
-        serverConfig = newServerConfig
-        self.basicAuth = newServerConfig.basicHTTPAuth
-    }
+struct Api {
     
     var searchArticles = searchArticles(path:)
     var getArticle = getArticle(path:)
 }
 
 
-public var Current = Environment()
+var Current = Environment()
+
+public struct RequestableAlertModel {
+    let title: String
+    let message: String
+}

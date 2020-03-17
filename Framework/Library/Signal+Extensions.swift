@@ -17,7 +17,7 @@ public extension SignalProtocol {
      
      - returns: A new signal.
      */
-    public func observeForUI() -> Signal<Value, Error> {
+    func observeForUI() -> Signal<Value, Error> {
         return self.signal.observe(on: UIScheduler())
     }
 }

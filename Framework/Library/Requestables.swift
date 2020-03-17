@@ -1,4 +1,5 @@
 import Foundation
+import Chimney
 
 public struct Requests {
     
@@ -6,7 +7,6 @@ public struct Requests {
         
         public typealias Parameter = Never
         public typealias Response = ArticleContent
-        public static let apiType: APIType = .noBaseURL
         public static let method: HTTPMethod = .get
         
         public struct Path: PathComponentsProvider {
@@ -32,7 +32,6 @@ public struct Requests {
         
         public typealias Parameter = Never
         public typealias Response = [Article]
-        public static let apiType: APIType = .standard
         public static let method: HTTPMethod = .get
         public static var parameterEncoding: RequestableParameterEncoding {
             return .query
