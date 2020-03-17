@@ -1,7 +1,6 @@
 import UIKit
 import CoreData
 import Store_norske_leksikon_iOSFramework
-import Chimney
 
 import SDWebImage
 
