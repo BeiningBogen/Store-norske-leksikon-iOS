@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "Chimney",
+        "repositoryURL": "https://github.com/BeiningBogen/Chimney",
+        "state": {
+          "branch": "master",
+          "revision": "76d69bcf141d3b0667354e85edb1b917f7f63a05",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

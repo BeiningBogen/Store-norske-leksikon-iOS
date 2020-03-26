@@ -9,6 +9,7 @@
 import ReactiveCocoa
 import ReactiveSwift
 import Result
+import Chimney
 import WebKit
 
 public final class BrowsingViewModel {
@@ -163,6 +164,7 @@ public final class BrowsingViewModel {
         
         let voiceoverString = inputs.configure
             .filterMap { $0.url?.absoluteString }
+            .map { $0.removeBaseURLIfSet() }
             .flatMap(.merge) { url in
                 return Current.api.getArticle(.init(path: url + ".json"))
                     .map { $0.xhtml_body.stripOutHtml() }
@@ -203,4 +205,13 @@ public final class BrowsingViewModel {
         
     }
     
+}
+
+extension String {
+    func removeBaseURLIfSet() -> String {
+        if let baseURL = Chimney.environment.configuration?.baseURL.absoluteString {
+            return self.replacingOccurrences(of: baseURL, with: "")
+        }
+        return self
+    }
 }

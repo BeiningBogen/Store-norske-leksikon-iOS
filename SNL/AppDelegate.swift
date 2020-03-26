@@ -33,8 +33,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = tabbarController
         window?.makeKeyAndVisible()
 
-        Current.api = Api.init(serverConfig: ServerConfig.init(baseURL: URL.init(string: "https://snl.no")!, basicHTTPAuth: nil))
-        
         browsingViewController.vm.inputs.configureObserver.send(value: URLRequest.init(url: URL.init(string: "https://snl.no")!))
         return true
     }

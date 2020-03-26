@@ -33,22 +33,7 @@ class BrowsingViewModelTests: XCTestCase {
         outputs.title.observe(title.observer)
         outputs.showLoader.observe(showLoader.observer)
         outputs.stripHeaderFooter.observe(stripHeaderFooter.observer)
-        
-//            /// Emit when webview should add an initial dom load strip script
-//            addDOMLoadStripScript: Signal<Void, NoError>,
-//
-//            /// Emit when webview can open a link without pushing a new viewcontroller
-//            browseOnSamePage: Signal<URLRequest, NoError>,
-//
-//            /// Emit when a new viewcontroller should be pushed with a new request
-//            browseToNewPage: Signal<URLRequest, NoError>,
-//
-//            /// Emit when webview should ask document for title
-//            requestForTitle: Signal<Void, NoError>,
-//
-//            /// Emit when the search controller should be shown
-//            showSearchController: Signal<Void, NoError>
-        
+
     }
 
     func testShowFrontPageOnRootVC() {

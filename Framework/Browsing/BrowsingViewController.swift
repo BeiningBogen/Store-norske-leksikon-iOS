@@ -65,7 +65,6 @@ public class BrowsingViewController : UIViewController {
         webView.scrollView.isDirectionalLockEnabled = true
 
     }
-    
 
     func setupConstraints() {
         
