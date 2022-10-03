@@ -152,7 +152,7 @@ public final class BrowsingViewModel {
                     return action.request
                 }
                 
-                if state == ArticleLoadingState.finished || state == .started {
+                if state() == ArticleLoadingState.finished || state() == ArticleLoadingState.started {
                     decisionHandler(.cancel)
                     return action.request
                 } else {
