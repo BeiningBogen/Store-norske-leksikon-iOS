@@ -14,32 +14,57 @@ class ModalLoader: UIView {
 
         let loader = ModalLoader.init()
         view.addSubview(loader)
+        loader.backgroundColor = .white
         loader.alpha = 1
+        loader.layer.cornerRadius = 28
 
-        let imageView = UIImageView.init(image: UIImage.init(named: "SNLspinner01"))
+        let imageView = UIImageView.init(image: UIImage.init(named: "frame1"))
         loader.addSubview(imageView)
+        loader.clipsToBounds = false
         
         constrain(view, loader, imageView) { view, loader, imageView in
 
             loader.center == view.center
+            loader.height == 56
+            loader.width == 56
 
             imageView.width == 60
+            imageView.height == 60
 
-            imageView.top == loader.top
-            imageView.bottom == loader.bottom
-            imageView.left == loader.left
-            imageView.right == loader.right
-
+            imageView.center == loader.center
         }
         
         loader.tag = viewTag
-        imageView.animationImages = [UIImage.init(named: "SNLspinner02")!, UIImage.init(named: "SNLspinner03")!, UIImage.init(named: "SNLspinner04")!, UIImage.init(named: "SNLspinner05")!]
-        imageView.animationDuration = 3
+        imageView.animationImages = [UIImage.init(named: "Frame 1")!,
+                                     UIImage.init(named: "Frame 2")!,
+                                     UIImage.init(named: "Frame 3")!,
+                                     UIImage.init(named: "Frame 4")!,
+                                     UIImage.init(named: "Frame 5")!,
+                                     UIImage.init(named: "Frame 6")!,
+                                     UIImage.init(named: "Frame 7")!,
+                                     UIImage.init(named: "Frame 8")!,
+                                     UIImage.init(named: "Frame 9")!,
+                                     UIImage.init(named: "Frame 10")!,
+                                     UIImage.init(named: "Frame 11")!,
+                                     UIImage.init(named: "Frame 12")!,
+                                     UIImage.init(named: "Frame 13")!,
+                                     UIImage.init(named: "Frame 14")!,
+                                     UIImage.init(named: "Frame 15")!,
+                                     UIImage.init(named: "Frame 16")!,
+                                     UIImage.init(named: "Frame 17")!,
+                                     UIImage.init(named: "Frame 18")!,
+                                     UIImage.init(named: "Frame 19")!,
+                                     UIImage.init(named: "Frame 20")!,
+                                     UIImage.init(named: "Frame 21")!,
+                                     UIImage.init(named: "Frame 22")!,
+                                     UIImage.init(named: "Frame 23")!,
+        ]
+        imageView.animationDuration = 1
         imageView.contentMode = .scaleAspectFit
         imageView.startAnimating()
         imageView.layer.masksToBounds = true
 
-        UIView.animate(withDuration: 0.4, delay: 0, options: UIViewAnimationOptions.curveEaseIn, animations: {
+        UIView.animate(withDuration: 0.4, delay: 0, options: UIViewAnimationOptions.curveEaseInOut, animations: {
             
             loader.transform = .identity
             loader.alpha = 1
@@ -55,12 +80,13 @@ class ModalLoader: UIView {
         
         let loader = view.viewWithTag(ModalLoader.viewTag) as? ModalLoader
         
-        UIView.animate(withDuration: 0.4, delay: 0, options: UIViewAnimationOptions.curveEaseIn, animations: {
+        UIView.animate(withDuration: 0.4, delay: 0.3, options: UIViewAnimationOptions.curveLinear, animations: {
             
-            loader?.transform = CGAffineTransform.init(scaleX: 2, y: 2)
+            loader?.transform = CGAffineTransform.init(scaleX: 0.2, y: 0.2)
             loader?.alpha = 0
             
-        }) { comp in
+        }) { isComplete in
+            
             loader?.removeFromSuperview()
         }
     }
@@ -69,20 +95,7 @@ class ModalLoader: UIView {
         
         UIView.animate(withDuration: 0.75, delay: 0.0, options: [UIViewAnimationOptions.autoreverse , UIViewAnimationOptions.repeat], animations: {
             
-//            self.alpha = 0.2
-
-            
-        }) { (comp) in
-            
-        }
-//        let fullRotation = CABasicAnimation(keyPath: "transform.alpha")
-//        let fullRotation = CABasicAnimation(keyPath: "opacity")
-//        fullRotation.fromValue = NSNumber(floatLiteral: 0)
-//        fullRotation.toValue = NSNumber.init(floatLiteral: 1)
-////        fullRotation.toValue = NSNumber(floatLiteral: Double(CGFloat.pi * 2))
-//        fullRotation.duration = 0.8
-//        fullRotation.repeatCount = 100
-//        self.layer.add(fullRotation, forKey: "360")
+        }) { (comp) in }
     }
 
     init() {

@@ -87,7 +87,7 @@ public class SearchHistoryViewController : UITableViewController, UISearchBarDel
     
     public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         vm.inputs.didSelectIndexPathObserver.send(value: indexPath)
-        tableView.deselectRow(at: indexPath, animated: true)
+//        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
 

@@ -44,7 +44,6 @@ final public class SearchViewController: UITableViewController, UISearchBarDeleg
         bindStyles()
         bindViewModel()
         vm.inputs.viewDidLoadObserver.send(value: ())
-        
     }
     
     public func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {

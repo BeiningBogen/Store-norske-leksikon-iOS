@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -45,6 +45,8 @@
 		0AF566BD228D4E8B00CF10FD /* Signal+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF566BB228D4DEC00CF10FD /* Signal+Extensions.swift */; };
 		1A947C5EC814177EDCDE94E8 /* Pods_Store_norske_leksikon_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88AAC25E7CD00FD60E8E6C52 /* Pods_Store_norske_leksikon_iOS.framework */; };
 		9DCD318FFC555C7E3F7D7C55 /* Pods_SNLTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9369F29DDCEEC9F469DC02A8 /* Pods_SNLTests.framework */; };
+		ECF6541D28F9584700B1241F /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF6541928F84B0800B1241F /* SplashScreen.swift */; };
+		ECF6541E28F9585500B1241F /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF6541B28F956F700B1241F /* Color.swift */; };
 		F11FF8A4213981B200344836 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3EBB1820DCE97D00B7D41D /* AppDelegate.swift */; };
 		F1F25BFF2189BA9A009F1AB0 /* ValueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E97EE2217BC72300BF2ECA /* ValueCell.swift */; };
 		F1F25C002189BA9D009F1AB0 /* ValueCellDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E97EE0217BC68D00BF2ECA /* ValueCellDataSource.swift */; };
@@ -136,6 +138,8 @@
 		9B03AA059A94C96FEC8525D1 /* Pods_Store_norske_leksikon_iOSApi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Store_norske_leksikon_iOSApi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9FD84C954B7DCEC470DE92A /* Pods-Store-norske-leksikon-iOSApi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Store-norske-leksikon-iOSApi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Store-norske-leksikon-iOSApi/Pods-Store-norske-leksikon-iOSApi.debug.xcconfig"; sourceTree = "<group>"; };
 		DD96DD2D8C97B9712F2A1B1A /* Pods-Store-norske-leksikon-iOSApi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Store-norske-leksikon-iOSApi.release.xcconfig"; path = "Pods/Target Support Files/Pods-Store-norske-leksikon-iOSApi/Pods-Store-norske-leksikon-iOSApi.release.xcconfig"; sourceTree = "<group>"; };
+		ECF6541928F84B0800B1241F /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
+		ECF6541B28F956F700B1241F /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		F176F623214268290094BB29 /* Store-norske-leksikon-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Store-norske-leksikon-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F176F625214268290094BB29 /* Store_norske_leksikon_iOSFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Store_norske_leksikon_iOSFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F176F626214268290094BB29 /* SNLTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SNLTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -200,6 +204,7 @@
 			isa = PBXGroup;
 			children = (
 				F1DAC40221429AA700801657 /* Playgrounds */,
+				ECF6541828F84AF700B1241F /* SplashScreen */,
 				0A08F00A21BFA7BA0007A3B1 /* Browsing */,
 				0A9D837C22A90FB800854320 /* Search */,
 				0A08F00B21BFA7C60007A3B1 /* Search history */,
@@ -273,6 +278,7 @@
 				0AF566BB228D4DEC00CF10FD /* Signal+Extensions.swift */,
 				0AC5F56423158ADF0038923B /* String+Extension.swift */,
 				0A946A0921BDB4DE00CABC5C /* WKWebview+Extension.swift */,
+				ECF6541B28F956F700B1241F /* Color.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -314,6 +320,14 @@
 				836693BBF656BDD67797F9A1 /* Pods-SNLTests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		ECF6541828F84AF700B1241F /* SplashScreen */ = {
+			isa = PBXGroup;
+			children = (
+				ECF6541928F84B0800B1241F /* SplashScreen.swift */,
+			);
+			path = SplashScreen;
 			sourceTree = "<group>";
 		};
 		F1ABCB2E2188B54700D0BD9B /* valueCell */ = {
@@ -584,6 +598,8 @@
 				0AC5F56523158ADF0038923B /* String+Extension.swift in Sources */,
 				0AB39D8D21B5CC57007235D1 /* BrowsingViewController.swift in Sources */,
 				0A29BB822273272700A96B20 /* Service.swift in Sources */,
+				ECF6541E28F9585500B1241F /* Color.swift in Sources */,
+				ECF6541D28F9584700B1241F /* SplashScreen.swift in Sources */,
 				0A946A0A21BDB4DE00CABC5C /* WKWebview+Extension.swift in Sources */,
 				0A3F232222A8133100C66FE0 /* SearchHistoryViewModel.swift in Sources */,
 				0A29BB812273272700A96B20 /* Requestables.swift in Sources */,

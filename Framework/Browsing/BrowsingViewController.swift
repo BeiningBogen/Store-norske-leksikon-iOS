@@ -11,10 +11,22 @@ import Cartography
 import WebKit
 import AVFoundation
 
-public class BrowsingViewController : UIViewController {
+public class BrowsingViewController : UIViewController  {
+//
+//    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return movies.count
+//    }
+//
+//    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//
+//        return tableView.dequeueReusableCell(withIdentifier: "movie")
+//
+//    }
+    
 
     public let vm = BrowsingViewModel()
     public var outputs: BrowsingViewModel.Outputs!
+    public var splashScreen: SplashScreen?
     
     var toolBar: SearchToolbar!
     
@@ -89,7 +101,6 @@ public class BrowsingViewController : UIViewController {
         }
         
         outputs.browseToNewPage.observeValues { [weak self] request in
-            
             let viewController = BrowsingViewController.init(nibName: nil, bundle: nil)
             viewController.vm.inputs.configureObserver.send(value: request)
             self?.navigationController?.pushViewController(viewController, animated: true)

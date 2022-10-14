@@ -32,6 +32,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = .white
         window?.rootViewController = tabbarController
         window?.makeKeyAndVisible()
+        browsingViewController.splashScreen = SplashScreen.show(inWindow: window)
+        
 
         Current.api = Api.init(serverConfig: ServerConfig.init(baseURL: URL.init(string: "https://snl.no")!, basicHTTPAuth: nil))
         
