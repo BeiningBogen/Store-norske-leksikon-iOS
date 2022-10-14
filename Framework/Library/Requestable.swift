@@ -57,6 +57,7 @@ extension Never: Encodable {
 public enum APIType {
     case noBaseURL
     case standard
+    
 }
 
 public enum RequestableParameterEncoding {
@@ -177,17 +178,14 @@ extension Requestable {
 
             let auth: [String: String]? = serverConfig.basicHTTPAuth?.authorizationHeader
 
-            var urlComponents: URLComponents = {
+            var urlComponents = URLComponents()
             
-            if apiType == .noBaseURL {
-                return URLComponents.init()
-            } else {
-                 return URLComponents(string: serverConfig.baseURL.absoluteString)!
+            var (foundBaseURL, pathComponents) = path.baseURLAndPathComponents()
+            if foundBaseURL == nil {
+                foundBaseURL = serverConfig.baseURL
             }
-            }()
-
             do {
-                if let _ = urlComponents.url {
+                if let baseURL = foundBaseURL {
                     let encoder = JSONEncoder()
                     encoder.dataEncodingStrategy = dataEncodingStrategy
                     encoder.dateEncodingStrategy = dateEncodingStrategy
@@ -199,20 +197,15 @@ extension Requestable {
                             throw EncodingError.invalidValue(decoded, .init(codingPath: [], debugDescription: "Expected to decode Dictionary<String, _> but found a Dictionary<_, _> instead"))
                         }
                         urlComponents.queryItems = dictionary.map { URLQueryItem(name: $0, value: String(describing: $1)) }
-                               print(urlComponents)
-                    }
-                    if path.pathComponents.path.count == 1 {
-                        urlComponents.path = path.pathComponents.path.reduce("", { $0 + "" + $1 })
-                    } else {
-                        urlComponents.path = path.pathComponents.path.reduce("", { $0 + "/" + $1 })
                     }
                     
-
+                    urlComponents.path = pathComponents
+                                         .reduce(baseURL, { $0.appendingPathComponent($1) })
+                                         .path
                     
-                    var request = URLRequest(url: urlComponents.url!)
+                    var request = URLRequest(url: baseURL)
                     request.httpMethod = method.rawValue
                     request.httpBody = try parameters.map(encoder.encode)
-                    
                     mainHeaders
                         .merging(auth ?? [:], uniquingKeysWith: { $1 })
                         .forEach { request.setValue($0.value, forHTTPHeaderField: $0.key) }
@@ -247,6 +240,18 @@ extension Requestable {
                 observer.send(error: .underlying(error: error))
             }
         }
+    }
+}
+
+extension PathComponentsProvider {
+    /// If a request path has the base URL as first path component, set that as the base URL for the request and remove it from path components
+    func baseURLAndPathComponents() -> (URL?, [String]) {
+        if let firstPathComponent = pathComponents.path.first, firstPathComponent.contains("https://") || firstPathComponent.contains("http://") {
+            var components = pathComponents.path
+            components.removeFirst()
+            return (URL(string: firstPathComponent), components)
+        }
+        return (nil, pathComponents.path)
     }
 }
 

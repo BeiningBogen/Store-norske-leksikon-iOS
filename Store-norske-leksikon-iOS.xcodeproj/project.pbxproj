@@ -190,9 +190,8 @@
 			isa = PBXGroup;
 			children = (
 				0A3F231D22A8093200C66FE0 /* SearchHistoryViewController.swift */,
-				0A3F232122A8133100C66FE0 /* SearchHistoryViewModel.swift */,
 				0A3F231F22A812EA00C66FE0 /* SearchHistoryDataSource.swift */,
-				0A7E4C1621D135B500931C65 /* SearchToolBar.swift */,
+				0A3F232122A8133100C66FE0 /* SearchHistoryViewModel.swift */,
 				0A08F00121BFA7A50007A3B1 /* SearchViewModelTests.swift */,
 				0A6619CC22B3A24600A482CE /* SearchHistoryViewModelTests.swift */,
 				0AE50ACD21C82C490030F6F7 /* SearchTableViewCellViewModelTests.swift */,
@@ -289,6 +288,7 @@
 				0AF566B5228D4A4900CF10FD /* SearchTableViewCell.swift */,
 				0A08EFFF21BFA7A50007A3B1 /* SearchTableViewCellViewModel.swift */,
 				0A08F00221BFA7A50007A3B1 /* SearchTableViewDatasource.swift */,
+				0A7E4C1621D135B500931C65 /* SearchToolBar.swift */,
 				0A08F00321BFA7A50007A3B1 /* SearchTableViewModel.swift */,
 				0A08F00021BFA7A50007A3B1 /* SearchViewController.swift */,
 			);

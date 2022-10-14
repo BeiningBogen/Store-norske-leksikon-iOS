@@ -11,7 +11,7 @@ import UIKit
 
 extension UIColor {
     
-    static let secondary = UIColor(hex: 0x0077A5)
+    public static let secondary = UIColor(hex: 0x0077A5)
     
 }
 

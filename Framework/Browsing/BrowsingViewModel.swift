@@ -102,7 +102,10 @@ public final class BrowsingViewModel {
         startVoiceOver: Signal<String, NoError>,
         
         /// Emit when VoiceOver should stop reading the article
-        stopVoiceOver: Signal<Void, NoError>
+        stopVoiceOver: Signal<Void, NoError>,
+        
+        /// Emit when "More"-button should be showin in right navbar corner
+        addMoreButton: Signal<Void, NoError>
         
     )
     
@@ -120,6 +123,10 @@ public final class BrowsingViewModel {
             inputs.didFailNavigation.map { _ in false }
         )
 
+        let addMoreButton = Signal.combineLatest(inputs.configure, inputs.viewDidLoad)
+            .filter { $0.0.url != URL.init(string: "https://snl.no")}
+            .map { _ in }
+        
         let stripHeaderFooter = inputs.didCommitNavigation
         
         let addDOMLoadStripScript = inputs.didCommitNavigation
@@ -198,7 +205,8 @@ public final class BrowsingViewModel {
                 showMoreOptionsController: showMoreOptionsController,
                 showShareSheet: showShareSheet,
                 startVoiceOver: startVoiceOver,
-                stopVoiceOver: stopVoiceOver
+                stopVoiceOver: stopVoiceOver,
+                addMoreButton: addMoreButton
         )
         
     }

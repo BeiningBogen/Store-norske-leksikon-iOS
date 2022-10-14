@@ -68,8 +68,6 @@ public class BrowsingViewController : UIViewController  {
     
     func setupViews() {
         
-        let shareButton = UIBarButtonItem.init(title: "Mer", style: .plain, target: self, action: #selector(didTapShareButton))
-        navigationItem.rightBarButtonItem = shareButton
         view.addSubview(webView)
         webView.navigationDelegate = self
         webView.scrollView.showsHorizontalScrollIndicator = false
@@ -77,17 +75,14 @@ public class BrowsingViewController : UIViewController  {
         webView.scrollView.isDirectionalLockEnabled = true
 
     }
-    
 
     func setupConstraints() {
-        
         constrain(view, webView) { (vp, webViewProxy) in
             webViewProxy.left == vp.left
             webViewProxy.right == vp.right
             webViewProxy.top == vp.top
             webViewProxy.bottom == vp.bottom
         }
-        
     }
 
     func bindStyles() {
@@ -123,6 +118,12 @@ public class BrowsingViewController : UIViewController  {
         
         outputs.addDOMLoadStripScript.observeValues { [ weak self ] in
             self?.webView.removeHeaderAndFooterOnDOMLoad()
+        }
+        
+        outputs.addMoreButton.observeValues { [ weak self ] in
+            guard let s = self else { return }
+            let shareButton = UIBarButtonItem.init(title: "Mer", style: .plain, target: self, action: #selector(s.didTapShareButton))
+            s.navigationItem.rightBarButtonItem = shareButton
         }
         
         outputs.showSearchController.observeValues { [ weak self ] in

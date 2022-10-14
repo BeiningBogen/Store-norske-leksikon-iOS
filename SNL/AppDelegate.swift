@@ -16,6 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         
         let tabbarController = UITabBarController.init(nibName: nil, bundle: nil)
+        UITabBar.appearance().tintColor = UIColor.secondary
+        UIBarButtonItem.appearance().tintColor = .secondary
 
         let browsingViewController = BrowsingViewController.init(nibName: nil, bundle: nil)
         let navControllerBrowsing = UINavigationController.init(rootViewController: browsingViewController)

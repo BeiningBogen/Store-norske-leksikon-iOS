@@ -80,7 +80,7 @@ class ModalLoader: UIView {
         
         let loader = view.viewWithTag(ModalLoader.viewTag) as? ModalLoader
         
-        UIView.animate(withDuration: 0.4, delay: 0.3, options: UIViewAnimationOptions.curveLinear, animations: {
+        UIView.animate(withDuration: 0.33, delay: 0.0, options: UIViewAnimationOptions.curveLinear, animations: {
             
             loader?.transform = CGAffineTransform.init(scaleX: 0.2, y: 0.2)
             loader?.alpha = 0

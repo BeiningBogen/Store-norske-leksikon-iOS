@@ -22,6 +22,6 @@ class SearchHistoryTableViewDataSource: ValueCellDataSource {
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return nil
+        return "Søkeresultater"
     }
 }
