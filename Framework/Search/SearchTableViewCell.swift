@@ -18,6 +18,7 @@ class SearchTableViewCell: UITableViewCell, ValueCell {
     
     let vm = SearchTableViewCellViewModel()
     var titleLabel: UILabel!
+    var cardBackgroundView: UIView!
     var excerptLabel: UILabel!
     var previewImage: UIImageView!
 
@@ -49,14 +50,16 @@ class SearchTableViewCell: UITableViewCell, ValueCell {
         titleLabel = UILabel.init(frame: .zero)
         excerptLabel = UILabel.init(frame: .zero)
         previewImage = UIImageView.init(frame: .zero)
+        cardBackgroundView = UIView.init(frame: .zero)
         
         previewImage.contentMode = .scaleAspectFill
         previewImage.clipsToBounds = true
         excerptLabel.numberOfLines = 2
 
-        addSubview(previewImage)
-        addSubview(titleLabel)
-        addSubview(excerptLabel)
+        addSubview(cardBackgroundView)
+        cardBackgroundView.addSubview(previewImage)
+        cardBackgroundView.addSubview(titleLabel)
+        cardBackgroundView.addSubview(excerptLabel)
 
     }
     

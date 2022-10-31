@@ -33,8 +33,12 @@ extension WKWebView {
         document.addEventListener('DOMContentLoaded', function(){
            var element = document.getElementsByTagName('header')[0];
            element.parentElement.removeChild(element);
-           var element2 = document.getElementsByTagName('footer')[0];
+        
+           var element2 = document.getElementsByClassName('home-link')[0];
            element2.parentElement.removeChild(element2);
+        
+           var element3 = document.getElementsByTagName('footer')[0];
+           element3.parentElement.removeChild(element3);
         }, false);
         """
         self.evaluateJavaScript(javascript) { (response, error) in

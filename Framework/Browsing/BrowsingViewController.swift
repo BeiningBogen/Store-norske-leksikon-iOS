@@ -11,18 +11,7 @@ import Cartography
 import WebKit
 import AVFoundation
 
-public class BrowsingViewController : UIViewController  {
-//
-//    public func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return movies.count
-//    }
-//
-//    public func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//
-//        return tableView.dequeueReusableCell(withIdentifier: "movie")
-//
-//    }
-    
+public class BrowsingViewController : UIViewController {
 
     public let vm = BrowsingViewModel()
     public var outputs: BrowsingViewModel.Outputs!
@@ -56,9 +45,18 @@ public class BrowsingViewController : UIViewController  {
         vm.inputs.viewDidLoadObserver.send(value: ())
     }
     
+    public override func viewDidAppear(_ animated: Bool) {
+        
+        
+    }
+    
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         vm.inputs.viewWillDisappearObserver.send(value: ())
+        
+        
+        
+        
     }
     
     @objc
@@ -141,6 +139,9 @@ public class BrowsingViewController : UIViewController  {
         
         outputs.showLoader.observeValuesForUI { [weak self] value in
             ModalLoader.showOrHide(value: value, inView: self?.view)
+            if value == false {
+                self?.splashScreen?.animateFadeout()
+            }
         }
         
         outputs.showMoreOptionsController.observeValuesForUI { [weak self] value in
@@ -166,7 +167,7 @@ public class BrowsingViewController : UIViewController  {
         
         outputs.startVoiceOver.observeValuesForUI  { [weak self] value in
             let utterance = AVSpeechUtterance.init(string: value)
-            utterance.voice = AVSpeechSynthesisVoice(language: "nb-NO")
+            utterance.voice = AVSpeechSynthesisVoice(language: "da-DK")
             self?.speech.speak(utterance)
         }
         

@@ -68,13 +68,13 @@ public final class SearchViewModel {
             .debounce(0.35, on: QueueScheduler())
             .flatMap(.latest) { art -> SignalProducer<([Article]?, RequestableError?), NoError> in
                 Current.api.searchArticles(.init(searchWord: art))
-                    .map { ($0, nil)}
+                    .map { ($0, nil) }
                     .flatMapError { SignalProducer.init(value:(nil, $0))}
-        }
+            }
         
         let searchCanceled = Signal.merge(
             inputs.searchTextChanged
-                .filter { $0 == ""}
+                .filter { $0 == "" }
                 .map { _ in },
             inputs.cancelButtonTapped)
         
@@ -82,7 +82,7 @@ public final class SearchViewModel {
             .filterMap { $0.0 }
         
         let openArticle = inputs.didSelectIndexPath
-            .withLatest(from: articles).map { $0.1[$0.0.row]}
+            .withLatest(from: articles).map { $0.1[$0.0.row] }
         
         openArticle.observeValues { value in
             Current.database.addToSearchHistory(value)

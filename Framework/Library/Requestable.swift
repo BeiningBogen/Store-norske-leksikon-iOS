@@ -178,12 +178,12 @@ extension Requestable {
 
             let auth: [String: String]? = serverConfig.basicHTTPAuth?.authorizationHeader
 
-            var urlComponents = URLComponents()
             
             var (foundBaseURL, pathComponents) = path.baseURLAndPathComponents()
             if foundBaseURL == nil {
                 foundBaseURL = serverConfig.baseURL
             }
+            var urlComponents = URLComponents.init(string: foundBaseURL!.absoluteString)!
             do {
                 if let baseURL = foundBaseURL {
                     let encoder = JSONEncoder()
@@ -203,7 +203,7 @@ extension Requestable {
                                          .reduce(baseURL, { $0.appendingPathComponent($1) })
                                          .path
                     
-                    var request = URLRequest(url: baseURL)
+                    var request = URLRequest(url: urlComponents.url!)
                     request.httpMethod = method.rawValue
                     request.httpBody = try parameters.map(encoder.encode)
                     mainHeaders

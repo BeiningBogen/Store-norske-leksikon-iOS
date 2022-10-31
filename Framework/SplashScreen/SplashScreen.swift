@@ -22,7 +22,7 @@ public class SplashScreen: UIView {
         static let delayBeforeStartingAnimation: Double = 0.1
         
         /// Maximum delay to show this splash screen (in case no event is sent to dismiss it)
-        static let maximumTimeToShowSplashScreen = 1.3
+        static let maximumTimeToShowSplashScreen = 4.3
         static let logoFadeoutDuration = 0.4
         static let backgroundFadeoutDuration = 0.2
     }
@@ -33,7 +33,7 @@ public class SplashScreen: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .secondary
+        backgroundColor = .primaryBackground
         logoText.text = "STORE NORSKE LEKSIKON"
         logoText.numberOfLines = 0
         logoText.font = UIFont.systemFont(ofSize: 32)
@@ -116,7 +116,6 @@ public class SplashScreen: UIView {
             
         }) { _ in
             
-//            ActivityIndicator.show(inView: self)
         }
     }
 
