@@ -54,7 +54,9 @@ class SearchTableViewCell: UITableViewCell, ValueCell {
         
         previewImage.contentMode = .scaleAspectFill
         previewImage.clipsToBounds = true
-        excerptLabel.numberOfLines = 2
+        excerptLabel.numberOfLines = 3
+        cardBackgroundView.backgroundColor = .white
+        backgroundColor = .black
 
         addSubview(cardBackgroundView)
         cardBackgroundView.addSubview(previewImage)
@@ -76,10 +78,16 @@ class SearchTableViewCell: UITableViewCell, ValueCell {
             
         }
         
-        constrain(self, titleLabel, excerptLabel, previewImage) { cellProxy, titleLabelProxy, excerptProxy, imageProxy  in
+        constrain(self, cardBackgroundView, titleLabel, excerptLabel, previewImage) { cellProxy, cardBackgroundView, titleLabelProxy, excerptProxy, imageProxy  in
+            
+            cardBackgroundView.left == cellProxy.left
+            cardBackgroundView.right == cellProxy.right
+            cardBackgroundView.top == cellProxy.top + Layout.marginTop
+            cardBackgroundView.bottom == cellProxy.bottom + Layout.marginBottom
+            
 
-            titleLabelProxy.top == cellProxy.top + Layout.marginTop
-            titleLabelProxy.left == cellProxy.left + Layout.marginLeft
+            titleLabelProxy.top == cardBackgroundView.top + Layout.marginTop
+            titleLabelProxy.left == cardBackgroundView.left + Layout.marginLeft
             titleLabelProxy.bottom == excerptProxy.top
 
             excerptProxy.left == titleLabelProxy.left
