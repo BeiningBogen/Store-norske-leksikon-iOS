@@ -11,6 +11,12 @@ class ModalLoader: UIView {
     static public func show(inView view: UIView?) {
         
         guard let view = view else { return }
+        
+        /// Dont do anything if loader allready present
+        if view.viewWithTag(ModalLoader.viewTag) != nil {
+            return
+        }
+        
 
         let loader = ModalLoader.init()
         view.addSubview(loader)

@@ -54,9 +54,17 @@ class SearchTableViewCell: UITableViewCell, ValueCell {
         
         previewImage.contentMode = .scaleAspectFill
         previewImage.clipsToBounds = true
+        
         excerptLabel.numberOfLines = 3
+        
         cardBackgroundView.backgroundColor = .white
-        backgroundColor = .black
+        cardBackgroundView.layer.shadowColor = UIColor.black.cgColor
+        cardBackgroundView.layer.shadowRadius = 2
+        cardBackgroundView.layer.shadowOffset = .init(width: 0, height: 1)
+//        cardBackgroundView.layer.shouldRasterize = true
+        cardBackgroundView.layer.shadowOpacity = 0.1
+        
+        backgroundColor = .secondaryBackground
 
         addSubview(cardBackgroundView)
         cardBackgroundView.addSubview(previewImage)
@@ -70,11 +78,11 @@ class SearchTableViewCell: UITableViewCell, ValueCell {
             
             static let marginTop : CGFloat = 10
             static let marginLeft: CGFloat = 10
-            static let marginBottom: CGFloat = 10
+            static let marginBottom: CGFloat = 0
             static let marginRight: CGFloat = 10
             
-            static let imageWidth: CGFloat = 80
-            static let imageHeight: CGFloat = 80
+            static let imageWidth: CGFloat = 97
+            static let imageHeight: CGFloat = 97
             
         }
         
@@ -83,7 +91,7 @@ class SearchTableViewCell: UITableViewCell, ValueCell {
             cardBackgroundView.left == cellProxy.left
             cardBackgroundView.right == cellProxy.right
             cardBackgroundView.top == cellProxy.top + Layout.marginTop
-            cardBackgroundView.bottom == cellProxy.bottom + Layout.marginBottom
+            cardBackgroundView.bottom == cellProxy.bottom - Layout.marginBottom
             
 
             titleLabelProxy.top == cardBackgroundView.top + Layout.marginTop

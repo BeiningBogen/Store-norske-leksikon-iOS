@@ -75,7 +75,9 @@ final public class SearchViewController: UITableViewController, UISearchBarDeleg
     }
 
     func bindStyles() {
-        tableView.backgroundColor = .white
+        tableView.separatorStyle = .none
+        tableView.separatorColor = .clear
+        tableView.backgroundColor = .secondaryBackground
     }
 
     func bindViewModel() {
@@ -88,6 +90,10 @@ final public class SearchViewController: UITableViewController, UISearchBarDeleg
         }
         outputs!.searchCanceled.observeValues { [weak self] _ in
             self?.clearOrCancelSearchHandler?()
+        }
+        
+        outputs!.showLoader.observeValuesForUI { [weak self] shouldShowLoader in
+            ModalLoader.showOrHide(value: shouldShowLoader, inView: self?.view)
         }
         
         outputs.dismissKeyboard.observeValues { [weak self] _ in

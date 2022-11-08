@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Cartography
 
 public class SearchHistoryViewController : UITableViewController, UISearchBarDelegate {
     
@@ -66,7 +67,12 @@ public class SearchHistoryViewController : UITableViewController, UISearchBarDel
         navigationItem.title = "Søk"
         tabBarItem = UITabBarItem.init(title: "Søk", image: UIImage.init(named: "search"), tag: 0)
         navigationItem.searchController?.searchBar.delegate = self.navigationItem.searchController?.searchResultsController as! SearchViewController
+        navigationItem.searchController?.searchBar.backgroundColor = .secondaryBackground
+        self.navigationController?.navigationBar.barTintColor = .secondaryBackground
+        navigationController?.navigationBar.backgroundColor = .secondaryBackground
         navigationItem.hidesSearchBarWhenScrolling = false
+        tableView.separatorStyle = .none
+        tableView.separatorColor = .clear
         
         let searchViewController = (self.navigationItem.searchController?.searchResultsController as! SearchViewController)
         
@@ -87,7 +93,28 @@ public class SearchHistoryViewController : UITableViewController, UISearchBarDel
     
     public override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         vm.inputs.didSelectIndexPathObserver.send(value: indexPath)
-//        tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+    public override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let backgroundView = UIView()
+        let label = UILabel.init(frame: .zero)
+        backgroundView.addSubview(label)
+        label.textColor = .secondaryText
+
+        backgroundView.backgroundColor = .secondaryBackground
+
+        constrain(backgroundView, label) { backgroundView, label in
+            backgroundView.height == 40
+            backgroundView.width == UIScreen.main.bounds.width
+
+            label.left == backgroundView.left + 10
+            label.top == backgroundView.top
+            label.bottom == backgroundView.bottom
+        }
+        label.text = "Tidligere søk"
+
+        return backgroundView
+    }
+    
 }
 

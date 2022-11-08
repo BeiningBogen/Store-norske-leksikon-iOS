@@ -65,7 +65,7 @@ public final class SearchViewModel {
         
         let searchArticlesRequest = inputs
             .searchTextChanged.filter { $0 != "" }
-            .debounce(0.35, on: QueueScheduler())
+            .debounce(0.50, on: QueueScheduler())
             .flatMap(.latest) { art -> SignalProducer<([Article]?, RequestableError?), NoError> in
                 Current.api.searchArticles(.init(searchWord: art))
                     .map { ($0, nil) }
@@ -91,8 +91,11 @@ public final class SearchViewModel {
         let dismissKeyboard = inputs.scrollViewWillBeginDragging
         
         // Not used yet
-        let showLoader = inputs
-            .viewDidLoad.map { _ in true }
+        let showLoader = Signal.merge (
+            inputs.searchTextChanged.filter { $0 != "" }
+                .debounce(0.1, on: QueueScheduler()).map { _ in true },
+            searchArticlesRequest.map { _ in false }
+            )
         
         let showError = searchArticlesRequest
             .filterMap { $0.1 }
