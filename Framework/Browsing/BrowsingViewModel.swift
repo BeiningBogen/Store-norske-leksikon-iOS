@@ -54,6 +54,9 @@ public final class BrowsingViewModel {
         /// Call when webview fails navigation
         public let (didFailNavigation, didFailNavigationObserver) = Signal<Void, NoError>.pipe()
         
+        /// Call when opening app from url (user tapping a link to snl.no in another app)
+        public let (browseAppOpenURL, browseAppOpenURLObserver) = Signal<URL, NoError>.pipe()
+        
         /// Call when webview asks for policy for navigation action
         public let (decidePolicyForNavigationAction, decidePolicyForNavigationActionObserver) = Signal<(action: WKNavigationAction, decisionHandler:(WKNavigationActionPolicy) -> Void), NoError>.pipe()
         
@@ -183,7 +186,9 @@ public final class BrowsingViewModel {
         let searchURLRequest = inputs.didSearchForArticle.map { URLRequest.init(url: URL.init(string: $0.articleURL)!) }
         
         let browseToNewPage = Signal.merge(shouldBrowseToNewPage,
-                                           searchURLRequest)
+                                           searchURLRequest,
+                                           inputs.browseAppOpenURL.map { URLRequest.init(url: $0)}
+        )
         let showMoreOptionsController = inputs.didTapMoreActionsButton
 
         let showSearchController = inputs.didTapSearchButton

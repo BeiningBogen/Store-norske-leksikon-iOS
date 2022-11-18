@@ -68,6 +68,7 @@ public class SearchHistoryViewController : UITableViewController, UISearchBarDel
         tabBarItem = UITabBarItem.init(title: "Søk", image: UIImage.init(named: "search"), tag: 0)
         navigationItem.searchController?.searchBar.delegate = self.navigationItem.searchController?.searchResultsController as! SearchViewController
         navigationItem.searchController?.searchBar.backgroundColor = .secondaryBackground
+        view.backgroundColor = .secondaryBackground
         self.navigationController?.navigationBar.barTintColor = .secondaryBackground
         navigationController?.navigationBar.backgroundColor = .secondaryBackground
         navigationItem.hidesSearchBarWhenScrolling = false

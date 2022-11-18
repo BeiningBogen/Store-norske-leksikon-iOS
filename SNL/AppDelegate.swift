@@ -38,10 +38,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
 
         Current.api = Api.init(serverConfig: ServerConfig.init(baseURL: URL.init(string: "https://snl.no")!, basicHTTPAuth: nil))
-        
         browsingViewController.vm.inputs.configureObserver.send(value: URLRequest.init(url: URL.init(string: "https://snl.no")!))
+        if let activityDictionary = launchOptions?[UIApplication.LaunchOptionsKey.userActivityDictionary] as? [AnyHashable: Any] {
+            for key in activityDictionary.keys {
+                if let userActivity = activityDictionary[key] as? NSUserActivity {
+                    if let url = userActivity.webpageURL {
+                        browsingViewController.vm.inputs.browseAppOpenURLObserver.send(value: url)
+                    }
+                }
+            }
+        }
         return true
     }
     
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
+    
+        guard userActivity.activityType == NSUserActivityTypeBrowsingWeb,
+              let incomingURL = userActivity.webpageURL else {
+            return false
+        }
+         if let tabbarController = window?.rootViewController as? UITabBarController {
+            tabbarController.selectedIndex = 0
+             if let navigationController = tabbarController.viewControllers?.first as? UINavigationController, let browsingViewController = navigationController.topViewController as? BrowsingViewController {
+                browsingViewController.vm.inputs.browseAppOpenURLObserver.send(value: incomingURL)
+            }
+            
+        }
+        
+        
+//        let browsingViewController = BrowsingViewController.init(nibName: nil, bundle: nil)
+//        browsingViewController.vm.inputs.configureObserver.send(value: URLRequest.init(url: incomingURL))
+//        let navController = UINavigationController.init(rootViewController: browsingViewController)
+//        window?.rootViewController?.show(navController, sender: nil)
+        return true
+    }
 
 }

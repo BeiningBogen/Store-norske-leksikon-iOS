@@ -20,7 +20,9 @@ class SearchTableViewCell: UITableViewCell, ValueCell {
     var titleLabel: UILabel!
     var cardBackgroundView: UIView!
     var excerptLabel: UILabel!
+    var readWholeArticleLabel: UILabel!
     var previewImage: UIImageView!
+    var arrowImageView: UIImageView!
 
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -29,7 +31,6 @@ class SearchTableViewCell: UITableViewCell, ValueCell {
         setupConstraints()
         bindStyles()
         bindViewModel()
-        
     }
 
     override func prepareForReuse() {
@@ -47,21 +48,25 @@ class SearchTableViewCell: UITableViewCell, ValueCell {
 
     func setupViews() {
         
+        selectionStyle = .none
         titleLabel = UILabel.init(frame: .zero)
         excerptLabel = UILabel.init(frame: .zero)
         previewImage = UIImageView.init(frame: .zero)
         cardBackgroundView = UIView.init(frame: .zero)
+        readWholeArticleLabel = UILabel(frame: .zero)
+        readWholeArticleLabel.text = "Les hele artikkelen"
+        arrowImageView = UIImageView.init(image: UIImage.init(named: "arrow"))
         
         previewImage.contentMode = .scaleAspectFill
         previewImage.clipsToBounds = true
         
         excerptLabel.numberOfLines = 3
+        readWholeArticleLabel.textColor = .primaryTextColor
         
         cardBackgroundView.backgroundColor = .white
         cardBackgroundView.layer.shadowColor = UIColor.black.cgColor
         cardBackgroundView.layer.shadowRadius = 2
         cardBackgroundView.layer.shadowOffset = .init(width: 0, height: 1)
-//        cardBackgroundView.layer.shouldRasterize = true
         cardBackgroundView.layer.shadowOpacity = 0.1
         
         backgroundColor = .secondaryBackground
@@ -70,6 +75,8 @@ class SearchTableViewCell: UITableViewCell, ValueCell {
         cardBackgroundView.addSubview(previewImage)
         cardBackgroundView.addSubview(titleLabel)
         cardBackgroundView.addSubview(excerptLabel)
+        cardBackgroundView.addSubview(readWholeArticleLabel)
+        cardBackgroundView.addSubview(arrowImageView)
 
     }
     
@@ -86,7 +93,7 @@ class SearchTableViewCell: UITableViewCell, ValueCell {
             
         }
         
-        constrain(self, cardBackgroundView, titleLabel, excerptLabel, previewImage) { cellProxy, cardBackgroundView, titleLabelProxy, excerptProxy, imageProxy  in
+        constrain(self, cardBackgroundView, titleLabel, excerptLabel, previewImage, readWholeArticleLabel, arrowImageView) { cellProxy, cardBackgroundView, titleLabelProxy, excerptProxy, imageProxy, readWholeArticleProxy, arrowImageProxy  in
             
             cardBackgroundView.left == cellProxy.left
             cardBackgroundView.right == cellProxy.right
@@ -99,7 +106,14 @@ class SearchTableViewCell: UITableViewCell, ValueCell {
             titleLabelProxy.bottom == excerptProxy.top
 
             excerptProxy.left == titleLabelProxy.left
-            excerptProxy.bottom == cellProxy.bottom - Layout.marginBottom
+            
+            readWholeArticleProxy.top == excerptProxy.bottom
+            readWholeArticleProxy.left == excerptProxy.left
+            readWholeArticleProxy.bottom == cellProxy.bottom - 15
+            
+            arrowImageProxy.left == readWholeArticleProxy.right + 10
+            arrowImageProxy.centerY == readWholeArticleProxy.centerY
+            
            
             imageProxy.width == Layout.imageWidth
             imageProxy.height == Layout.imageHeight
@@ -107,7 +121,7 @@ class SearchTableViewCell: UITableViewCell, ValueCell {
             imageProxy.right == cellProxy.right - Layout.marginRight
             imageProxy.left == excerptProxy.right + Layout.marginLeft
             imageProxy.top == titleLabelProxy.top + 10
-            imageProxy.bottom == excerptProxy.bottom - 10
+            imageProxy.bottom == readWholeArticleProxy.bottom - 10
 
         }
     }

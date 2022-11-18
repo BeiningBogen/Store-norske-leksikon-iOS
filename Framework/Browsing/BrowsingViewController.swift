@@ -167,7 +167,7 @@ public class BrowsingViewController : UIViewController {
         
         outputs.startVoiceOver.observeValuesForUI  { [weak self] value in
             let utterance = AVSpeechUtterance.init(string: value)
-            utterance.voice = AVSpeechSynthesisVoice(language: "da-DK")
+            utterance.voice = AVSpeechSynthesisVoice(language: "nb-NO")
             self?.speech.speak(utterance)
         }
         
