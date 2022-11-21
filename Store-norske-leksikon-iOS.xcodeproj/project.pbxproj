@@ -45,6 +45,15 @@
 		0AF566BD228D4E8B00CF10FD /* Signal+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF566BB228D4DEC00CF10FD /* Signal+Extensions.swift */; };
 		1A947C5EC814177EDCDE94E8 /* Pods_Store_norske_leksikon_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88AAC25E7CD00FD60E8E6C52 /* Pods_Store_norske_leksikon_iOS.framework */; };
 		9DCD318FFC555C7E3F7D7C55 /* Pods_SNLTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9369F29DDCEEC9F469DC02A8 /* Pods_SNLTests.framework */; };
+		EC487F97292BC35E001E42D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3EBB1820DCE97D00B7D41D /* AppDelegate.swift */; };
+		EC487F99292BC35E001E42D7 /* Pods_Store_norske_leksikon_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88AAC25E7CD00FD60E8E6C52 /* Pods_Store_norske_leksikon_iOS.framework */; };
+		EC487F9B292BC35E001E42D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A3EBB2420DCE97F00B7D41D /* LaunchScreen.storyboard */; };
+		EC487F9C292BC35E001E42D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A3EBB2220DCE97F00B7D41D /* Assets.xcassets */; };
+		EC487F9E292BC35E001E42D7 /* Store_norske_leksikon_iOSFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F176F625214268290094BB29 /* Store_norske_leksikon_iOSFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		EC487FA9292C0FCD001E42D7 /* SNLSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC487FA8292C0FCD001E42D7 /* SNLSettings.swift */; };
+		EC487FAA292C0FD4001E42D7 /* LexSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC487FA6292C0FC5001E42D7 /* LexSettings.swift */; };
+		EC487FAE292C10A3001E42D7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EC487FB1292C10A3001E42D7 /* Localizable.strings */; };
+		EC487FAF292C10A3001E42D7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EC487FB1292C10A3001E42D7 /* Localizable.strings */; };
 		ECF6541D28F9584700B1241F /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF6541928F84B0800B1241F /* SplashScreen.swift */; };
 		ECF6541E28F9585500B1241F /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF6541B28F956F700B1241F /* Color.swift */; };
 		F11FF8A4213981B200344836 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3EBB1820DCE97D00B7D41D /* AppDelegate.swift */; };
@@ -68,6 +77,13 @@
 			remoteGlobalIDString = 0A22B2E420E586C4008E1F35;
 			remoteInfo = "Store-norske-leksikon-iOSFramework";
 		};
+		EC487F94292BC35E001E42D7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0A3EBB0D20DCE97D00B7D41D /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0A22B2E420E586C4008E1F35;
+			remoteInfo = "Store-norske-leksikon-iOSFramework";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -78,6 +94,17 @@
 			dstSubfolderSpec = 10;
 			files = (
 				0AE50AD121C84C140030F6F7 /* Store_norske_leksikon_iOSFramework.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC487F9D292BC35E001E42D7 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				EC487F9E292BC35E001E42D7 /* Store_norske_leksikon_iOSFramework.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,6 +165,11 @@
 		9B03AA059A94C96FEC8525D1 /* Pods_Store_norske_leksikon_iOSApi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Store_norske_leksikon_iOSApi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9FD84C954B7DCEC470DE92A /* Pods-Store-norske-leksikon-iOSApi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Store-norske-leksikon-iOSApi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Store-norske-leksikon-iOSApi/Pods-Store-norske-leksikon-iOSApi.debug.xcconfig"; sourceTree = "<group>"; };
 		DD96DD2D8C97B9712F2A1B1A /* Pods-Store-norske-leksikon-iOSApi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Store-norske-leksikon-iOSApi.release.xcconfig"; path = "Pods/Target Support Files/Pods-Store-norske-leksikon-iOSApi/Pods-Store-norske-leksikon-iOSApi.release.xcconfig"; sourceTree = "<group>"; };
+		EC487FA3292BC35E001E42D7 /* lex.dk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lex.dk.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC487FA4292BC35F001E42D7 /* Store-norske-leksikon-iOS copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Store-norske-leksikon-iOS copy-Info.plist"; path = "/Users/hakonbogen/Developer/Store-norske-leksikon-iOS/Store-norske-leksikon-iOS copy-Info.plist"; sourceTree = "<absolute>"; };
+		EC487FA6292C0FC5001E42D7 /* LexSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LexSettings.swift; sourceTree = "<group>"; };
+		EC487FA8292C0FCD001E42D7 /* SNLSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNLSettings.swift; sourceTree = "<group>"; };
+		EC487FB0292C10A3001E42D7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ECF6541928F84B0800B1241F /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		ECF6541B28F956F700B1241F /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		F176F623214268290094BB29 /* Store-norske-leksikon-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Store-norske-leksikon-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -170,6 +202,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				9DCD318FFC555C7E3F7D7C55 /* Pods_SNLTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC487F98292BC35E001E42D7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC487F99292BC35E001E42D7 /* Pods_Store_norske_leksikon_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,6 +250,7 @@
 				F1ABCB2E2188B54700D0BD9B /* valueCell */,
 				0A6F45F420F9EF8B0062D5BE /* Library */,
 				0A22B2E720E586C4008E1F35 /* Store-norske-leksikon-iOSFramework.h */,
+				EC487FB1292C10A3001E42D7 /* Localizable.strings */,
 				0A22B2E820E586C4008E1F35 /* Info.plist */,
 			);
 			path = Framework;
@@ -227,6 +268,8 @@
 				F176F626214268290094BB29 /* SNLTests.xctest */,
 				6626B3C1CB64608DFFD8BA1B /* Pods */,
 				12D0188473F37FB59693101F /* Frameworks */,
+				EC487FA3292BC35E001E42D7 /* lex.dk.app */,
+				EC487FA4292BC35F001E42D7 /* Store-norske-leksikon-iOS copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -264,6 +307,7 @@
 		0A6F45F420F9EF8B0062D5BE /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				EC487FA5292C0FAF001E42D7 /* TargetSpecificSettings */,
 				0A6965AE21C17107007FB57E /* Article.swift */,
 				0A817FF022A6CEBE00DA3981 /* Codable+Extension.swift */,
 				0A817FE822A4FC3500DA3981 /* Database.swift */,
@@ -320,6 +364,15 @@
 				836693BBF656BDD67797F9A1 /* Pods-SNLTests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		EC487FA5292C0FAF001E42D7 /* TargetSpecificSettings */ = {
+			isa = PBXGroup;
+			children = (
+				EC487FA6292C0FC5001E42D7 /* LexSettings.swift */,
+				EC487FA8292C0FCD001E42D7 /* SNLSettings.swift */,
+			);
+			path = TargetSpecificSettings;
 			sourceTree = "<group>";
 		};
 		ECF6541828F84AF700B1241F /* SplashScreen */ = {
@@ -421,6 +474,27 @@
 			productReference = F176F626214268290094BB29 /* SNLTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		EC487F92292BC35E001E42D7 /* lex.dk */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EC487FA0292BC35E001E42D7 /* Build configuration list for PBXNativeTarget "lex.dk" */;
+			buildPhases = (
+				EC487F95292BC35E001E42D7 /* [CP] Check Pods Manifest.lock */,
+				EC487F96292BC35E001E42D7 /* Sources */,
+				EC487F98292BC35E001E42D7 /* Frameworks */,
+				EC487F9A292BC35E001E42D7 /* Resources */,
+				EC487F9D292BC35E001E42D7 /* Embed Frameworks */,
+				EC487F9F292BC35E001E42D7 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EC487F93292BC35E001E42D7 /* PBXTargetDependency */,
+			);
+			name = lex.dk;
+			productName = "Store-norske-leksikon-iOS";
+			productReference = EC487FA3292BC35E001E42D7 /* lex.dk.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -458,6 +532,7 @@
 				0A3EBB1420DCE97D00B7D41D /* Store-norske-leksikon-iOS */,
 				0A3EBB2B20DCE97F00B7D41D /* SNLTests */,
 				0A22B2E420E586C4008E1F35 /* Store-norske-leksikon-iOSFramework */,
+				EC487F92292BC35E001E42D7 /* lex.dk */,
 			);
 		};
 /* End PBXProject section */
@@ -475,6 +550,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A3EBB2620DCE97F00B7D41D /* LaunchScreen.storyboard in Resources */,
+				EC487FAE292C10A3001E42D7 /* Localizable.strings in Resources */,
 				0A3EBB2320DCE97F00B7D41D /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -484,6 +560,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A946A1321BDC40900CABC5C /* lemen.examplehtml in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EC487F9A292BC35E001E42D7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC487F9B292BC35E001E42D7 /* LaunchScreen.storyboard in Resources */,
+				EC487FAF292C10A3001E42D7 /* Localizable.strings in Resources */,
+				EC487F9C292BC35E001E42D7 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -564,6 +650,41 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SNLTests/Pods-SNLTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		EC487F95292BC35E001E42D7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Store-norske-leksikon-iOS-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EC487F9F292BC35E001E42D7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Store-norske-leksikon-iOS/Pods-Store-norske-leksikon-iOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Store-norske-leksikon-iOS/Pods-Store-norske-leksikon-iOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Store-norske-leksikon-iOS/Pods-Store-norske-leksikon-iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		FD8C8472F7421BDAC18A1285 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -625,6 +746,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F11FF8A4213981B200344836 /* AppDelegate.swift in Sources */,
+				EC487FA9292C0FCD001E42D7 /* SNLSettings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -642,6 +764,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		EC487F96292BC35E001E42D7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EC487FAA292C0FD4001E42D7 /* LexSettings.swift in Sources */,
+				EC487F97292BC35E001E42D7 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -655,6 +786,11 @@
 			target = 0A22B2E420E586C4008E1F35 /* Store-norske-leksikon-iOSFramework */;
 			targetProxy = 0AF566BE228D507700CF10FD /* PBXContainerItemProxy */;
 		};
+		EC487F93292BC35E001E42D7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0A22B2E420E586C4008E1F35 /* Store-norske-leksikon-iOSFramework */;
+			targetProxy = EC487F94292BC35E001E42D7 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -664,6 +800,14 @@
 				0A3EBB2520DCE97F00B7D41D /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		EC487FB1292C10A3001E42D7 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EC487FB0292C10A3001E42D7 /* en */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -929,6 +1073,54 @@
 			};
 			name = Release;
 		};
+		EC487FA1292BC35E001E42D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 051E6B6803C7672DAC05EC5B /* Pods-Store-norske-leksikon-iOS.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Store-norske-leksikon-iOS.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 20;
+				DEVELOPMENT_TEAM = 23YR74W2XM;
+				INFOPLIST_FILE = "Store-norske-leksikon-iOS copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "no.snl.ios-app";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EC487FA2292BC35E001E42D7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 755985687B3CD75585F4AE4E /* Pods-Store-norske-leksikon-iOS.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Store-norske-leksikon-iOS.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 20;
+				DEVELOPMENT_TEAM = 23YR74W2XM;
+				INFOPLIST_FILE = "Store-norske-leksikon-iOS copy-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "no.snl.ios-app";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -964,6 +1156,15 @@
 			buildConfigurations = (
 				0A3EBB3920DCE97F00B7D41D /* Debug */,
 				0A3EBB3A20DCE97F00B7D41D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EC487FA0292BC35E001E42D7 /* Build configuration list for PBXNativeTarget "lex.dk" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EC487FA1292BC35E001E42D7 /* Debug */,
+				EC487FA2292BC35E001E42D7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
