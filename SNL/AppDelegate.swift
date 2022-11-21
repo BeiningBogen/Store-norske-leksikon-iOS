@@ -14,14 +14,55 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil { return true }
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        let exampleViewController = BrowsingViewController.init(nibName: nil, bundle: nil)
-        exampleViewController.vm.inputs.configureObserver.send(value: URLRequest.init(url: URL.init(string: "https://snl.no")!))
+        
+        let tabbarController = UITabBarController.init(nibName: nil, bundle: nil)
+        UITabBar.appearance().tintColor = UIColor.primaryTextColor
+        UIBarButtonItem.appearance().tintColor = .primaryTextColor
+
+        let browsingViewController = BrowsingViewController.init(nibName: nil, bundle: nil)
+        let navControllerBrowsing = UINavigationController.init(rootViewController: browsingViewController)
+        tabbarController.addChildViewController(navControllerBrowsing)
+        let searchController = SearchHistoryViewController.init(style: .grouped)
+        let navController = UINavigationController.init(rootViewController: searchController)
+        navController.navigationBar.prefersLargeTitles = true
+        
+        let historyViewController = SearchViewController.init(nibName: nil, bundle: nil)
+        searchController.navigationItem.searchController = UISearchController.init(searchResultsController: historyViewController)
+        tabbarController.addChildViewController(navController)
+        navController.tabBarItem = UITabBarItem.init(title: "Søk", image: UIImage.init(named: "search"), tag: 0)
 
         window?.backgroundColor = .white
-        window?.rootViewController = UINavigationController(rootViewController: exampleViewController)
+        window?.rootViewController = tabbarController
         window?.makeKeyAndVisible()
-
+        browsingViewController.splashScreen = SplashScreen.show(inWindow: window)
+        
         Current.api = Api.init(serverConfig: ServerConfig.init(baseURL: URL.init(string: "https://snl.no")!, basicHTTPAuth: nil))
+        browsingViewController.vm.inputs.configureObserver.send(value: URLRequest.init(url: URL.init(string: "https://snl.no")!))
+        /// Opening external URL
+        if let activityDictionary = launchOptions?[UIApplication.LaunchOptionsKey.userActivityDictionary] as? [AnyHashable: Any] {
+            for key in activityDictionary.keys {
+                if let userActivity = activityDictionary[key] as? NSUserActivity {
+                    if let url = userActivity.webpageURL {
+                        browsingViewController.vm.inputs.browseAppOpenURLObserver.send(value: url)
+                    }
+                }
+            }
+        }
+        return true
+    }
+    
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
+    
+        guard userActivity.activityType == NSUserActivityTypeBrowsingWeb,
+              let incomingURL = userActivity.webpageURL else {
+            return false
+        }
+        if let tabbarController = window?.rootViewController as? UITabBarController {
+            tabbarController.selectedIndex = 0
+            if let navigationController = tabbarController.viewControllers?.first as? UINavigationController, let browsingViewController = navigationController.topViewController as? BrowsingViewController {
+                browsingViewController.vm.inputs.browseAppOpenURLObserver.send(value: incomingURL)
+            }
+        }
         return true
     }
 

@@ -9,22 +9,25 @@
 import UIKit
 import Cartography
 import WebKit
+import AVFoundation
 
 public class BrowsingViewController : UIViewController {
 
     public let vm = BrowsingViewModel()
     public var outputs: BrowsingViewModel.Outputs!
+    public var splashScreen: SplashScreen?
     
     var toolBar: SearchToolbar!
     
     let webView: WKWebView
     var loadWithRequest: URLRequest?
+    let speech = AVSpeechSynthesizer.init()
+    
 
     override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         webView = WKWebView.init(frame: .zero, configuration: WKWebViewConfiguration.init())
         outputs = vm.outputs()
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-
     }
 
     required public init?(coder aDecoder: NSCoder) {
@@ -42,6 +45,25 @@ public class BrowsingViewController : UIViewController {
         vm.inputs.viewDidLoadObserver.send(value: ())
     }
     
+    public override func viewDidAppear(_ animated: Bool) {
+        
+        
+    }
+    
+    public override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        vm.inputs.viewWillDisappearObserver.send(value: ())
+        
+        
+        
+        
+    }
+    
+    @objc
+    func didTapShareButton() {
+        vm.inputs.didTapMoreActionsButtonObserver.send(value: ())
+    }
+    
     func setupViews() {
         
         view.addSubview(webView)
@@ -50,21 +72,15 @@ public class BrowsingViewController : UIViewController {
         webView.scrollView.alwaysBounceHorizontal = false
         webView.scrollView.isDirectionalLockEnabled = true
 
-        self.navigationController?.setToolbarHidden(false, animated: false)
-        self.setToolbarItems([UIBarButtonItem.init(title: "Søk", style: UIBarButtonItemStyle.done, target: self, action: #selector(showSearchField))], animated: false)
-            
     }
-    
 
     func setupConstraints() {
-        
         constrain(view, webView) { (vp, webViewProxy) in
             webViewProxy.left == vp.left
             webViewProxy.right == vp.right
             webViewProxy.top == vp.top
             webViewProxy.bottom == vp.bottom
         }
-        
     }
 
     func bindStyles() {
@@ -85,6 +101,7 @@ public class BrowsingViewController : UIViewController {
         
         outputs.title.observeValues { [weak self] title in
             self?.title = title
+            self?.tabBarItem = UITabBarItem.init(title: "Utforsk", image: UIImage.init(named: "globe_earth"), tag: 0)
         }
         
         outputs.requestForTitle.observeValues { [weak self] in
@@ -101,6 +118,12 @@ public class BrowsingViewController : UIViewController {
             self?.webView.removeHeaderAndFooterOnDOMLoad()
         }
         
+        outputs.addMoreButton.observeValues { [ weak self ] in
+            guard let s = self else { return }
+            let shareButton = UIBarButtonItem.init(title: "Mer", style: .plain, target: self, action: #selector(s.didTapShareButton))
+            s.navigationItem.rightBarButtonItem = shareButton
+        }
+        
         outputs.showSearchController.observeValues { [ weak self ] in
             
             let vc = SearchViewController.init(nibName: nil, bundle: nil)
@@ -114,11 +137,44 @@ public class BrowsingViewController : UIViewController {
 
         }
         
-        outputs!.showLoader.observeValuesForUI { [weak self] value in
-            
+        outputs.showLoader.observeValuesForUI { [weak self] value in
             ModalLoader.showOrHide(value: value, inView: self?.view)
+            if value == false {
+                self?.splashScreen?.animateFadeout()
+            }
         }
-
+        
+        outputs.showMoreOptionsController.observeValuesForUI { [weak self] value in
+            
+            let actionSheet = UIAlertController.init(title: "Handlinger", message: nil, preferredStyle: .actionSheet)
+            actionSheet.addAction(UIAlertAction.init(title: "Les opp hele artikkelen", style: .default, handler: { (_) in
+                self?.vm.inputs.didTapVoiceoverButtonObserver.send(value: ())
+            }))
+                
+            actionSheet.addAction(UIAlertAction.init(title: "Del lenke til artikkelen", style: .default, handler: { (_) in
+                self?.vm.inputs.didTapShareURLButtonObserver.send(value: ())
+            }))
+            
+            actionSheet.addAction(UIAlertAction.init(title: "Avbryt", style: .cancel, handler: nil))
+            
+            self?.present(actionSheet, animated: true, completion: nil)
+        }
+        
+        outputs.showShareSheet.observeValuesForUI { [weak self] value in
+            let controller = UIActivityViewController.init(activityItems: [URL.init(string: value)!], applicationActivities: [])
+            self?.present(controller, animated: true, completion: nil)
+        }
+        
+        outputs.startVoiceOver.observeValuesForUI  { [weak self] value in
+            let utterance = AVSpeechUtterance.init(string: value)
+            utterance.voice = AVSpeechSynthesisVoice(language: "nb-NO")
+            self?.speech.speak(utterance)
+        }
+        
+        outputs.stopVoiceOver.observeValuesForUI { [weak self] value in
+            self?.speech.stopSpeaking(at: AVSpeechBoundary.immediate)
+        }
+        
     }
 
     @objc func showSearchField() {
@@ -130,8 +186,6 @@ public class BrowsingViewController : UIViewController {
 extension BrowsingViewController : WKNavigationDelegate {
 
     public func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-        print(error)
-        // TODO: error here
         vm.inputs.didFailNavigationObserver.send(value: ())
     }
     
@@ -152,3 +206,4 @@ extension BrowsingViewController : WKNavigationDelegate {
     }
     
 }
+

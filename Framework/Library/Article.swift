@@ -8,10 +8,18 @@
 
 import Foundation
 
-public struct Article : Decodable {
+
+public struct ArticleContent: Codable {
+    
+    public private(set) var xhtml_body: String
+
+}
+
+public struct Article : Codable, Equatable {
     
     public private(set) var articleId: Int
     public private(set) var headword: String
+    public private(set) var clarification: String?
     public private(set) var permalink: String
     public private(set) var rank: Float
     public private(set) var snippet: String
@@ -24,6 +32,7 @@ public struct Article : Decodable {
         case articleId = "article_id"
         case headword
         case permalink
+        case clarification
         case rank
         case snippet
         case imageURL = "first_image_url"
@@ -43,6 +52,13 @@ public struct Article : Decodable {
 //        article_url    URL til vanlig visning av artikkelen.
 //        article_url_json    URL til json-representasjon av artikkelen.
 //        title    Artikkelens fulle tittel.
+    }
+    
+    var fullName : String {
+        if let clarification = self.clarification {
+            return headword + " - " + clarification
+        }
+        return headword
     }
     
 }

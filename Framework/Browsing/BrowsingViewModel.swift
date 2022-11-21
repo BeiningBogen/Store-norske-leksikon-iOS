@@ -18,6 +18,9 @@ public final class BrowsingViewModel {
         /// Call when the view did load.
         public let (viewDidLoad, viewDidLoadObserver) = Signal<(), NoError>.pipe()
         
+        /// Call when the view will disappear
+        public let (viewWillDisappear, viewWillDisappearObserver) = Signal<(), NoError>.pipe()
+        
         /// Call when a new viewmodel should be configured with an initial URL request
         public let (configure, configureObserver) = Signal<URLRequest, NoError>.pipe()
         
@@ -30,6 +33,15 @@ public final class BrowsingViewModel {
         /// Call when webview starts navigation
         public let (didTapSearchButton, didTapSearchButtonObserver) = Signal<Void, NoError>.pipe()
         
+        /// Call when more actions button tapped
+        public let (didTapMoreActionsButton, didTapMoreActionsButtonObserver) = Signal<Void, NoError>.pipe()
+        
+        /// Call when more actions button tapped
+        public let (didTapVoiceoverButton, didTapVoiceoverButtonObserver) = Signal<Void, NoError>.pipe()
+        
+        /// Call when share URL in the action sheet was tapped
+        public let (didTapShareURLButton, didTapShareURLButtonObserver) = Signal<Void, NoError>.pipe()
+        
         /// Call when webview starts navigation
         public let (didStartNavigation, didStartNavigationObserver) = Signal<Void, NoError>.pipe()
 
@@ -41,6 +53,9 @@ public final class BrowsingViewModel {
         
         /// Call when webview fails navigation
         public let (didFailNavigation, didFailNavigationObserver) = Signal<Void, NoError>.pipe()
+        
+        /// Call when opening app from url (user tapping a link to snl.no in another app)
+        public let (browseAppOpenURL, browseAppOpenURLObserver) = Signal<URL, NoError>.pipe()
         
         /// Call when webview asks for policy for navigation action
         public let (decidePolicyForNavigationAction, decidePolicyForNavigationActionObserver) = Signal<(action: WKNavigationAction, decisionHandler:(WKNavigationActionPolicy) -> Void), NoError>.pipe()
@@ -78,7 +93,23 @@ public final class BrowsingViewModel {
         requestForTitle: Signal<Void, NoError>,
         
         /// Emit when the search controller should be shown
-        showSearchController: Signal<Void, NoError>
+        showSearchController: Signal<Void, NoError>,
+        
+        /// Emit when VoiceOver should start reading the article
+        showMoreOptionsController: Signal<Void, NoError>,
+        
+        /// Emit when VoiceOver should start reading the article
+        showShareSheet: Signal<String, NoError>,
+        
+        /// Emit when VoiceOver should start reading the article
+        startVoiceOver: Signal<String, NoError>,
+        
+        /// Emit when VoiceOver should stop reading the article
+        stopVoiceOver: Signal<Void, NoError>,
+        
+        /// Emit when "More"-button should be showin in right navbar corner
+        addMoreButton: Signal<Void, NoError>
+        
     )
     
     enum ArticleLoadingState {
@@ -95,8 +126,11 @@ public final class BrowsingViewModel {
             inputs.didFailNavigation.map { _ in false }
         )
 
-        let stripHeaderFooter = inputs
-            .didCommitNavigation.delay(0.1, on: QueueScheduler.main)
+        let addMoreButton = Signal.combineLatest(inputs.configure, inputs.viewDidLoad)
+            .filter { $0.0.url != URL.init(string: "https://snl.no")}
+            .map { _ in }
+        
+        let stripHeaderFooter = inputs.didCommitNavigation
         
         let addDOMLoadStripScript = inputs.didCommitNavigation
 
@@ -108,8 +142,8 @@ public final class BrowsingViewModel {
         let title = inputs.foundTitle
         
         let articleState = Signal.merge(inputs.viewDidLoad.map { ArticleLoadingState.idle },
-                                         inputs.didStartNavigation.map { ArticleLoadingState.started},
-                                         inputs.didFinishNavigation.map { ArticleLoadingState.finished})
+                                         inputs.didStartNavigation.map { ArticleLoadingState.started },
+                                         inputs.didFinishNavigation.map { ArticleLoadingState.finished })
 
         let shouldBrowseToNewPage = inputs.decidePolicyForNavigationAction
             .withLatest(from: articleState)
@@ -117,13 +151,18 @@ public final class BrowsingViewModel {
                 
                 let (action, decisionHandler) = arg.0
                 let state = arg.1
-
-                guard action.navigationType == .linkActivated || action.navigationType == .other else {
+                /// If user taps link, a new VC should load the page
+                guard action.navigationType == .linkActivated else {
                     decisionHandler(.allow)
                     return nil
                 }
+                /// If getting redirect internally in a document, allow the navigation, but don't open a new VC
+                if action.navigationType == .other {
+                    decisionHandler(.allow)
+                    return action.request
+                }
                 
-                if state == ArticleLoadingState.finished || state == .started {
+                if state() == ArticleLoadingState.finished || state() == ArticleLoadingState.started {
                     decisionHandler(.cancel)
                     return action.request
                 } else {
@@ -131,12 +170,34 @@ public final class BrowsingViewModel {
                     return nil
                 }
         }
+        
+        let voiceoverString = inputs.configure
+            .filterMap { $0.url?.absoluteString }
+            .flatMap(.merge) { url in
+                return Current.api.getArticle(.init(path: url + ".json"))
+                    .map { $0.xhtml_body.stripOutHtml() }
+                    .flatMapError { _ in .empty }
+        }
+        
+        let startVoiceOver = voiceoverString
+            .skipNil()
+            .sample(on: inputs.didTapVoiceoverButton)
+
         let searchURLRequest = inputs.didSearchForArticle.map { URLRequest.init(url: URL.init(string: $0.articleURL)!) }
         
         let browseToNewPage = Signal.merge(shouldBrowseToNewPage,
-                                           searchURLRequest)
+                                           searchURLRequest,
+                                           inputs.browseAppOpenURL.map { URLRequest.init(url: $0)}
+        )
+        let showMoreOptionsController = inputs.didTapMoreActionsButton
 
         let showSearchController = inputs.didTapSearchButton
+        let showShareSheet = inputs.configure
+            .filterMap { $0.url?.absoluteString }.skipNil()
+            .sample(on: inputs.didTapShareURLButton)
+
+        let stopVoiceOver = Signal.merge(browseToNewPage.map { _ in },
+                                          inputs.viewWillDisappear )
         
         return (title : title,
                 showLoader : showLoader,
@@ -145,8 +206,12 @@ public final class BrowsingViewModel {
                 browseOnSamePage: browseOnSamePage,
                 browseToNewPage: browseToNewPage,
                 requestForTitle: requestForTitle,
-                showSearchController: showSearchController
-            
+                showSearchController: showSearchController,
+                showMoreOptionsController: showMoreOptionsController,
+                showShareSheet: showShareSheet,
+                startVoiceOver: startVoiceOver,
+                stopVoiceOver: stopVoiceOver,
+                addMoreButton: addMoreButton
         )
         
     }

@@ -10,13 +10,15 @@ import Foundation
 
 @testable import Store_norske_leksikon_iOSFramework
 
+/// Templates are initialisers for structs that contain the minimum amount of info needed for the designated initializer
 extension Article {
-    
-    static let template = Article.init(articleId: 0, headword: "", permalink: "", rank: 0, snippet: "", imageURL: nil, articleURL: "", firstTwoSentences: "")
+
+    static let template = Article.init(articleId: 0, headword: "", clarification: nil, permalink: "", rank: 0, snippet: "", imageURL: nil, articleURL: "", firstTwoSentences: "")
     
 }
 
 extension ServerConfig {
+    
     static let template = ServerConfig.local
     
 }

@@ -24,6 +24,7 @@ class BrowsingViewModelTests: XCTestCase {
     let showLoader = TestObserver<Bool, NoError>()
     let stripHeaderFooter = TestObserver<Void, NoError>()
     let addDomLoadStripScript = TestObserver<Void, NoError>()
+    let addMoreButton = TestObserver<Void, NoError>()
 
     override func setUp() {
         super.setUp()
@@ -33,6 +34,7 @@ class BrowsingViewModelTests: XCTestCase {
         outputs.title.observe(title.observer)
         outputs.showLoader.observe(showLoader.observer)
         outputs.stripHeaderFooter.observe(stripHeaderFooter.observer)
+        outputs.addMoreButton.observe(addMoreButton.observer)
         
 //            /// Emit when webview should add an initial dom load strip script
 //            addDOMLoadStripScript: Signal<Void, NoError>,
@@ -57,10 +59,24 @@ class BrowsingViewModelTests: XCTestCase {
         vm.inputs.configureObserver.send(value: URLRequest.init(url: URL.init(string: "snl.no")!))
         showLoader.assertDidEmitValue()
 
-//        let request = loadRequest.values.first
-//        XCTAssertEqual(request?.url?.absoluteString, AppEnvironment.current.service.serverConfig.baseURL.absoluteString)
+    }
+    
+    func testDoNotAddMoreButtonOnFrontPage() {
+        vm.inputs.viewDidLoadObserver.send(value: ())
+        vm.inputs.configureObserver.send(value: URLRequest.init(url: URL.init(string: "https://snl.no")!))
+        addMoreButton.assertDidNotEmitValue()
 
     }
     
+    func testAddMoreButtonOnSecondPage() {
+        vm.inputs.viewDidLoadObserver.send(value: ())
+        vm.inputs.configureObserver.send(value: URLRequest.init(url: URL.init(string: "https://snl.no/kjernekraftverk.json")!))
+        addMoreButton.assertDidEmitValue()
+    }
     
+    func testAddMoreButtonOnSecondPage2() {
+        vm.inputs.viewDidLoadObserver.send(value: ())
+        vm.inputs.configureObserver.send(value: URLRequest.init(url: URL.init(string: "https://snl.no/Svante_P%C3%A4%C3%A4bo.json")!))
+        addMoreButton.assertDidEmitValue()
+    }
 }

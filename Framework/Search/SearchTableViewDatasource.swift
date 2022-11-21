@@ -23,6 +23,7 @@ class SearchTableViewDataSource: ValueCellDataSource {
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return nil
+        return "Tidligere søk"
     }
+    
 }
