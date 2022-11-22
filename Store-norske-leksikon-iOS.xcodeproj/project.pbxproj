@@ -50,10 +50,10 @@
 		EC487F9B292BC35E001E42D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A3EBB2420DCE97F00B7D41D /* LaunchScreen.storyboard */; };
 		EC487F9C292BC35E001E42D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A3EBB2220DCE97F00B7D41D /* Assets.xcassets */; };
 		EC487F9E292BC35E001E42D7 /* Store_norske_leksikon_iOSFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F176F625214268290094BB29 /* Store_norske_leksikon_iOSFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		EC487FA9292C0FCD001E42D7 /* SNLSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC487FA8292C0FCD001E42D7 /* SNLSettings.swift */; };
 		EC487FAA292C0FD4001E42D7 /* LexSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC487FA6292C0FC5001E42D7 /* LexSettings.swift */; };
 		EC487FAE292C10A3001E42D7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EC487FB1292C10A3001E42D7 /* Localizable.strings */; };
 		EC487FAF292C10A3001E42D7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EC487FB1292C10A3001E42D7 /* Localizable.strings */; };
+		EC487FB3292C1413001E42D7 /* SNLSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC487FA8292C0FCD001E42D7 /* SNLSettings.swift */; };
 		ECF6541D28F9584700B1241F /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF6541928F84B0800B1241F /* SplashScreen.swift */; };
 		ECF6541E28F9585500B1241F /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF6541B28F956F700B1241F /* Color.swift */; };
 		F11FF8A4213981B200344836 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3EBB1820DCE97D00B7D41D /* AppDelegate.swift */; };
@@ -745,8 +745,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC487FB3292C1413001E42D7 /* SNLSettings.swift in Sources */,
 				F11FF8A4213981B200344836 /* AppDelegate.swift in Sources */,
-				EC487FA9292C0FCD001E42D7 /* SNLSettings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1082,14 +1082,14 @@
 				CODE_SIGN_ENTITLEMENTS = "Store-norske-leksikon-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 20;
-				DEVELOPMENT_TEAM = 23YR74W2XM;
+				DEVELOPMENT_TEAM = XR4X27GD6H;
 				INFOPLIST_FILE = "Store-norske-leksikon-iOS copy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "no.snl.ios-app";
+				PRODUCT_BUNDLE_IDENTIFIER = dk.lex.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
@@ -1106,14 +1106,14 @@
 				CODE_SIGN_ENTITLEMENTS = "Store-norske-leksikon-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 20;
-				DEVELOPMENT_TEAM = 23YR74W2XM;
+				DEVELOPMENT_TEAM = XR4X27GD6H;
 				INFOPLIST_FILE = "Store-norske-leksikon-iOS copy-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "no.snl.ios-app";
+				PRODUCT_BUNDLE_IDENTIFIER = dk.lex.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;

@@ -10,6 +10,6 @@ import Foundation
 
 struct AppSettings {
     
-    static let baseURL: String = "https://lex.dk"
+    static let baseURL: String = "https://snl.no"
     
 }

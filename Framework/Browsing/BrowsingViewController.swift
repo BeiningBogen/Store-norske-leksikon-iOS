@@ -10,6 +10,7 @@ import UIKit
 import Cartography
 import WebKit
 import AVFoundation
+fileprivate class BundleClass {}
 
 public class BrowsingViewController : UIViewController {
 
@@ -27,6 +28,7 @@ public class BrowsingViewController : UIViewController {
     override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         webView = WKWebView.init(frame: .zero, configuration: WKWebViewConfiguration.init())
         outputs = vm.outputs()
+        Bundle.ini
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
 
