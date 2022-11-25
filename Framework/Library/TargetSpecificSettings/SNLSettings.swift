@@ -8,8 +8,18 @@
 
 import Foundation
 
-struct AppSettings {
+// Settings for Store Norske Leksikon
+struct TargetSpecificSettings {
     
     static let baseURL: String = "https://snl.no"
+    /// The base URL used for search API
+    static let searchBaseURL: String = "https://snl.no"
     
+    static let speechSynthesizedLanguage: String = "nb-NO"
+    
+    func setupAppearance() {
+     
+    }
 }
+
+

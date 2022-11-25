@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  Store-norske-leksikon-iOS
+
+  Created by Håkon Bogen on 22/11/2022.
+  Copyright © 2022 Beining & Bogen. All rights reserved.
+*/
+
+"tab_explore" = "Utforsk";
+"tab_search" = "Søk";
+
+"navbar_more" = "Mer";
+
+"actionsheet_read_article" = "Les hele artikkelen";
+"actionsheet_title" = "Handlinger";
+"actionsheet_share_article" = "Del lenke til artikkelen";
+"actionsheet_abort" = "Avbryt";

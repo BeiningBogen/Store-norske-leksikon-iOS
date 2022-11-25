@@ -10,11 +10,18 @@ import Foundation
 import UIKit
 import Cartography
 import CoreGraphics
+import Store_norske_leksikon_iOSFramework
 
-public class SplashScreen: UIView {
+
+
+public class SplashScreen: UIView, SplashScreenProtocol {
+//    static func show(inWindow: UIWindow?) -> UIView? {
+//        <#code#>
+//    }
     
-    let logo = UIImageView.init(image: UIImage.init(named: "SNL-logo"))
-    let logoText = UILabel.init(frame: .zero)
+    
+    let logo1 = UIImageView.init(image: UIImage.init(named: "lex"))
+    let logo2 = UIImageView.init(image: UIImage.init(named: "dk"))
     
     
     private struct Constants {
@@ -34,25 +41,17 @@ public class SplashScreen: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         backgroundColor = .primaryBackground
-        logoText.text = "STORE NORSKE LEKSIKON"
-        logoText.numberOfLines = 0
-        logoText.font = UIFont.systemFont(ofSize: 32)
-        logoText.textColor = .white
-        logoText.alpha = 0
-        logo.alpha = 0
     }
     
-    public static func show(inWindow window: UIWindow?) -> SplashScreen? {
+    public static func show(inWindow window: UIWindow?) -> SplashScreenProtocol? {
         guard let window = window else {
             return nil
         }
         
         let splashScreen = SplashScreen.init(frame: .zero)
         window.addSubview(splashScreen)
-        splashScreen.addSubview(splashScreen.logo)
-        splashScreen.addSubview(splashScreen.logoText)
-        splashScreen.logoText.numberOfLines = 3
-        
+        splashScreen.addSubview(splashScreen.logo1)
+        splashScreen.addSubview(splashScreen.logo2)
         
         
         constrain(splashScreen, window) { selfView, view in
@@ -63,40 +62,38 @@ public class SplashScreen: UIView {
         }
         
         /// Logo permanent constraints
-        constrain(splashScreen, splashScreen.logo) { selfView, logo in
-            logo.centerY == selfView.centerY - 50
+        constrain(splashScreen, splashScreen.logo1, splashScreen.logo2) { selfView, logo1, logo2 in
+            logo1.centerY == selfView.centerY - 50
+            logo2.centerY == selfView.centerY - 50
         }
-        /// Logo text permanent constraintts
-        constrain(splashScreen, splashScreen.logo, splashScreen.logoText) { selfView, logo, logotext in
-            logotext.centerY == logo.centerY + splashScreen.logo.image!.size.height + 40
-            logotext.width == 160
-        }
-        
         
         /// Logo text animated constraint
-        let logoTextLeftConstraint = constrain(splashScreen, splashScreen.logo, splashScreen.logoText) { selfView, logo, logoText in
-            logo.left == selfView.left - splashScreen.logo.image!.size.width
-            logoText.left == selfView.left + window.bounds.width
+        let logo1AnimationConstraint = constrain(splashScreen, splashScreen.logo1, splashScreen.logo2) { selfView, logo1, logo2 in
+            logo1.right == selfView.left
         }
-        
+        let logo2AnimationConstraint = constrain(splashScreen, splashScreen.logo1, splashScreen.logo2) { selfView, logo1, logo2 in
+            logo2.left == selfView.right
+        }
         
             
         after(Constants.delayBeforeStartingAnimation) {
             if splashScreen.superview != nil {
-                
                 splashScreen.setNeedsUpdateConstraints()
                 
-                constrain(splashScreen, splashScreen.logo, splashScreen.logoText, replace: logoTextLeftConstraint) { selfView, logo, logoText in
-                    logoText.centerX == selfView.centerX
-                    logo.left == logoText.left
+                constrain(splashScreen, splashScreen.logo1, splashScreen.logo2, replace: logo1AnimationConstraint) { selfView, logo1, logo2 in
+                    logo1.centerX == selfView.centerX - 40
                 }
                 
-                UIView.animate(withDuration: 0.4, delay: 0, options: .curveEaseInOut) {
+                UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut) {
                     splashScreen.layoutIfNeeded()
-                    splashScreen.logo.alpha = 1
-                    splashScreen.logoText.alpha = 1
+                    splashScreen.logo1.alpha = 1
                 } completion: { _ in
-                    
+                    UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut) {
+                        constrain(splashScreen, splashScreen.logo1, splashScreen.logo2, replace: logo2AnimationConstraint) { selfView, logo1, logo2 in
+                            logo2.left == logo1.right + 5
+                        }
+                        splashScreen.layoutIfNeeded()
+                    }
                 }
             }
         }
@@ -111,8 +108,8 @@ public class SplashScreen: UIView {
     
     func transitionToSpinner() {
         UIView.animate(withDuration: 0.2, animations: {
-            self.logo.alpha = 0
-            self.logoText.alpha = 0
+            self.logo1.alpha = 0
+//            self.logoText.alpha = 0
             
         }) { _ in
             
@@ -120,12 +117,12 @@ public class SplashScreen: UIView {
     }
 
     public func animateFadeout() {
-        if self.logo.alpha == 1 {
-            UIView.animate(withDuration: Constants.logoFadeoutDuration, delay: 0, options: .curveEaseInOut, animations: {
-                self.logo.transform = CGAffineTransform.init(scaleX: 1.2, y: 1.2)
-                self.logo.alpha = 0
-                self.logoText.transform = CGAffineTransform.init(scaleX: 1.2, y: 1.2)
-                self.logoText.alpha = 0
+        if self.logo1.alpha == 1 {
+            UIView.animate(withDuration: Constants.logoFadeoutDuration, delay: 0.2, options: .curveEaseInOut, animations: {
+//                self.logo1.transform = CGAffineTransform.init(scaleX: 1.2, y: 1.2)
+                self.logo1.alpha = 0
+//                self.logo2.transform = CGAffineTransform.init(scaleX: 1.2, y: 1.2)
+                self.logo2.alpha = 0
             }) { _ in
                 UIView.animate(withDuration: Constants.backgroundFadeoutDuration, animations: {
                     self.backgroundColor = .clear

@@ -21,4 +21,15 @@ extension String {
             return nil
         }
     }
+    
+        
+    func localized(key: String, comment: String = "") -> String {
+        let value = NSLocalizedString(key, bundle: Bundle(for: BundleClass.self) , comment: comment)
+        if value == key {
+            return self
+        }
+        return value
+    }
 }
+
+fileprivate class BundleClass {}

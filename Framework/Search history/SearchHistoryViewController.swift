@@ -25,6 +25,7 @@ public class SearchHistoryViewController : UITableViewController, UISearchBarDel
     public override init(style: UITableViewStyle) {
         super.init(style: style)
         outputs = vm.outputs()
+        tabBarItem = UITabBarItem.init(title: "Søk".localized(key: "tab_search"), image: UIImage.init(named: "search"), tag: 0)
     }
     
     required init?(coder aDecoder: NSCoder) {

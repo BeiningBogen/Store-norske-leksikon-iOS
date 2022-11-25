@@ -13,14 +13,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         /*Do not run the application when the tests are running.*/
         if ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil { return true }
         
+        Current.appSettings = AppSettings(speechSynthesizedLanguage: TargetSpecificSettings.speechSynthesizedLanguage, searchBaseURL: TargetSpecificSettings.searchBaseURL)
+//        application.statusBarStyle = .lightContent
+//        window?.windowScene?.statusBarManager?.statusBarStyle = .lightContent
+        
+        UIApplication.shared.statusBarStyle = .lightContent
         self.window = UIWindow(frame: UIScreen.main.bounds)
         
         let tabbarController = UITabBarController.init(nibName: nil, bundle: nil)
-        UITabBar.appearance().tintColor = UIColor.primaryTextColor
-        UIBarButtonItem.appearance().tintColor = .primaryTextColor
-
+        TargetSpecificSettings.setupAppearance()
+//        navigationController?.navigationBar.barTintColor = UIColor.magenta
+//        navigationController?.navigationBar.backgroundColor = UIColor.primaryBackground
+        
         let browsingViewController = BrowsingViewController.init(nibName: nil, bundle: nil)
         let navControllerBrowsing = UINavigationController.init(rootViewController: browsingViewController)
+//        navControllerBrowsing.navigationBar.barTintColor = UIColor.green
+        
         tabbarController.addChildViewController(navControllerBrowsing)
         let searchController = SearchHistoryViewController.init(style: .grouped)
         let navController = UINavigationController.init(rootViewController: searchController)
@@ -29,15 +37,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let historyViewController = SearchViewController.init(nibName: nil, bundle: nil)
         searchController.navigationItem.searchController = UISearchController.init(searchResultsController: historyViewController)
         tabbarController.addChildViewController(navController)
-        navController.tabBarItem = UITabBarItem.init(title: "Søk", image: UIImage.init(named: "search"), tag: 0)
 
         window?.backgroundColor = .white
         window?.rootViewController = tabbarController
         window?.makeKeyAndVisible()
-        browsingViewController.splashScreen = SplashScreen.show(inWindow: window)
+        browsingViewController.splashScreen = SplashScreen.show(inWindow: window) as! any SplashScreenProtocol
         
-        Current.api = Api.init(serverConfig: ServerConfig.init(baseURL: URL.init(string: AppSettings.baseURL)!, basicHTTPAuth: nil))
-        browsingViewController.vm.inputs.configureObserver.send(value: URLRequest.init(url: URL.init(string: AppSettings.baseURL)!))
+        Current.api = Api.init(serverConfig: ServerConfig.init(baseURL: URL.init(string: TargetSpecificSettings.baseURL)!, basicHTTPAuth: nil))
+        browsingViewController.vm.inputs.configureObserver.send(value: URLRequest.init(url: URL.init(string: TargetSpecificSettings.baseURL)!))
         /// Opening external URL
         if let activityDictionary = launchOptions?[UIApplication.LaunchOptionsKey.userActivityDictionary] as? [AnyHashable: Any] {
             for key in activityDictionary.keys {

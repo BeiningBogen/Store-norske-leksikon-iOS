@@ -58,7 +58,7 @@ public struct Requests {
             
             public var pathComponents: (path: [String], query: Query?) {
                 return (
-                    ["api", "v1", "search"],
+                    [Current.appSettings.searchBaseURL, "api", "v1", "search"],
                     query
                 )
             }

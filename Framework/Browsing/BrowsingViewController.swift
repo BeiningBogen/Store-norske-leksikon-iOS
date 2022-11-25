@@ -12,11 +12,16 @@ import WebKit
 import AVFoundation
 fileprivate class BundleClass {}
 
+public protocol SplashScreenProtocol: UIView {
+    static func show(inWindow: UIWindow?) -> SplashScreenProtocol?
+    func animateFadeout()
+}
+
 public class BrowsingViewController : UIViewController {
 
     public let vm = BrowsingViewModel()
     public var outputs: BrowsingViewModel.Outputs!
-    public var splashScreen: SplashScreen?
+    public var splashScreen: SplashScreenProtocol?
     
     var toolBar: SearchToolbar!
     
@@ -28,7 +33,6 @@ public class BrowsingViewController : UIViewController {
     override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         webView = WKWebView.init(frame: .zero, configuration: WKWebViewConfiguration.init())
         outputs = vm.outputs()
-        Bundle.ini
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
 
@@ -87,6 +91,10 @@ public class BrowsingViewController : UIViewController {
 
     func bindStyles() {
         view.backgroundColor = .white
+        navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
+        navigationController?.navigationBar.barTintColor = .white
+
     }
 
     func bindViewModel() {
@@ -103,7 +111,7 @@ public class BrowsingViewController : UIViewController {
         
         outputs.title.observeValues { [weak self] title in
             self?.title = title
-            self?.tabBarItem = UITabBarItem.init(title: "Utforsk", image: UIImage.init(named: "globe_earth"), tag: 0)
+            self?.tabBarItem = UITabBarItem.init(title: "Utforsk".localized(key: "tab_explore") , image: UIImage.init(named: "globe_earth"), tag: 0)
         }
         
         outputs.requestForTitle.observeValues { [weak self] in
@@ -122,7 +130,7 @@ public class BrowsingViewController : UIViewController {
         
         outputs.addMoreButton.observeValues { [ weak self ] in
             guard let s = self else { return }
-            let shareButton = UIBarButtonItem.init(title: "Mer", style: .plain, target: self, action: #selector(s.didTapShareButton))
+            let shareButton = UIBarButtonItem.init(title: "Mer".localized(key: "navbar_more"), style: .plain, target: self, action: #selector(s.didTapShareButton))
             s.navigationItem.rightBarButtonItem = shareButton
         }
         
@@ -148,16 +156,16 @@ public class BrowsingViewController : UIViewController {
         
         outputs.showMoreOptionsController.observeValuesForUI { [weak self] value in
             
-            let actionSheet = UIAlertController.init(title: "Handlinger", message: nil, preferredStyle: .actionSheet)
-            actionSheet.addAction(UIAlertAction.init(title: "Les opp hele artikkelen", style: .default, handler: { (_) in
+            let actionSheet = UIAlertController.init(title: "Handlinger".localized(key: "actionsheet_title"), message: nil, preferredStyle: .actionSheet)
+            actionSheet.addAction(UIAlertAction.init(title: "Les opp hele artikkelen".localized(key: "actionsheet_read_article"), style: .default, handler: { (_) in
                 self?.vm.inputs.didTapVoiceoverButtonObserver.send(value: ())
             }))
                 
-            actionSheet.addAction(UIAlertAction.init(title: "Del lenke til artikkelen", style: .default, handler: { (_) in
+            actionSheet.addAction(UIAlertAction.init(title: "Del lenke til artikkelen".localized(key: "actionsheet_share_article"), style: .default, handler: { (_) in
                 self?.vm.inputs.didTapShareURLButtonObserver.send(value: ())
             }))
             
-            actionSheet.addAction(UIAlertAction.init(title: "Avbryt", style: .cancel, handler: nil))
+            actionSheet.addAction(UIAlertAction.init(title: "Avbryt".localized(key: "actionsheet_abort"), style: .cancel, handler: nil))
             
             self?.present(actionSheet, animated: true, completion: nil)
         }
@@ -169,7 +177,7 @@ public class BrowsingViewController : UIViewController {
         
         outputs.startVoiceOver.observeValuesForUI  { [weak self] value in
             let utterance = AVSpeechUtterance.init(string: value)
-            utterance.voice = AVSpeechSynthesisVoice(language: "nb-NO")
+            utterance.voice = AVSpeechSynthesisVoice(language: Current.appSettings.speechSynthesizedLanguage)
             self?.speech.speak(utterance)
         }
         
@@ -207,5 +215,8 @@ extension BrowsingViewController : WKNavigationDelegate {
         vm.inputs.didCommitNavigationObserver.send(value: ())
     }
     
+    public override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 }
 
