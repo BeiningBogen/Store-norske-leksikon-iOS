@@ -23,7 +23,7 @@ class SearchTableViewDataSource: ValueCellDataSource {
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return "Tidligere søk"
+        return "Tidligere søk".localized(key: "search_previous_searches")
     }
     
 }

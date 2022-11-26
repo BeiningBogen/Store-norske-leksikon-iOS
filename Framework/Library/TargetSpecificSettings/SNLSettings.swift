@@ -15,7 +15,11 @@ struct TargetSpecificSettings {
     /// The base URL used for search API
     static let searchBaseURL: String = "https://snl.no"
     
+    
     static let speechSynthesizedLanguage: String = "nb-NO"
+    
+    static let domTitleToBeStripped: String = " – Store norske leksikon "
+    
     
     func setupAppearance() {
      

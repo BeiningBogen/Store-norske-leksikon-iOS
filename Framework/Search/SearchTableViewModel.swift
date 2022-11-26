@@ -99,7 +99,7 @@ public final class SearchViewModel {
         
         let showError = searchArticlesRequest
             .filterMap { $0.1 }
-            .map { _ in RequestableAlertModel(title: "Kunne ikke søke", message: "Sjekk tilkoblingen din og prøv på nytt") }
+            .map { _ in RequestableAlertModel(title: "Kunne ikke søke".localized(key: "search_failed_title"), message: "Sjekk tilkoblingen din og prøv på nytt".localized(key: "search_failed_message")) }
         
         return (title : title,
                 articles: articles,

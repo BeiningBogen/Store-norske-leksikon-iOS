@@ -15,3 +15,17 @@
 "actionsheet_title" = "Handlinger";
 "actionsheet_share_article" = "Del lenke til artikkelen";
 "actionsheet_abort" = "Avbryt";
+
+"search_read_whole_article" = "Les hele artikkelen";
+
+"search_previous_searches" = "search_previous_searches";
+
+"search_results" = "Søkeresultater";
+"search_title" = "Søk";
+
+"search_previous_results" = "Tidligere søk";
+
+"search_failed_title" = "Kunne ikke søke";
+
+"search_failed_message" = "Sjekk tilkoblingen din og prøv igjen";
+

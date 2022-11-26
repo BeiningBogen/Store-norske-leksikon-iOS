@@ -54,7 +54,7 @@ class SearchTableViewCell: UITableViewCell, ValueCell {
         previewImage = UIImageView.init(frame: .zero)
         cardBackgroundView = UIView.init(frame: .zero)
         readWholeArticleLabel = UILabel(frame: .zero)
-        readWholeArticleLabel.text = "Les hele artikkelen"
+        readWholeArticleLabel.text = "Les hele artikkelen".localized(key: "search_read_whole_article")
         arrowImageView = UIImageView.init(image: UIImage.init(named: "arrow"))
         
         previewImage.contentMode = .scaleAspectFill

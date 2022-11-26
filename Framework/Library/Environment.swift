@@ -24,13 +24,16 @@ public struct Environment {
 
 public struct AppSettings {
     
-    public init(speechSynthesizedLanguage: String = "nb-NO", searchBaseURL: String = "https://snl.no") {
+    public init(speechSynthesizedLanguage: String = "nb-NO", searchBaseURL: String = "https://snl.no", domTitleToBeStripped: String = " – Store norske leksikon ") {
         self.speechSynthesizedLanguage = speechSynthesizedLanguage
         self.searchBaseURL = searchBaseURL
+        self.domTitleToBeStripped = domTitleToBeStripped
     }
     
     
     public var speechSynthesizedLanguage: String
+    
+    public var domTitleToBeStripped: String
     
     public var searchBaseURL: String
     

@@ -13,7 +13,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         /*Do not run the application when the tests are running.*/
         if ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil { return true }
         
-        Current.appSettings = AppSettings(speechSynthesizedLanguage: TargetSpecificSettings.speechSynthesizedLanguage, searchBaseURL: TargetSpecificSettings.searchBaseURL)
+        Current.appSettings = AppSettings(speechSynthesizedLanguage: TargetSpecificSettings.speechSynthesizedLanguage, searchBaseURL: TargetSpecificSettings.searchBaseURL, domTitleToBeStripped: TargetSpecificSettings.domTitleToBeStripped)
 //        application.statusBarStyle = .lightContent
 //        window?.windowScene?.statusBarManager?.statusBarStyle = .lightContent
         
@@ -41,7 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.backgroundColor = .white
         window?.rootViewController = tabbarController
         window?.makeKeyAndVisible()
-        browsingViewController.splashScreen = SplashScreen.show(inWindow: window) as! any SplashScreenProtocol
+        browsingViewController.splashScreen = SplashScreen.show(inWindow: window)!
         
         Current.api = Api.init(serverConfig: ServerConfig.init(baseURL: URL.init(string: TargetSpecificSettings.baseURL)!, basicHTTPAuth: nil))
         browsingViewController.vm.inputs.configureObserver.send(value: URLRequest.init(url: URL.init(string: TargetSpecificSettings.baseURL)!))
