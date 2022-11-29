@@ -54,9 +54,11 @@
 		EC487F9E292BC35E001E42D7 /* Store_norske_leksikon_iOSFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F176F625214268290094BB29 /* Store_norske_leksikon_iOSFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EC487FAA292C0FD4001E42D7 /* LexSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC487FA6292C0FC5001E42D7 /* LexSettings.swift */; };
 		EC487FB3292C1413001E42D7 /* SNLSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC487FA8292C0FCD001E42D7 /* SNLSettings.swift */; };
-		EC8F9B6F292F78D400E6086E /* LaunchScreen-lex.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC8F9B6D292F773400E6086E /* LaunchScreen-lex.storyboard */; };
 		EC8F9B71292F9B6C00E6086E /* SplashScreen+SNL.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8F9B70292F9B6C00E6086E /* SplashScreen+SNL.swift */; };
 		EC8F9B74292F9B9600E6086E /* SplashScreen+lex.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8F9B72292F9B7A00E6086E /* SplashScreen+lex.swift */; };
+		ECD859DE2934D75900704838 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD859DD2934D75900704838 /* URL.swift */; };
+		ECD859E02934E15800704838 /* SplashScreenProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD859DF2934E15800704838 /* SplashScreenProtocol.swift */; };
+		ECF41D1C29365699008E4765 /* LaunchScreen-lex.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECF41D1E29365699008E4765 /* LaunchScreen-lex.storyboard */; };
 		ECF6541E28F9585500B1241F /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF6541B28F956F700B1241F /* Color.swift */; };
 		F11FF8A4213981B200344836 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3EBB1820DCE97D00B7D41D /* AppDelegate.swift */; };
 		F1F25BFF2189BA9A009F1AB0 /* ValueCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E97EE2217BC72300BF2ECA /* ValueCell.swift */; };
@@ -167,7 +169,6 @@
 		C9FD84C954B7DCEC470DE92A /* Pods-Store-norske-leksikon-iOSApi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Store-norske-leksikon-iOSApi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Store-norske-leksikon-iOSApi/Pods-Store-norske-leksikon-iOSApi.debug.xcconfig"; sourceTree = "<group>"; };
 		DD96DD2D8C97B9712F2A1B1A /* Pods-Store-norske-leksikon-iOSApi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Store-norske-leksikon-iOSApi.release.xcconfig"; path = "Pods/Target Support Files/Pods-Store-norske-leksikon-iOSApi/Pods-Store-norske-leksikon-iOSApi.release.xcconfig"; sourceTree = "<group>"; };
 		EC0031D6292CF53C00526A68 /* nb */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = nb; path = "nb.lproj/LaunchScreen-SNL.storyboard"; sourceTree = "<group>"; };
-		EC0031DD292CF55B00526A68 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EC0031E0292CF56400526A68 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EC0031E1292F6D4C00526A68 /* lex-assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = "lex-assets.xcassets"; path = "../../../Library/Application Support/lex-assets.xcassets"; sourceTree = "<group>"; };
 		EC0031E4292F6DDA00526A68 /* snl-assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "snl-assets.xcassets"; sourceTree = "<group>"; };
@@ -175,9 +176,14 @@
 		EC487FA4292BC35F001E42D7 /* Store-norske-leksikon-iOS copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Store-norske-leksikon-iOS copy-Info.plist"; path = "/Users/hakonbogen/Developer/Store-norske-leksikon-iOS/Store-norske-leksikon-iOS copy-Info.plist"; sourceTree = "<absolute>"; };
 		EC487FA6292C0FC5001E42D7 /* LexSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LexSettings.swift; sourceTree = "<group>"; };
 		EC487FA8292C0FCD001E42D7 /* SNLSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNLSettings.swift; sourceTree = "<group>"; };
-		EC8F9B6D292F773400E6086E /* LaunchScreen-lex.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "LaunchScreen-lex.storyboard"; sourceTree = "<group>"; };
 		EC8F9B70292F9B6C00E6086E /* SplashScreen+SNL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SplashScreen+SNL.swift"; sourceTree = "<group>"; };
 		EC8F9B72292F9B7A00E6086E /* SplashScreen+lex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SplashScreen+lex.swift"; sourceTree = "<group>"; };
+		ECD859DD2934D75900704838 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
+		ECD859DF2934E15800704838 /* SplashScreenProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenProtocol.swift; sourceTree = "<group>"; };
+		ECF41D1A2936565E008E4765 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Localizable.strings; sourceTree = "<group>"; };
+		ECF41D1B29365692008E4765 /* da */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = da; path = "da.lproj/LaunchScreen-SNL.storyboard"; sourceTree = "<group>"; };
+		ECF41D1D29365699008E4765 /* nb */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = nb; path = "nb.lproj/LaunchScreen-lex.storyboard"; sourceTree = "<group>"; };
+		ECF41D1F2936569F008E4765 /* da */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = da; path = "da.lproj/LaunchScreen-lex.storyboard"; sourceTree = "<group>"; };
 		ECF6541B28F956F700B1241F /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
 		F176F623214268290094BB29 /* Store-norske-leksikon-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Store-norske-leksikon-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F176F625214268290094BB29 /* Store_norske_leksikon_iOSFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Store_norske_leksikon_iOSFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -287,7 +293,7 @@
 				0A3EBB2220DCE97F00B7D41D /* Assets.xcassets */,
 				EC0031E1292F6D4C00526A68 /* lex-assets.xcassets */,
 				EC0031E4292F6DDA00526A68 /* snl-assets.xcassets */,
-				EC8F9B6D292F773400E6086E /* LaunchScreen-lex.storyboard */,
+				ECF41D1E29365699008E4765 /* LaunchScreen-lex.storyboard */,
 				0A3EBB2420DCE97F00B7D41D /* LaunchScreen-SNL.storyboard */,
 				0A3EBB2720DCE97F00B7D41D /* Info.plist */,
 			);
@@ -319,11 +325,13 @@
 			children = (
 				EC487FA5292C0FAF001E42D7 /* TargetSpecificSettings */,
 				0A6965AE21C17107007FB57E /* Article.swift */,
+				ECD859DF2934E15800704838 /* SplashScreenProtocol.swift */,
 				0A817FF022A6CEBE00DA3981 /* Codable+Extension.swift */,
 				0A817FE822A4FC3500DA3981 /* Database.swift */,
 				0A6F45F720F9F0420062D5BE /* Environment.swift */,
 				0A4AD9F62295962900E4FDE3 /* ModalLoader.swift */,
 				0A774B2720FE2F3A00B83EFE /* OperatorOverload.swift */,
+				ECD859DD2934D75900704838 /* URL.swift */,
 				0A550C7620F62B2700F69F67 /* Requestable.swift */,
 				0A550C7A20F62B2700F69F67 /* Requestables.swift */,
 				0A550C7720F62B2700F69F67 /* Service.swift */,
@@ -582,7 +590,7 @@
 			files = (
 				EC0031E8292F6E2100526A68 /* lex-assets.xcassets in Resources */,
 				EC487F9C292BC35E001E42D7 /* Assets.xcassets in Resources */,
-				EC8F9B6F292F78D400E6086E /* LaunchScreen-lex.storyboard in Resources */,
+				ECF41D1C29365699008E4765 /* LaunchScreen-lex.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -726,10 +734,12 @@
 				F1F25C002189BA9D009F1AB0 /* ValueCellDataSource.swift in Sources */,
 				0A3F231E22A8093200C66FE0 /* SearchHistoryViewController.swift in Sources */,
 				0A08F00921BFA7A50007A3B1 /* SearchTableViewModel.swift in Sources */,
+				ECD859DE2934D75900704838 /* URL.swift in Sources */,
 				0A3F232022A812EA00C66FE0 /* SearchHistoryDataSource.swift in Sources */,
 				0A774B2820FE2F3A00B83EFE /* OperatorOverload.swift in Sources */,
 				0A29BB842273272700A96B20 /* Article.swift in Sources */,
 				0AC5F56523158ADF0038923B /* String+Extension.swift in Sources */,
+				ECD859E02934E15800704838 /* SplashScreenProtocol.swift in Sources */,
 				0AB39D8D21B5CC57007235D1 /* BrowsingViewController.swift in Sources */,
 				0A29BB822273272700A96B20 /* Service.swift in Sources */,
 				ECF6541E28F9585500B1241F /* Color.swift in Sources */,
@@ -812,6 +822,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				EC0031D6292CF53C00526A68 /* nb */,
+				ECF41D1B29365692008E4765 /* da */,
 			);
 			name = "LaunchScreen-SNL.storyboard";
 			sourceTree = "<group>";
@@ -819,10 +830,19 @@
 		EC0031DE292CF55B00526A68 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				EC0031DD292CF55B00526A68 /* nb */,
 				EC0031E0292CF56400526A68 /* da */,
+				ECF41D1A2936565E008E4765 /* nb */,
 			);
 			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+		ECF41D1E29365699008E4765 /* LaunchScreen-lex.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				ECF41D1D29365699008E4765 /* nb */,
+				ECF41D1F2936569F008E4765 /* da */,
+			);
+			name = "LaunchScreen-lex.storyboard";
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -1098,7 +1118,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Store-norske-leksikon-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 21;
+				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_TEAM = XR4X27GD6H;
 				INFOPLIST_FILE = "Store-norske-leksikon-iOS copy-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = lex.dk;
@@ -1126,7 +1146,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Store-norske-leksikon-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 21;
+				CURRENT_PROJECT_VERSION = 22;
 				DEVELOPMENT_TEAM = XR4X27GD6H;
 				INFOPLIST_FILE = "Store-norske-leksikon-iOS copy-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = lex.dk;

@@ -12,10 +12,6 @@ import WebKit
 import AVFoundation
 fileprivate class BundleClass {}
 
-public protocol SplashScreenProtocol: UIView {
-    static func show(inWindow: UIWindow?) -> SplashScreenProtocol?
-    func animateFadeout()
-}
 
 public class BrowsingViewController : UIViewController {
 
@@ -26,7 +22,6 @@ public class BrowsingViewController : UIViewController {
     var toolBar: SearchToolbar!
     
     let webView: WKWebView
-    var loadWithRequest: URLRequest?
     let speech = AVSpeechSynthesizer.init()
     
 
@@ -51,18 +46,9 @@ public class BrowsingViewController : UIViewController {
         vm.inputs.viewDidLoadObserver.send(value: ())
     }
     
-    public override func viewDidAppear(_ animated: Bool) {
-        
-        
-    }
-    
     public override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         vm.inputs.viewWillDisappearObserver.send(value: ())
-        
-        
-        
-        
     }
     
     @objc
@@ -148,7 +134,7 @@ public class BrowsingViewController : UIViewController {
         }
         
         outputs.showLoader.observeValuesForUI { [weak self] value in
-            ModalLoader.showOrHide(value: value, inView: self?.view)
+            ModalLoader.showOrHide(value: value, inView: self?.view, type: .singleImageSpinning)
             if value == false {
                 self?.splashScreen?.animateFadeout()
             }

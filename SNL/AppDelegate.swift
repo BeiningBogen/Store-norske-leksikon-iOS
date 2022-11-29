@@ -44,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         browsingViewController.splashScreen = SplashScreen.show(inWindow: window)!
         
         Current.api = Api.init(serverConfig: ServerConfig.init(baseURL: URL.init(string: TargetSpecificSettings.baseURL)!, basicHTTPAuth: nil))
-        browsingViewController.vm.inputs.configureObserver.send(value: URLRequest.init(url: URL.init(string: TargetSpecificSettings.baseURL)!))
+        browsingViewController.vm.inputs.configureObserver.send(value: URL.init(string: TargetSpecificSettings.baseURL)!.requestWithAppVersionHeader())
         /// Opening external URL
         if let activityDictionary = launchOptions?[UIApplication.LaunchOptionsKey.userActivityDictionary] as? [AnyHashable: Any] {
             for key in activityDictionary.keys {

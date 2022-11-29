@@ -17,7 +17,6 @@ public class SplashScreen: UIView, SplashScreenProtocol {
     let logo = UIImageView.init(image: UIImage.init(named: "SNL-logo"))
     let logoText = UILabel.init(frame: .zero)
     
-    
     private struct Constants {
         /// Time before the loader shows
         static let delayBeforeStartingAnimation: Double = 0.1

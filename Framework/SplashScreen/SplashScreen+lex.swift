@@ -119,9 +119,7 @@ public class SplashScreen: UIView, SplashScreenProtocol {
     public func animateFadeout() {
         if self.logo1.alpha == 1 {
             UIView.animate(withDuration: Constants.logoFadeoutDuration, delay: 0.2, options: .curveEaseInOut, animations: {
-//                self.logo1.transform = CGAffineTransform.init(scaleX: 1.2, y: 1.2)
                 self.logo1.alpha = 0
-//                self.logo2.transform = CGAffineTransform.init(scaleX: 1.2, y: 1.2)
                 self.logo2.alpha = 0
             }) { _ in
                 UIView.animate(withDuration: Constants.backgroundFadeoutDuration, animations: {

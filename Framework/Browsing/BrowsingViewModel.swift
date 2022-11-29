@@ -125,7 +125,7 @@ public final class BrowsingViewModel {
             inputs.didFinishNavigation.map { _ in false },
             inputs.didFailNavigation.map { _ in false }
         )
-
+        
         let addMoreButton = Signal.combineLatest(inputs.configure, inputs.viewDidLoad)
             .filter { $0.0.url != URL.init(string: "https://snl.no")}
             .map { _ in }
@@ -133,9 +133,13 @@ public final class BrowsingViewModel {
         let stripHeaderFooter = inputs.didCommitNavigation
         
         let addDOMLoadStripScript = inputs.didCommitNavigation
-
+        
         let browseOnSamePage = inputs.configure
-            .sample(on: inputs.viewDidLoad)
+            .sample(on: inputs.viewDidLoad).map {
+                var request = $0
+                request.addAppVersionHeader()
+                return request
+            }
         
         let requestForTitle = inputs.didCommitNavigation
         
@@ -183,11 +187,16 @@ public final class BrowsingViewModel {
             .skipNil()
             .sample(on: inputs.didTapVoiceoverButton)
 
-        let searchURLRequest = inputs.didSearchForArticle.map { URLRequest.init(url: URL.init(string: $0.articleURL)!) }
+        let searchURLRequest = inputs.didSearchForArticle.map { URL.init(string: $0.articleURL)!.requestWithAppVersionHeader() }
         
         let browseToNewPage = Signal.merge(shouldBrowseToNewPage,
                                            searchURLRequest,
-                                           inputs.browseAppOpenURL.map { URLRequest.init(url: $0)}
+                                           inputs.browseAppOpenURL.map { $0.requestWithAppVersionHeader() }
+            .map {
+                var request = $0
+                request.addAppVersionHeader()
+                return request
+        }
         )
         let showMoreOptionsController = inputs.didTapMoreActionsButton
 

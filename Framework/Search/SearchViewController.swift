@@ -66,7 +66,7 @@ final public class SearchViewController: UITableViewController, UISearchBarDeleg
         tableView.register(SearchTableViewCell.self, forCellReuseIdentifier: SearchTableViewCell.defaultReusableId)
         tableView.delegate = self
         tableView.dataSource = dataSource
-        navigationItem.title = "Søk"
+        navigationItem.title = "Søk".localized(key: "tabbar_search")
 
     }
 
@@ -93,7 +93,7 @@ final public class SearchViewController: UITableViewController, UISearchBarDeleg
         }
         
         outputs!.showLoader.observeValuesForUI { [weak self] shouldShowLoader in
-            ModalLoader.showOrHide(value: shouldShowLoader, inView: self?.view)
+            ModalLoader.showOrHide(value: shouldShowLoader, inView: self?.view, type: .singleImageSpinning)
         }
         
         outputs.dismissKeyboard.observeValues { [weak self] _ in
@@ -121,8 +121,3 @@ extension SearchViewController {
     
 }
 
-//extension SearchViewController : UISearchBarDelegate {
-//    private func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-////        self.searchBar = searchBar
-//    }
-//}

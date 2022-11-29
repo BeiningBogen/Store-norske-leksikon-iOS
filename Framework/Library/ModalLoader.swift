@@ -2,13 +2,19 @@
 import Foundation
 import UIKit
 import Cartography
+import QuartzCore
+
+enum ModalLoaderType {
+    case singleImageSpinning
+    case multipleImagesSpinning
+}
 
 class ModalLoader: UIView {
     
     private static let viewTag = 3141592
     
     /// Show a modal s
-    static public func show(inView view: UIView?) {
+    static public func show(inView view: UIView?, type: ModalLoaderType) {
         
         guard let view = view else { return }
         
@@ -17,7 +23,56 @@ class ModalLoader: UIView {
             return
         }
         
+        switch type {
+            case .singleImageSpinning:
+                createSingleImageLoader(inView: view)
+            case .multipleImagesSpinning:
+                createMultipleImagesLoader(inView: view)
+        }
 
+    }
+    
+    private static func createSingleImageLoader(inView view: UIView) {
+        let loader = ModalLoader.init()
+        view.addSubview(loader)
+        loader.backgroundColor = .clear
+        loader.alpha = 1
+
+        let imageView = UIImageView.init(image: UIImage.init(named: "Loader"))
+        imageView.alpha = 1
+        loader.addSubview(imageView)
+        
+        constrain(view, loader, imageView) { view, loader, imageView in
+
+            loader.center == view.center
+            loader.height == CGFloat.random(in: 0...60)
+            loader.width == 60
+
+            imageView.width == 60
+            imageView.height == 60
+
+            imageView.center == loader.center
+        }
+        
+        loader.tag = viewTag
+        rotateAnimation(imageView: imageView)
+        
+    }
+    
+    static func rotateAnimation(imageView: UIImageView, duration: CFTimeInterval = 2.0) {
+        let rotateAnimation = CABasicAnimation(keyPath: "transform.rotation")
+        rotateAnimation.fromValue = 0.0
+        rotateAnimation.toValue = CGFloat(.pi * 2.0)
+        rotateAnimation.duration = duration
+        
+        rotateAnimation.timingFunction = CAMediaTimingFunction.init(name: kCAMediaTimingFunctionEaseInEaseOut)
+        rotateAnimation.repeatCount = .greatestFiniteMagnitude
+        
+        imageView.layer.add(rotateAnimation, forKey: nil)
+    }
+    
+    private static func createMultipleImagesLoader(inView view: UIView) {
+ 
         let loader = ModalLoader.init()
         view.addSubview(loader)
         loader.backgroundColor = .white
@@ -99,8 +154,9 @@ class ModalLoader: UIView {
     
     private func startSpin() {
         
+        
         UIView.animate(withDuration: 0.75, delay: 0.0, options: [UIViewAnimationOptions.autoreverse , UIViewAnimationOptions.repeat], animations: {
-            
+
         }) { (comp) in }
     }
 
@@ -115,12 +171,16 @@ class ModalLoader: UIView {
 
 /// convenience
 extension ModalLoader {
-    static func showOrHide(value: Bool, inView: UIView?) {
+    static func showOrHide(value: Bool, inView: UIView? , type: ModalLoaderType) {
         if value {
-            ModalLoader.show(inView: inView)
+            ModalLoader.show(inView: inView, type: type)
         } else {
             ModalLoader.hide(inView: inView)
         }
     }
     
+}
+
+fileprivate func deg2rad(_ number: Double) -> Double {
+    return number * .pi / 180
 }
