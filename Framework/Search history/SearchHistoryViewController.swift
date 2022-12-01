@@ -66,7 +66,7 @@ public class SearchHistoryViewController : UITableViewController, UISearchBarDel
         tableView.delegate = self
         definesPresentationContext = true
         navigationItem.title = "Søk".localized(key: "search_title")
-        tabBarItem = UITabBarItem.init(title: "Søk", image: UIImage.init(named: "search"), tag: 0)
+        tabBarItem = UITabBarItem.init(title: "Søk".localized(key: "tabbar_search"), image: UIImage.init(named: "search"), tag: 0)
         navigationItem.searchController?.searchBar.delegate = self.navigationItem.searchController?.searchResultsController as! SearchViewController
         navigationItem.searchController?.searchBar.backgroundColor = .secondaryBackground
         navigationItem.searchController?.searchBar.backgroundColor = .primaryBackground
