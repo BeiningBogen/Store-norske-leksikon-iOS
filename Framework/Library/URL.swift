@@ -6,7 +6,8 @@
 //  Copyright © 2022 Beining & Bogen. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import WebKit
 
 extension URL {
     /// Returns a request with an X-App header for `self`
@@ -22,8 +23,14 @@ extension URL {
 extension URLRequest {
     /// Returns a request with an X-App header for `self`
     public mutating func addAppVersionHeader()  {
+        
+    }
+}
+
+extension WKWebView {
+    func setCustomUserAgent() {
         if let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
-            self.setValue("dk.lex.app/iOS/\(appVersion)", forHTTPHeaderField: "X-App")
+            self.customUserAgent = "dk.lex.app/iOS/\(appVersion)"
         }
     }
 }

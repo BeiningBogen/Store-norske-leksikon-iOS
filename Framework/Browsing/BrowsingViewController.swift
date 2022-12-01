@@ -63,6 +63,7 @@ public class BrowsingViewController : UIViewController {
         webView.scrollView.showsHorizontalScrollIndicator = false
         webView.scrollView.alwaysBounceHorizontal = false
         webView.scrollView.isDirectionalLockEnabled = true
+        webView.setCustomUserAgent()
 
     }
 

@@ -14,20 +14,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil { return true }
         
         Current.appSettings = AppSettings(speechSynthesizedLanguage: TargetSpecificSettings.speechSynthesizedLanguage, searchBaseURL: TargetSpecificSettings.searchBaseURL, domTitleToBeStripped: TargetSpecificSettings.domTitleToBeStripped)
-//        application.statusBarStyle = .lightContent
-//        window?.windowScene?.statusBarManager?.statusBarStyle = .lightContent
         
         UIApplication.shared.statusBarStyle = .lightContent
         self.window = UIWindow(frame: UIScreen.main.bounds)
         
         let tabbarController = UITabBarController.init(nibName: nil, bundle: nil)
         TargetSpecificSettings.setupAppearance()
-//        navigationController?.navigationBar.barTintColor = UIColor.magenta
-//        navigationController?.navigationBar.backgroundColor = UIColor.primaryBackground
         
         let browsingViewController = BrowsingViewController.init(nibName: nil, bundle: nil)
         let navControllerBrowsing = UINavigationController.init(rootViewController: browsingViewController)
-//        navControllerBrowsing.navigationBar.barTintColor = UIColor.green
         
         tabbarController.addChildViewController(navControllerBrowsing)
         let searchController = SearchHistoryViewController.init(style: .grouped)
