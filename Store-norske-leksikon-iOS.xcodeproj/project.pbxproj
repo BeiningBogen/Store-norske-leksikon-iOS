@@ -1118,7 +1118,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Store-norske-leksikon-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 24;
+				CURRENT_PROJECT_VERSION = 25;
 				DEVELOPMENT_TEAM = XR4X27GD6H;
 				INFOPLIST_FILE = "Store-norske-leksikon-iOS copy-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = lex.dk;
@@ -1146,7 +1146,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "Store-norske-leksikon-iOS.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 24;
+				CURRENT_PROJECT_VERSION = 25;
 				DEVELOPMENT_TEAM = XR4X27GD6H;
 				INFOPLIST_FILE = "Store-norske-leksikon-iOS copy-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = lex.dk;

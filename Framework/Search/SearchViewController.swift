@@ -66,7 +66,7 @@ final public class SearchViewController: UITableViewController, UISearchBarDeleg
         tableView.register(SearchTableViewCell.self, forCellReuseIdentifier: SearchTableViewCell.defaultReusableId)
         tableView.delegate = self
         tableView.dataSource = dataSource
-        navigationItem.title = "Søk".localized(key: "tabbar_search")
+        navigationItem.title = "Søk".localized(key: "tab_search")
 
     }
 

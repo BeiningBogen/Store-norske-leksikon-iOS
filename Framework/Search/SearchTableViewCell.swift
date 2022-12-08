@@ -35,7 +35,7 @@ class SearchTableViewCell: UITableViewCell, ValueCell {
 
     override func prepareForReuse() {
         super.prepareForReuse()
-        imageView?.image = nil
+        previewImage?.image = nil
     }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
