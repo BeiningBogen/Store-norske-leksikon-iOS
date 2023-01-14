@@ -8,8 +8,8 @@ public struct Service : ServiceType {
          return Requests.GetArticleRequestable.request(serverConfig: self.serverConfig, path: path)
     }
 
-    public func searchArticles(path: Requests.SearchArticlesRequestable.Path) -> SignalProducer<Requests.SearchArticlesRequestable.Response, RequestableError> {
-        return Requests.SearchArticlesRequestable.request(serverConfig: self.serverConfig, path: path)
+    public func searchArticles(path: Requests.SearchAutocompleteRequestable.Path) -> SignalProducer<Requests.SearchAutocompleteRequestable.Response, RequestableError> {
+        return Requests.SearchAutocompleteRequestable.request(serverConfig: self.serverConfig, path: path)
     }
     
     public let serverConfig: ServerConfigType

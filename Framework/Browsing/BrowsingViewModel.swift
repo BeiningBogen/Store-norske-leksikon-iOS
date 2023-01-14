@@ -28,7 +28,7 @@ public final class BrowsingViewModel {
         public let (foundTitle, foundTitleObserver) = Signal<String, NoError>.pipe()
         
         /// Call when when user tapped the search button
-        public let (didSearchForArticle, didSearchForArticleObserver) = Signal<Article, NoError>.pipe()
+        public let (didSearchForArticle, didSearchForArticleObserver) = Signal<AutocompleteResult, NoError>.pipe()
         
         /// Call when webview starts navigation
         public let (didTapSearchButton, didTapSearchButtonObserver) = Signal<Void, NoError>.pipe()

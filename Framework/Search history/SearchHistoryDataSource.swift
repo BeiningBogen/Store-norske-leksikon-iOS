@@ -11,12 +11,12 @@ import UIKit
 
 class SearchHistoryTableViewDataSource: ValueCellDataSource {
     
-    internal func loadData(articles: [Article]) {
+    internal func loadData(articles: [AutocompleteResult]) {
         set(values: articles, cellClass: SearchTableViewCell.self, inSection: 0)
     }
     
     override func configureCell(tableCell cell: UITableViewCell, withValue value: Any) {
-        if let cell = cell as? SearchTableViewCell, let value = value as? Article {
+        if let cell = cell as? SearchTableViewCell, let value = value as? AutocompleteResult {
             cell.configureWith(value: value)
         }
     }

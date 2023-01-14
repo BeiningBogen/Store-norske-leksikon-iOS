@@ -28,7 +28,7 @@ public struct Requests {
         }
     }
 
-    public struct SearchArticlesRequestable : Requestable {
+public struct SearchArticlesRequestable : Requestable {
         
         public typealias Parameter = Never
         public typealias Response = [Article]
@@ -67,6 +67,46 @@ public struct Requests {
         
     }
     
+    public struct SearchAutocompleteRequestable : Requestable {
+        
+        public typealias Parameter = Never
+        public typealias Response = [AutocompleteResult]
+        public static let apiType: APIType = .standard
+        public static let method: HTTPMethod = .get
+        public static var parameterEncoding: RequestableParameterEncoding {
+            return .query
+        }
+
+        public struct Path: PathComponentsProvider {
+            
+        
+            public typealias Query = SearchQuery
+            
+            let searchWord : String
+            let limit : Int?
+            let offset : Int?
+            private var query: Query
+
+            public init(searchWord: String, limit: Int = 10, offset: Int? = nil) {
+                self.searchWord = searchWord
+                self.limit = limit
+                self.offset = offset
+                self.query = Query.init(query: searchWord, limit: limit, offset: offset)
+                
+            }
+            
+            public var pathComponents: (path: [String], query: Query?) {
+                return (
+                    [Current.appSettings.searchBaseURL, ".search", "autocomplete"],
+                    query
+                )
+            }
+            
+        }
+        
+    }
+    
+//        https://lex.dk/.search/autocomplete?query=test
     public struct SearchQuery : Encodable {
         
         let query: String

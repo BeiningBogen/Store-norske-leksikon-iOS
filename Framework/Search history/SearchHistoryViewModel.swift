@@ -33,10 +33,10 @@ public final class SearchHistoryViewModel {
         title: Signal<String, NoError>,
         
         /// Emit the articles search result to show
-        articles: Signal<[Article], NoError>,
+        articles: Signal<[AutocompleteResult], NoError>,
         
         /// Emit when the user taps an article in the list
-        openArticle: Signal<Article, NoError>
+        openArticle: Signal<AutocompleteResult, NoError>
         
     )
     
@@ -48,7 +48,7 @@ public final class SearchHistoryViewModel {
 
         let articles = Signal.merge(inputs.viewDidLoad,
                                     inputs.searchClearedOrCanceled)
-                .map { _ -> [Article] in
+                .map { _ -> [AutocompleteResult] in
                     let history = Current.database.fetchSearchHistory()
                     return history
                     

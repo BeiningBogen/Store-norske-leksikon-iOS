@@ -41,7 +41,7 @@ class SearchTableViewCell: UITableViewCell, ValueCell {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func configureWith(value: Article) {
+    func configureWith(value: AutocompleteResult) {
         vm.inputs.configureWith(article: value)
         
     }
@@ -52,6 +52,7 @@ class SearchTableViewCell: UITableViewCell, ValueCell {
         titleLabel = UILabel.init(frame: .zero)
         excerptLabel = UILabel.init(frame: .zero)
         previewImage = UIImageView.init(frame: .zero)
+        previewImage.backgroundColor = .red
         cardBackgroundView = UIView.init(frame: .zero)
         readWholeArticleLabel = UILabel(frame: .zero)
         readWholeArticleLabel.text = "Les hele artikkelen".localized(key: "search_read_whole_article")
@@ -105,9 +106,11 @@ class SearchTableViewCell: UITableViewCell, ValueCell {
             titleLabelProxy.left == cardBackgroundView.left + Layout.marginLeft
             titleLabelProxy.bottom == excerptProxy.top
 
+            excerptProxy.top == titleLabelProxy.bottom + 5
             excerptProxy.left == titleLabelProxy.left
+            excerptProxy.right == cardBackgroundView.right - Layout.marginRight
             
-            readWholeArticleProxy.top == excerptProxy.bottom
+            readWholeArticleProxy.top == excerptProxy.bottom + 5
             readWholeArticleProxy.left == excerptProxy.left
             readWholeArticleProxy.bottom == cellProxy.bottom - 15
             
@@ -115,13 +118,13 @@ class SearchTableViewCell: UITableViewCell, ValueCell {
             arrowImageProxy.centerY == readWholeArticleProxy.centerY
             
            
-            imageProxy.width == Layout.imageWidth
-            imageProxy.height == Layout.imageHeight
-            
-            imageProxy.right == cellProxy.right - Layout.marginRight
-            imageProxy.left == excerptProxy.right + Layout.marginLeft
-            imageProxy.top == titleLabelProxy.top + 10
-            imageProxy.bottom == readWholeArticleProxy.bottom - 10
+//            imageProxy.width == Layout.imageWidth
+//            imageProxy.height == Layout.imageHeight
+//
+//            imageProxy.right == cellProxy.right - Layout.marginRight
+//            imageProxy.left == excerptProxy.right + Layout.marginLeft
+//            imageProxy.top == titleLabelProxy.top + 10
+//            imageProxy.bottom == readWholeArticleProxy.bottom - 10
 
         }
     }

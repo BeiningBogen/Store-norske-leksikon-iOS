@@ -21,7 +21,7 @@ final public class SearchViewController: UITableViewController, UISearchBarDeleg
     
     var clearOrCancelSearchHandler: (() -> ())?
     
-    var didSelectArticleHandler: ((Article) -> ())?
+    var didSelectArticleHandler: ((AutocompleteResult) -> ())?
     
     public override init(style: UITableViewStyle) {
         super.init(style: style)

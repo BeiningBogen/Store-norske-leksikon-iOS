@@ -8,12 +8,12 @@
 
 import Foundation
 
-private func _fetchSearchHistory() -> [Article] {
+private func _fetchSearchHistory() -> [AutocompleteResult] {
     
-    return [Article].fetch() ?? [Article]()
+    return [AutocompleteResult].fetch() ?? [AutocompleteResult]()
 }
 
-private func addToSearchHistory(_ article: Article) {
+private func addToSearchHistory(_ article: AutocompleteResult) {
     var articles = _fetchSearchHistory()
     articles.insert(article, at: 0)
     articles.persist()
