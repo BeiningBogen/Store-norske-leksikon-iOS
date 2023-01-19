@@ -26,7 +26,14 @@ class SearchTableViewCellViewModel: SearchTableViewCellViewModelType, SearchTabl
     init() {
         
         let value = configureWithProperty.signal.skipNil()
-        title = value.map { $0.title }
+        title = value
+            .map { result in
+                if let encyclopedia = result.encyclopedia {
+                    return "\(result.title) (\(encyclopedia))"
+                } else{
+                    return result.title
+                }
+            }
         excerpt = value.map { $0.excerpt }
         
         imageURL = value

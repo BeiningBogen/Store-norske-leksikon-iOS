@@ -50,6 +50,7 @@ class SearchTableViewCell: UITableViewCell, ValueCell {
         
         selectionStyle = .none
         titleLabel = UILabel.init(frame: .zero)
+        titleLabel.numberOfLines = 2
         excerptLabel = UILabel.init(frame: .zero)
         previewImage = UIImageView.init(frame: .zero)
         previewImage.backgroundColor = .red
@@ -104,6 +105,8 @@ class SearchTableViewCell: UITableViewCell, ValueCell {
 
             titleLabelProxy.top == cardBackgroundView.top + Layout.marginTop
             titleLabelProxy.left == cardBackgroundView.left + Layout.marginLeft
+            titleLabelProxy.right == cardBackgroundView.right - Layout.marginRight
+            
             titleLabelProxy.bottom == excerptProxy.top
 
             excerptProxy.top == titleLabelProxy.bottom + 5

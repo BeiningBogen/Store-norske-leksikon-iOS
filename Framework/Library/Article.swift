@@ -70,6 +70,8 @@ public struct AutocompleteResult : Codable, Equatable {
     public private(set) var title: String
     public private(set) var excerpt: String
     public private(set) var articleURL: String
+    public private(set) var encyclopedia: String?
+    
     
     enum CodingKeys: String, CodingKey {
         
@@ -77,6 +79,7 @@ public struct AutocompleteResult : Codable, Equatable {
         case title
         case excerpt
         case articleURL = "article_url"
+        case encyclopedia
         
 //        rticle_id    Artikkelens ID-nummer.
 //        article_type_id    1: Vanlig artikkel, 2: Biografi, 3: Landartikkel, etc....
@@ -99,5 +102,21 @@ public struct AutocompleteResult : Codable, Equatable {
 //        }
 //        return headword
 //    }
-    
+    public init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.articleId = try container.decode(Int.self, forKey: .articleId)
+        self.title = try container.decode(String.self, forKey: .title)
+        self.excerpt = try container.decode(String.self, forKey: .excerpt)
+        self.articleURL = try container.decode(String.self, forKey: .articleURL)
+        if let encyclopedia = try container.decodeIfPresent(String.self, forKey: .encyclopedia) {
+            if encyclopedia.isEmpty {
+                self.encyclopedia = nil
+            } else {
+                self.encyclopedia = encyclopedia
+            }
+        } else {
+            self.encyclopedia = nil
+        }
+        
+    }
 }
