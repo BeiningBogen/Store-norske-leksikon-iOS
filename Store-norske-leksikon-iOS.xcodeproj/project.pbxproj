@@ -185,6 +185,7 @@
 		ECF41D1D29365699008E4765 /* nb */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = nb; path = "nb.lproj/LaunchScreen-lex.storyboard"; sourceTree = "<group>"; };
 		ECF41D1F2936569F008E4765 /* da */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = da; path = "da.lproj/LaunchScreen-lex.storyboard"; sourceTree = "<group>"; };
 		ECF6541B28F956F700B1241F /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		ECFFB9A9297A8E3C00F3504C /* Store-norske-leksikon-iOS-lex.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Store-norske-leksikon-iOS-lex.entitlements"; sourceTree = "<group>"; };
 		F176F623214268290094BB29 /* Store-norske-leksikon-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Store-norske-leksikon-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F176F625214268290094BB29 /* Store_norske_leksikon_iOSFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Store_norske_leksikon_iOSFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F176F626214268290094BB29 /* SNLTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SNLTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -272,6 +273,7 @@
 		0A3EBB0C20DCE97D00B7D41D = {
 			isa = PBXGroup;
 			children = (
+				ECFFB9A9297A8E3C00F3504C /* Store-norske-leksikon-iOS-lex.entitlements */,
 				179348452418ED0A0090AD20 /* Store-norske-leksikon-iOS.entitlements */,
 				0A3EBB1720DCE97D00B7D41D /* SNL */,
 				0A22B2E620E586C4008E1F35 /* Framework */,
@@ -1116,7 +1118,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Store-norske-leksikon-iOS.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Store-norske-leksikon-iOS-lex.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 26;
 				DEVELOPMENT_TEAM = XR4X27GD6H;
@@ -1145,7 +1147,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "Store-norske-leksikon-iOS.entitlements";
+				CODE_SIGN_ENTITLEMENTS = "Store-norske-leksikon-iOS-lex.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 26;
 				DEVELOPMENT_TEAM = XR4X27GD6H;

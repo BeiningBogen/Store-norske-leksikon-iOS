@@ -34,7 +34,7 @@ class SearchTableViewCellViewModel: SearchTableViewCellViewModelType, SearchTabl
                     return result.title
                 }
             }
-        excerpt = value.map { $0.excerpt }
+        excerpt = value.map { $0.excerpt + "..." }
         
         imageURL = value
             .map { _ in nil }

@@ -128,6 +128,7 @@ public final class BrowsingViewModel {
         
         let addMoreButton = Signal.combineLatest(inputs.configure, inputs.viewDidLoad)
             .filter { $0.0.url != URL.init(string: "https://snl.no")}
+            .filter { $0.0.url != URL.init(string: "https://lex.dk")}
             .map { _ in }
         
         let stripHeaderFooter = inputs.didCommitNavigation
@@ -181,7 +182,7 @@ public final class BrowsingViewModel {
                 return Current.api.getArticle(.init(path: url + ".json"))
                     .map { $0.xhtml_body.stripOutHtml() }
                     .flatMapError { _ in .empty }
-        }
+            }
         
         let startVoiceOver = voiceoverString
             .skipNil()

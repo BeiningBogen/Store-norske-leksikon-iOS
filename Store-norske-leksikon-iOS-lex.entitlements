@@ -4,7 +4,8 @@
 <dict>
 	<key>com.apple.developer.associated-domains</key>
 	<array>
-		<string>applinks:snl.no</string>
+		<string>applinks:lex.dk</string>
+		<string>applinks:*.lex.dk</string>
 	</array>
 </dict>
 </plist>
