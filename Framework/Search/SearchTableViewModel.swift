@@ -39,10 +39,10 @@ public final class SearchViewModel {
         title: Signal<String, NoError>,
         
         /// Emit the articles search result to show
-        articles: Signal<[Article], NoError>,
+        articles: Signal<[AutocompleteResult], NoError>,
         
         /// Emit when the user taps an article in the list
-        openArticle: Signal<Article, NoError>,
+        openArticle: Signal<AutocompleteResult, NoError>,
         
         /// Emit when the spinner should show
         showLoader: Signal<Bool, NoError>,
@@ -65,8 +65,7 @@ public final class SearchViewModel {
         
         let searchArticlesRequest = inputs
             .searchTextChanged.filter { $0 != "" }
-            .debounce(0.50, on: QueueScheduler())
-            .flatMap(.latest) { art -> SignalProducer<([Article]?, RequestableError?), NoError> in
+            .flatMap(.latest) { art -> SignalProducer<([AutocompleteResult]?, RequestableError?), NoError> in
                 Current.api.searchArticles(.init(searchWord: art))
                     .map { ($0, nil) }
                     .flatMapError { SignalProducer.init(value:(nil, $0))}
@@ -93,13 +92,13 @@ public final class SearchViewModel {
         // Not used yet
         let showLoader = Signal.merge (
             inputs.searchTextChanged.filter { $0 != "" }
-                .debounce(0.1, on: QueueScheduler()).map { _ in true },
+                .debounce(0.05, on: QueueScheduler()).map { _ in true },
             searchArticlesRequest.map { _ in false }
             )
         
         let showError = searchArticlesRequest
             .filterMap { $0.1 }
-            .map { _ in RequestableAlertModel(title: "Kunne ikke søke", message: "Sjekk tilkoblingen din og prøv på nytt") }
+            .map { _ in RequestableAlertModel(title: "Kunne ikke søke".localized(key: "search_failed_title"), message: "Sjekk tilkoblingen din og prøv på nytt".localized(key: "search_failed_message")) }
         
         return (title : title,
                 articles: articles,

@@ -55,7 +55,7 @@ extension WKWebView {
         
         self.evaluateJavaScript(titleInDocument) { (response, error) in
             if let stringResponse = response as? String {
-                completionHandler(stringResponse.replacingOccurrences(of: " – Store norske leksikon", with: ""))
+                completionHandler(stringResponse.replacingOccurrences(of: Current.appSettings.domTitleToBeStripped, with: ""))
             }
 
         }

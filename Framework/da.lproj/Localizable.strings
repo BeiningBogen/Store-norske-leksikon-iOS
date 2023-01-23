@@ -1,0 +1,31 @@
+/*
+  Localizable.strings
+  Store-norske-leksikon-iOS
+
+  Created by Håkon Bogen on 22/11/2022.
+  Copyright © 2022 Beining & Bogen. All rights reserved.
+*/
+
+"tab_explore" = "Udforsk";
+"tab_search" = "Søg";
+
+"navbar_more" = "Mere";
+
+"actionsheet_read_article" = "Lyt til artiklen";
+"actionsheet_title" = "Handlinger";
+"actionsheet_share_article" = "Del link til artiklen";
+"actionsheet_abort" = "Afbryd";
+
+"search_read_whole_article" = "Læs hele artiklen";
+
+"search_previous_searches" = "Tidligere søgninger";
+
+"search_results" = "Søgeresultater";
+"search_title" = "Søg";
+
+"search_previous_results" = "Tidligere søgeresultater";
+
+"search_failed_title" = "Kunne ikke søge";
+
+"search_failed_message" = "Tjek din forbindelse og prøv igen";
+

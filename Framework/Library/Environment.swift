@@ -5,8 +5,8 @@ import ReactiveSwift
 
 private var serverConfig: ServerConfigType = ServerConfig.local
 
-public func searchArticles(path: Requests.SearchArticlesRequestable.Path) -> SignalProducer<Requests.SearchArticlesRequestable.Response, RequestableError> {
-    return Requests.SearchArticlesRequestable.request(serverConfig: serverConfig, path: path)
+public func searchArticles(path: Requests.SearchAutocompleteRequestable.Path) -> SignalProducer<Requests.SearchAutocompleteRequestable.Response, RequestableError> {
+    return Requests.SearchAutocompleteRequestable.request(serverConfig: serverConfig, path: path)
 }
 
 public func getArticle(path: Requests.GetArticleRequestable.Path) -> SignalProducer<Requests.GetArticleRequestable.Response, RequestableError> {
@@ -15,9 +15,28 @@ public func getArticle(path: Requests.GetArticleRequestable.Path) -> SignalProdu
 
 public struct Environment {
     
+    
     public var api = Api()
     public var database = Database()
+    public var appSettings = AppSettings()
 
+}
+
+public struct AppSettings {
+    
+    public init(speechSynthesizedLanguage: String = "nb-NO", searchBaseURL: String = "https://snl.no", domTitleToBeStripped: String = " – Store norske leksikon ") {
+        self.speechSynthesizedLanguage = speechSynthesizedLanguage
+        self.searchBaseURL = searchBaseURL
+        self.domTitleToBeStripped = domTitleToBeStripped
+    }
+    
+    
+    public var speechSynthesizedLanguage: String
+    
+    public var domTitleToBeStripped: String
+    
+    public var searchBaseURL: String
+    
 }
 
 public struct Api {

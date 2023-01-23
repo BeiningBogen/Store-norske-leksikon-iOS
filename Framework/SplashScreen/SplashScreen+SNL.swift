@@ -10,12 +10,12 @@ import Foundation
 import UIKit
 import Cartography
 import CoreGraphics
+import Store_norske_leksikon_iOSFramework
 
-public class SplashScreen: UIView {
+public class SplashScreen: UIView, SplashScreenProtocol {
     
     let logo = UIImageView.init(image: UIImage.init(named: "SNL-logo"))
     let logoText = UILabel.init(frame: .zero)
-    
     
     private struct Constants {
         /// Time before the loader shows

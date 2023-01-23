@@ -4,7 +4,7 @@ import Result
 
 
 public protocol SearchTableViewCellViewModelInputs {
-    func configureWith(article: Article)
+    func configureWith(article: AutocompleteResult)
 }
 
 public protocol SearchTableViewCellViewModelOutputs {
@@ -26,16 +26,23 @@ class SearchTableViewCellViewModel: SearchTableViewCellViewModelType, SearchTabl
     init() {
         
         let value = configureWithProperty.signal.skipNil()
-        title = value.map { $0.fullName }
-        excerpt = value.map { $0.firstTwoSentences }
+        title = value
+            .map { result in
+                if let encyclopedia = result.encyclopedia {
+                    return "\(result.title) (\(encyclopedia))"
+                } else{
+                    return result.title
+                }
+            }
+        excerpt = value.map { $0.excerpt + "..." }
         
         imageURL = value
-            .map { $0.imageURL }
+            .map { _ in nil }
 
     }
 
-    private let configureWithProperty = MutableProperty<Article?>(nil)
-    func configureWith(article: Article) {
+    private let configureWithProperty = MutableProperty<AutocompleteResult?>(nil)
+    func configureWith(article: AutocompleteResult) {
         configureWithProperty.value = article
     }
     

@@ -298,7 +298,8 @@ extension Requestable {
         }
         let method = "-X \(httpMethod)"
         let headers = allHTTPHeaderFields.map { "-H '\($0.key): \($0.value)'" }
-        return ((["curl", method] + headers + bodyComponents + [url.absoluteString]) as [String])
+        let escapedURL = "'" + url.absoluteString + "'"
+        return ((["curl", method] + headers + bodyComponents + [escapedURL]) as [String])
             .joined(separator: " ")
     }
 

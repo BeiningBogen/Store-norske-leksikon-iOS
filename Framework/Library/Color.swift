@@ -11,13 +11,15 @@ import UIKit
 
 extension UIColor {
     
-    public static let primaryBackground = UIColor(hex: 0x55D3ED)
+    public static let primaryBackground = UIColor(named: "PrimaryBackground")
+//    public static let primaryBackground = UIColor(hex: 0x55D3ED)
     public static let primaryTextColor = UIColor(hex: 0x0077A5)
     public static let secondaryText = UIColor(hex: 0x203E50)
     
 //    public static let secondaryBackground = UIColor(hex: 0xF33334)
     public static let secondaryBackground = UIColor(hex: 0xF3F4F4)
     
+    public static let searchBarTextColor = UIColor.primaryTextColor
     
     
 }

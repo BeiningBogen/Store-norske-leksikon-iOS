@@ -25,6 +25,7 @@ public class SearchHistoryViewController : UITableViewController, UISearchBarDel
     public override init(style: UITableViewStyle) {
         super.init(style: style)
         outputs = vm.outputs()
+        tabBarItem = UITabBarItem.init(title: "Søk".localized(key: "tab_search"), image: UIImage.init(named: "search"), tag: 0)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -64,10 +65,21 @@ public class SearchHistoryViewController : UITableViewController, UISearchBarDel
         tableView.dataSource = dataSource
         tableView.delegate = self
         definesPresentationContext = true
-        navigationItem.title = "Søk"
-        tabBarItem = UITabBarItem.init(title: "Søk", image: UIImage.init(named: "search"), tag: 0)
+        navigationItem.title = "Søk".localized(key: "search_title")
+        tabBarItem = UITabBarItem.init(title: "Søk".localized(key: "tab_search"), image: UIImage.init(named: "search"), tag: 0)
         navigationItem.searchController?.searchBar.delegate = self.navigationItem.searchController?.searchResultsController as! SearchViewController
         navigationItem.searchController?.searchBar.backgroundColor = .secondaryBackground
+        navigationItem.searchController?.searchBar.backgroundColor = .primaryBackground
+        navigationItem.searchController?.searchBar.searchTextField.textColor = .white
+        navigationItem.searchController?.searchBar.tintColor = .white
+        navigationItem.searchController?.searchBar.barTintColor = .white
+        
+        navigationItem.searchController?.searchBar.searchTextField.attributedPlaceholder = NSAttributedString(
+            string: "",
+            attributes: [.foregroundColor: UIColor.white]
+        )
+        navigationItem.searchController?.searchBar.searchTextField.leftView?.tintColor = .white
+        
         view.backgroundColor = .secondaryBackground
         self.navigationController?.navigationBar.barTintColor = .secondaryBackground
         navigationController?.navigationBar.backgroundColor = .secondaryBackground
@@ -112,7 +124,7 @@ public class SearchHistoryViewController : UITableViewController, UISearchBarDel
             label.top == backgroundView.top
             label.bottom == backgroundView.bottom
         }
-        label.text = "Tidligere søk"
+        label.text = "Tidligere søk".localized(key: "search_previous_results")
 
         return backgroundView
     }
