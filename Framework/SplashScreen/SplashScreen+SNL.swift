@@ -42,7 +42,7 @@ public class SplashScreen: UIView, SplashScreenProtocol {
         logo.alpha = 0
     }
     
-    public static func show(inWindow window: UIWindow?) -> SplashScreen? {
+    public static func show(inWindow window: UIWindow?) -> SplashScreenProtocol? {
         guard let window = window else {
             return nil
         }
@@ -52,8 +52,6 @@ public class SplashScreen: UIView, SplashScreenProtocol {
         splashScreen.addSubview(splashScreen.logo)
         splashScreen.addSubview(splashScreen.logoText)
         splashScreen.logoText.numberOfLines = 3
-        
-        
         
         constrain(splashScreen, window) { selfView, view in
             selfView.left == view.left

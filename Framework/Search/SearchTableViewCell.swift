@@ -71,7 +71,7 @@ class SearchTableViewCell: UITableViewCell, ValueCell {
         cardBackgroundView.layer.shadowOffset = .init(width: 0, height: 1)
         cardBackgroundView.layer.shadowOpacity = 0.1
         
-        backgroundColor = .secondaryBackground
+        backgroundColor = .tertiaryBackground
 
         addSubview(cardBackgroundView)
         cardBackgroundView.addSubview(previewImage)

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 // Settings for Store Norske Leksikon
 struct TargetSpecificSettings {
@@ -21,7 +22,36 @@ struct TargetSpecificSettings {
     static let domTitleToBeStripped: String = " – Store norske leksikon "
     
     
-    func setupAppearance() {
+    static func setupAppearance() {
+        
+        let customNavBarAppearance = UINavigationBarAppearance()
+        customNavBarAppearance.configureWithOpaqueBackground()
+        customNavBarAppearance.largeTitleTextAttributes = [.foregroundColor : UIColor.white]
+        customNavBarAppearance.titleTextAttributes = [.foregroundColor : UIColor.white]
+        let barButtonItemAppearance = UIBarButtonItemAppearance(style: .plain)
+        
+        barButtonItemAppearance.normal.titleTextAttributes = [.foregroundColor: UIColor.white]
+        barButtonItemAppearance.disabled.titleTextAttributes = [.foregroundColor: UIColor.lightText]
+        barButtonItemAppearance.highlighted.titleTextAttributes = [.foregroundColor: UIColor.white]
+        barButtonItemAppearance.focused.titleTextAttributes = [.foregroundColor: UIColor.white]
+        
+        customNavBarAppearance.buttonAppearance = barButtonItemAppearance
+        customNavBarAppearance.backButtonAppearance = barButtonItemAppearance
+        customNavBarAppearance.doneButtonAppearance = barButtonItemAppearance
+        customNavBarAppearance.backgroundColor = UIColor.init(named: "SecondaryBackground")
+        UINavigationBar.appearance().scrollEdgeAppearance = customNavBarAppearance
+        UINavigationBar.appearance().tintColor = .white
+//        
+        let appearance = UINavigationBar.appearance()
+        appearance.scrollEdgeAppearance = customNavBarAppearance
+        appearance.compactAppearance = customNavBarAppearance
+        appearance.standardAppearance = customNavBarAppearance
+        
+        
+        
+        if #available(iOS 15.0, *) {
+            appearance.compactScrollEdgeAppearance = customNavBarAppearance
+        }
      
     }
 }

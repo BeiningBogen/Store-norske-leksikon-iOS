@@ -17,7 +17,9 @@ extension UIColor {
     public static let secondaryText = UIColor(hex: 0x203E50)
     
 //    public static let secondaryBackground = UIColor(hex: 0xF33334)
-    public static let secondaryBackground = UIColor(hex: 0xF3F4F4)
+    public static let tertiaryBackground = UIColor(hex: 0xF3F4F4)
+    public static let secondaryBackground = UIColor(named: "SecondaryBackground")
+
     
     public static let searchBarTextColor = UIColor.primaryTextColor
     

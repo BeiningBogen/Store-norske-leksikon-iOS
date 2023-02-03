@@ -68,21 +68,23 @@ public class SearchHistoryViewController : UITableViewController, UISearchBarDel
         navigationItem.title = "Søk".localized(key: "search_title")
         tabBarItem = UITabBarItem.init(title: "Søk".localized(key: "tab_search"), image: UIImage.init(named: "search"), tag: 0)
         navigationItem.searchController?.searchBar.delegate = self.navigationItem.searchController?.searchResultsController as! SearchViewController
-        navigationItem.searchController?.searchBar.backgroundColor = .secondaryBackground
-        navigationItem.searchController?.searchBar.backgroundColor = .primaryBackground
+//        navigationItem.searchController?.searchBar.backgroundColor = .tertiaryBackground
+//        navigationItem.searchController?.searchBar.backgroundColor = .secondaryBackground
         navigationItem.searchController?.searchBar.searchTextField.textColor = .white
-        navigationItem.searchController?.searchBar.tintColor = .white
+        navigationItem.searchController?.searchBar.tintColor = .black
         navigationItem.searchController?.searchBar.barTintColor = .white
+        
         
         navigationItem.searchController?.searchBar.searchTextField.attributedPlaceholder = NSAttributedString(
             string: "",
-            attributes: [.foregroundColor: UIColor.white]
+            attributes: [.foregroundColor: UIColor.black]
         )
-        navigationItem.searchController?.searchBar.searchTextField.leftView?.tintColor = .white
+        navigationItem.searchController?.searchBar.searchTextField.leftView?.tintColor = .black
+        navigationItem.searchController?.searchBar.searchTextField.backgroundColor = .tertiaryBackground
         
-        view.backgroundColor = .secondaryBackground
-        self.navigationController?.navigationBar.barTintColor = .secondaryBackground
-        navigationController?.navigationBar.backgroundColor = .secondaryBackground
+        view.backgroundColor = .tertiaryBackground
+        self.navigationController?.navigationBar.barTintColor = .tertiaryBackground
+        navigationController?.navigationBar.backgroundColor = .tertiaryBackground
         navigationItem.hidesSearchBarWhenScrolling = false
         tableView.separatorStyle = .none
         tableView.separatorColor = .clear
@@ -114,7 +116,7 @@ public class SearchHistoryViewController : UITableViewController, UISearchBarDel
         backgroundView.addSubview(label)
         label.textColor = .secondaryText
 
-        backgroundView.backgroundColor = .secondaryBackground
+        backgroundView.backgroundColor = .tertiaryBackground
 
         constrain(backgroundView, label) { backgroundView, label in
             backgroundView.height == 40
