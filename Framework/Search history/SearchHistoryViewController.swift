@@ -70,7 +70,7 @@ public class SearchHistoryViewController : UITableViewController, UISearchBarDel
         navigationItem.searchController?.searchBar.delegate = self.navigationItem.searchController?.searchResultsController as! SearchViewController
 //        navigationItem.searchController?.searchBar.backgroundColor = .tertiaryBackground
 //        navigationItem.searchController?.searchBar.backgroundColor = .secondaryBackground
-        navigationItem.searchController?.searchBar.searchTextField.textColor = .white
+        navigationItem.searchController?.searchBar.searchTextField.textColor = .black
         navigationItem.searchController?.searchBar.tintColor = .black
         navigationItem.searchController?.searchBar.barTintColor = .white
         
