@@ -177,6 +177,7 @@ public final class BrowsingViewModel {
         }
         
         let voiceoverString = inputs.configure
+            .sample(on: inputs.didTapVoiceoverButton)
             .filterMap { $0.url?.absoluteString }
             .flatMap(.merge) { url in
                 return Current.api.getArticle(.init(path: url + ".json"))
@@ -186,7 +187,6 @@ public final class BrowsingViewModel {
         
         let startVoiceOver = voiceoverString
             .skipNil()
-            .sample(on: inputs.didTapVoiceoverButton)
 
         let searchURLRequest = inputs.didSearchForArticle.map { URL.init(string: $0.articleURL)!.requestWithAppVersionHeader() }
         

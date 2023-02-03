@@ -5,6 +5,7 @@
 	<key>com.apple.developer.associated-domains</key>
 	<array>
 		<string>applinks:snl.no</string>
+		<string>applinks:*.snl.no</string>
 	</array>
 </dict>
 </plist>

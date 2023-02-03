@@ -77,7 +77,7 @@ final public class SearchViewController: UITableViewController, UISearchBarDeleg
     func bindStyles() {
         tableView.separatorStyle = .none
         tableView.separatorColor = .clear
-        tableView.backgroundColor = .secondaryBackground
+        tableView.backgroundColor = .tertiaryBackground
     }
 
     func bindViewModel() {
