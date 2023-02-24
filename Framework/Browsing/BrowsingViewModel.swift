@@ -185,8 +185,9 @@ public final class BrowsingViewModel {
                     .flatMapError { _ in .empty }
             }
         
-        let startVoiceOver = voiceoverString
-            .skipNil()
+        let startVoiceOver = Signal.combineLatest(voiceoverString.skipNil(), title)
+            .map { "\($1) \($0)" }
+        
 
         let searchURLRequest = inputs.didSearchForArticle.map { URL.init(string: $0.articleURL)!.requestWithAppVersionHeader() }
         

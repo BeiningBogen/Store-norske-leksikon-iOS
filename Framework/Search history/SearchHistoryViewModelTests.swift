@@ -18,10 +18,10 @@ class SearchHistoryViewModelTests: XCTestCase {
 
     let vm = SearchHistoryViewModel()
     let goBack = TestObserver<Void, NoError>()
-    let articles = TestObserver<[Article], NoError>()
-    let openArticle = TestObserver<Article, NoError>()
+    let articles = TestObserver<[AutocompleteResult], NoError>()
+    let openArticle = TestObserver<AutocompleteResult, NoError>()
     
-    var articlesHistory = [Article]()
+    var articlesHistory = [AutocompleteResult]()
     
     override func setUp() {
         
@@ -40,8 +40,8 @@ class SearchHistoryViewModelTests: XCTestCase {
 
     func testShowOldSearchResults() {
         
-        let article = Article.template
-            |> (\Article.headword) .~ "Sau"
+        let article = AutocompleteResult.template
+            |> (\AutocompleteResult.title) .~ "Sau"
 
         Current.database.addToSearchHistory(article)
         vm.inputs.viewDidLoadObserver.send(value: ())

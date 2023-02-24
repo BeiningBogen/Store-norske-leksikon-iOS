@@ -44,7 +44,7 @@ class SearchViewModelTests: XCTestCase {
 
     let vm = SearchViewModel()
     let goBack = TestObserver<Void, NoError>()
-    let articles = TestObserver<[Article], NoError>()
+    let articles = TestObserver<[AutocompleteResult], NoError>()
     let showLoader = TestObserver<Bool, NoError>()
     let showError = TestObserver<RequestableAlertModel, NoError>()
 
@@ -59,7 +59,7 @@ class SearchViewModelTests: XCTestCase {
 
     func testShowArticles() {
         
-        let article = Article.template
+        let article = AutocompleteResult.template
 
         Current.api.searchArticles =  { _ in SignalProducer.init(value: [article]).delayForTest() }
 

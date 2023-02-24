@@ -16,6 +16,11 @@ extension Article {
     static let template = Article.init(articleId: 0, headword: "", clarification: nil, permalink: "", rank: 0, snippet: "", imageURL: nil, articleURL: "", firstTwoSentences: "")
     
 }
+extension AutocompleteResult {
+
+    static let template = AutocompleteResult.init(articleId: 0, title: "", excerpt: "", articleURL: "")
+    
+}
 
 extension ServerConfig {
     

@@ -19,7 +19,7 @@ struct TargetSpecificSettings {
     
     static let speechSynthesizedLanguage: String = "nb-NO"
     
-    static let domTitleToBeStripped: String = " – Store norske leksikon "
+    static let domTitleToBeStripped: String = " – Store norske leksikon"
     
     
     static func setupAppearance() {

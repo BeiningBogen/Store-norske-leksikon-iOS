@@ -28,15 +28,17 @@ class SearchTableViewCellViewModelTests: XCTestCase {
     }
 
     func testShowAttributes() {
+        let startExcerpt = "Lorem ipsum and stuff like that"
+        let endExcerpt = "\(startExcerpt)..."
         
-        let article = Article.template
-            |> (\Article.headword) .~ "Test article name"
-            |> (\Article.firstTwoSentences) .~ "Lorem ipsum and stuff like that"
+        let article = AutocompleteResult.template
+        |> (\AutocompleteResult.title) .~ "Test article name"
+        |> (\AutocompleteResult.excerpt) .~ startExcerpt
         
         vm.inputs.configureWith(article: article)
         
-        title.assertValues([article.headword])
-        excerpt.assertValues([article.firstTwoSentences])
+        title.assertValues([article.title])
+        excerpt.assertValues([endExcerpt])
 
     }
 }

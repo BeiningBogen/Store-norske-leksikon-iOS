@@ -66,6 +66,15 @@ public struct Article : Codable, Equatable {
 
 public struct AutocompleteResult : Codable, Equatable {
     
+    public init(articleId: Int, title: String, excerpt: String, articleURL: String, encyclopedia: String? = nil) {
+        self.articleId = articleId
+        self.title = title
+        self.excerpt = excerpt
+        self.articleURL = articleURL
+        self.encyclopedia = encyclopedia
+    }
+    
+    
     public private(set) var articleId: Int
     public private(set) var title: String
     public private(set) var excerpt: String
