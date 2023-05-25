@@ -44,6 +44,7 @@
 		0AF566B9228D4A8C00CF10FD /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF566B5228D4A4900CF10FD /* SearchTableViewCell.swift */; };
 		0AF566BD228D4E8B00CF10FD /* Signal+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF566BB228D4DEC00CF10FD /* Signal+Extensions.swift */; };
 		1A947C5EC814177EDCDE94E8 /* Pods_Store_norske_leksikon_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88AAC25E7CD00FD60E8E6C52 /* Pods_Store_norske_leksikon_iOS.framework */; };
+		62F5F6022A1F7C490033DEEE /* lex-assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECE5647E2A1F7A5D0053FE75 /* lex-assets.xcassets */; };
 		9DCD318FFC555C7E3F7D7C55 /* Pods_SNLTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9369F29DDCEEC9F469DC02A8 /* Pods_SNLTests.framework */; };
 		EC0031DF292CF56100526A68 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EC0031DE292CF55B00526A68 /* Localizable.strings */; };
 		EC0031EA292F6E2500526A68 /* snl-assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC0031E4292F6DDA00526A68 /* snl-assets.xcassets */; };
@@ -57,7 +58,6 @@
 		EC8F9B74292F9B9600E6086E /* SplashScreen+lex.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8F9B72292F9B7A00E6086E /* SplashScreen+lex.swift */; };
 		ECD859DE2934D75900704838 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD859DD2934D75900704838 /* URL.swift */; };
 		ECD859E02934E15800704838 /* SplashScreenProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD859DF2934E15800704838 /* SplashScreenProtocol.swift */; };
-		ECE5647F2A1F7A5E0053FE75 /* lex-assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECE5647E2A1F7A5D0053FE75 /* lex-assets.xcassets */; };
 		ECF41D1C29365699008E4765 /* LaunchScreen-lex.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECF41D1E29365699008E4765 /* LaunchScreen-lex.storyboard */; };
 		ECF6541E28F9585500B1241F /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF6541B28F956F700B1241F /* Color.swift */; };
 		F11FF8A4213981B200344836 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3EBB1820DCE97D00B7D41D /* AppDelegate.swift */; };
@@ -572,7 +572,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECE5647F2A1F7A5E0053FE75 /* lex-assets.xcassets in Resources */,
 				0A3EBB2620DCE97F00B7D41D /* LaunchScreen-SNL.storyboard in Resources */,
 				EC0031EA292F6E2500526A68 /* snl-assets.xcassets in Resources */,
 				0A3EBB2320DCE97F00B7D41D /* Assets.xcassets in Resources */,
@@ -591,6 +590,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				62F5F6022A1F7C490033DEEE /* lex-assets.xcassets in Resources */,
 				EC487F9C292BC35E001E42D7 /* Assets.xcassets in Resources */,
 				ECF41D1C29365699008E4765 /* LaunchScreen-lex.storyboard in Resources */,
 			);
@@ -1124,6 +1124,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = "Store-norske-leksikon-iOS-lex.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 26;
@@ -1153,6 +1154,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = "Store-norske-leksikon-iOS-lex.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 26;
