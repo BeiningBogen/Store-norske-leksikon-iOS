@@ -158,6 +158,14 @@ public final class BrowsingViewModel {
                 let state = arg.1
                 /// If user taps link, a new VC should load the page
                 guard action.navigationType == .linkActivated else {
+                    if let url = action.request.url {
+                        if url.host != "snl.no" &&
+                            url.host != "lex.dk" &&
+                            url.host != "denstoredanske.lex.dk" {
+                            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                        }
+                    }
+                    
                     decisionHandler(.allow)
                     return nil
                 }
