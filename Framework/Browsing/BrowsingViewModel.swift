@@ -111,7 +111,7 @@ public final class BrowsingViewModel {
         addMoreButton: Signal<Void, NoError>,
         
         /// Emit when alert for browsing to external link should show
-        showExternalLinkAlert: Signal<(Bool, URL), NoError>
+        showExternalLinkAlert: Signal<(Bool, URL?), NoError>
         
     )
     
@@ -180,14 +180,16 @@ public final class BrowsingViewModel {
         }
         
         let showExternalLinkAlert = shouldBrowseToNewPage.map { action in
-            if let url = action.url {
-                if url.host != "snl.no" &&
-                    url.host != "lex.dk" &&
-                    url.host != "denstoredanske.lex.dk" {
-                    return (true, url)
-                }
+        
+            guard let url = action.url else { return (false, URL(string: ""))}
+            
+            if url.host != "snl.no" &&
+                url.host != "lex.dk" &&
+                url.host != "denstoredanske.lex.dk" {
+                return (true, url)
             }
-            return (false, action.url!)
+            
+            return(false, url)
         }
                 
         let voiceoverString = inputs.configure

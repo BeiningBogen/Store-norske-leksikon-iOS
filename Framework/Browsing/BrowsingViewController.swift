@@ -174,6 +174,8 @@ public class BrowsingViewController : UIViewController {
         
         outputs.showExternalLinkAlert.observeValuesForUI { [weak self] shouldShow, url in
             
+            guard let url = url else { return }
+            
             let alert = UIAlertController(title: "Åpne lenke i nettleser?",
                                           message: "Dette vil ta deg ut av appen.", preferredStyle: .alert)
             
