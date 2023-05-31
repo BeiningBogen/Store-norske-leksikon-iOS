@@ -174,14 +174,15 @@ public class BrowsingViewController : UIViewController {
         
         outputs.showExternalLinkAlert.observeValuesForUI { [weak self] shouldShow, url in
             
-            let alert = UIAlertController(title: "Tittel", message: "Denne linken vil ta deg ut av appen. Fortsett?", preferredStyle: UIAlertControllerStyle.alert)
+            let alert = UIAlertController(title: "Åpne lenke i nettleser?",
+                                          message: "Dette vil ta deg ut av appen.", preferredStyle: .alert)
             
-            alert.addAction(UIAlertAction(title: "Avbryt", style: UIAlertActionStyle.default, handler: { _ in
+            alert.addAction(UIAlertAction(title: "Avbryt", style: .cancel, handler: { _ in
                 self?.dismiss(animated: true)
             }))
             
-            alert.addAction(UIAlertAction(title: "Fortsett", style: UIAlertActionStyle.default, handler: { _ in
-                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            alert.addAction(UIAlertAction(title: "Åpne", style: .default, handler: { _ in
+                UIApplication.shared.open(url)
             }))
             
             if shouldShow {
