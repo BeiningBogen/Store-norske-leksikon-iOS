@@ -172,6 +172,23 @@ public class BrowsingViewController : UIViewController {
             self?.speech.stopSpeaking(at: AVSpeechBoundary.immediate)
         }
         
+        outputs.showExternalLinkAlert.observeValuesForUI { [weak self] shouldShow, url in
+            
+            let alert = UIAlertController(title: "Tittel", message: "Denne linken vil ta deg ut av appen. Fortsett?", preferredStyle: UIAlertControllerStyle.alert)
+            
+            alert.addAction(UIAlertAction(title: "Avbryt", style: UIAlertActionStyle.default, handler: { _ in
+                self?.dismiss(animated: true)
+            }))
+            
+            alert.addAction(UIAlertAction(title: "Fortsett", style: UIAlertActionStyle.default, handler: { _ in
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }))
+            
+            if shouldShow {
+                self?.present(alert, animated: true, completion: nil)
+            }
+        }
+        
     }
 
     @objc func showSearchField() {

@@ -108,7 +108,10 @@ public final class BrowsingViewModel {
         stopVoiceOver: Signal<Void, NoError>,
         
         /// Emit when "More"-button should be showin in right navbar corner
-        addMoreButton: Signal<Void, NoError>
+        addMoreButton: Signal<Void, NoError>,
+        
+        /// Emit when alert for browsing to external link should show
+        showExternalLinkAlert: Signal<(Bool, URL), NoError>
         
     )
     
@@ -158,14 +161,6 @@ public final class BrowsingViewModel {
                 let state = arg.1
                 /// If user taps link, a new VC should load the page
                 guard action.navigationType == .linkActivated else {
-                    if let url = action.request.url {
-                        if url.host != "snl.no" &&
-                            url.host != "lex.dk" &&
-                            url.host != "denstoredanske.lex.dk" {
-                            UIApplication.shared.open(url, options: [:], completionHandler: nil)
-                        }
-                    }
-                    
                     decisionHandler(.allow)
                     return nil
                 }
@@ -184,6 +179,17 @@ public final class BrowsingViewModel {
                 }
         }
         
+        let showExternalLinkAlert = shouldBrowseToNewPage.map { action in
+            if let url = action.url {
+                if url.host != "snl.no" &&
+                    url.host != "lex.dk" &&
+                    url.host != "denstoredanske.lex.dk" {
+                    return (true, url)
+                }
+            }
+            return (false, action.url!)
+        }
+                
         let voiceoverString = inputs.configure
             .sample(on: inputs.didTapVoiceoverButton)
             .filterMap { $0.url?.absoluteString }
@@ -230,7 +236,8 @@ public final class BrowsingViewModel {
                 showShareSheet: showShareSheet,
                 startVoiceOver: startVoiceOver,
                 stopVoiceOver: stopVoiceOver,
-                addMoreButton: addMoreButton
+                addMoreButton: addMoreButton,
+                showExternalLinkAlert: showExternalLinkAlert
         )
         
     }
