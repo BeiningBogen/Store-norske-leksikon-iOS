@@ -29,3 +29,10 @@
 
 "search_failed_message" = "Sjekk tilkoblingen din og prøv igjen";
 
+"external_link_alert_message" = "Dette vil ta deg ut av appen";
+
+"cancel_external_link" = "Avbryt";
+
+"open_external_link" = "Åpne";
+
+"external_link_alert_title" = "Åpne lenke i nettleser?";
