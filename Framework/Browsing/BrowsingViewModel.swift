@@ -108,7 +108,10 @@ public final class BrowsingViewModel {
         stopVoiceOver: Signal<Void, NoError>,
         
         /// Emit when "More"-button should be showin in right navbar corner
-        addMoreButton: Signal<Void, NoError>
+        addMoreButton: Signal<Void, NoError>,
+        
+        /// Emit when alert for browsing to external link should show
+        showExternalLinkAlert: Signal<(Bool, URL?), NoError>
         
     )
     
@@ -176,6 +179,19 @@ public final class BrowsingViewModel {
                 }
         }
         
+        let showExternalLinkAlert = shouldBrowseToNewPage.map { action in
+        
+            guard let url = action.url else { return (false, URL(string: ""))}
+            
+            if url.host != "snl.no" &&
+                url.host != "lex.dk" &&
+                url.host != "denstoredanske.lex.dk" {
+                return (true, url)
+            }
+            
+            return(false, url)
+        }
+                
         let voiceoverString = inputs.configure
             .sample(on: inputs.didTapVoiceoverButton)
             .filterMap { $0.url?.absoluteString }
@@ -222,7 +238,8 @@ public final class BrowsingViewModel {
                 showShareSheet: showShareSheet,
                 startVoiceOver: startVoiceOver,
                 stopVoiceOver: stopVoiceOver,
-                addMoreButton: addMoreButton
+                addMoreButton: addMoreButton,
+                showExternalLinkAlert: showExternalLinkAlert
         )
         
     }

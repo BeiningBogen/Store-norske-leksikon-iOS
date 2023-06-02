@@ -172,6 +172,26 @@ public class BrowsingViewController : UIViewController {
             self?.speech.stopSpeaking(at: AVSpeechBoundary.immediate)
         }
         
+        outputs.showExternalLinkAlert.observeValuesForUI { [weak self] shouldShow, url in
+            
+            guard let url = url else { return }
+            
+            let alert = UIAlertController(title: "Åpne lenke i nettleser?".localized(key: "external_link_alert_title"),
+                                          message: "Dette vil ta deg ut av appen.".localized(key:"external_link_alert_message"), preferredStyle: .alert)
+            
+            alert.addAction(UIAlertAction(title: "Avbryt".localized(key:"cancel_external_link"), style: .cancel, handler: { _ in
+                self?.dismiss(animated: true)
+            }))
+            
+            alert.addAction(UIAlertAction(title: "Åpne".localized(key:"open_external_link"), style: .default, handler: { _ in
+                UIApplication.shared.open(url)
+            }))
+            
+            if shouldShow {
+                self?.present(alert, animated: true, completion: nil)
+            }
+        }
+        
     }
 
     @objc func showSearchField() {
