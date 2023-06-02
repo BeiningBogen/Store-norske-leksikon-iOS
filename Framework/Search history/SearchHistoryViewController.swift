@@ -17,7 +17,7 @@ public class SearchHistoryViewController : UITableViewController, UISearchBarDel
     var outputs: SearchHistoryViewModel.Outputs!
     let dataSource = SearchTableViewDataSource()
     var didSelectArticleHandler: ((Article) -> ())?
-
+    
     override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         outputs = vm.outputs()
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -68,8 +68,8 @@ public class SearchHistoryViewController : UITableViewController, UISearchBarDel
         navigationItem.title = "Søk".localized(key: "search_title")
         tabBarItem = UITabBarItem.init(title: "Søk".localized(key: "tab_search"), image: UIImage.init(named: "search"), tag: 0)
         navigationItem.searchController?.searchBar.delegate = self.navigationItem.searchController?.searchResultsController as! SearchViewController
-//        navigationItem.searchController?.searchBar.backgroundColor = .tertiaryBackground
-//        navigationItem.searchController?.searchBar.backgroundColor = .secondaryBackground
+        //        navigationItem.searchController?.searchBar.backgroundColor = .tertiaryBackground
+        //        navigationItem.searchController?.searchBar.backgroundColor = .secondaryBackground
         navigationItem.searchController?.searchBar.searchTextField.textColor = .black
         navigationItem.searchController?.searchBar.tintColor = .black
         navigationItem.searchController?.searchBar.barTintColor = .white
@@ -82,6 +82,16 @@ public class SearchHistoryViewController : UITableViewController, UISearchBarDel
         navigationItem.searchController?.searchBar.searchTextField.leftView?.tintColor = .black
         navigationItem.searchController?.searchBar.searchTextField.backgroundColor = .tertiaryBackground
         
+        if let searchController = navigationItem.searchController {
+            let searchBar = searchController.searchBar
+            searchBar.tintColor = UIColor(red: 253, green: 253, blue: 254)
+            
+            if let textField = searchBar.value(forKey: "searchField") as? UITextField {
+                textField.tintColor = UIColor.black
+            }
+            
+        }
+        
         view.backgroundColor = .tertiaryBackground
         self.navigationController?.navigationBar.barTintColor = .tertiaryBackground
         navigationController?.navigationBar.backgroundColor = .tertiaryBackground
@@ -92,7 +102,7 @@ public class SearchHistoryViewController : UITableViewController, UISearchBarDel
         let searchViewController = (self.navigationItem.searchController?.searchResultsController as! SearchViewController)
         
         searchViewController.didSelectArticleHandler = { article in
-
+            
             let viewController = BrowsingViewController.init(nibName: nil, bundle: nil)
             viewController.vm.inputs.configureObserver.send(value: URLRequest.init(url: URL(string: article.articleURL)!))
             self.navigationController?.pushViewController(viewController, animated: true)
@@ -115,19 +125,19 @@ public class SearchHistoryViewController : UITableViewController, UISearchBarDel
         let label = UILabel.init(frame: .zero)
         backgroundView.addSubview(label)
         label.textColor = .secondaryText
-
+        
         backgroundView.backgroundColor = .tertiaryBackground
-
+        
         constrain(backgroundView, label) { backgroundView, label in
             backgroundView.height == 40
             backgroundView.width == UIScreen.main.bounds.width
-
+            
             label.left == backgroundView.left + 10
             label.top == backgroundView.top
             label.bottom == backgroundView.bottom
         }
         label.text = "Tidligere søk".localized(key: "search_previous_results")
-
+        
         return backgroundView
     }
     
