@@ -27,6 +27,10 @@ target 'Store-norske-leksikon-iOSFramework' do
     pod "SDWebImage"
 end
 
+target 'lex.dk' do
+  pod "Cartography"
+  end
+
 post_install do |installer|
     installer.generated_projects.each do |project|
           project.targets.each do |target|
