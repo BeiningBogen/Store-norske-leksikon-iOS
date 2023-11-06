@@ -45,11 +45,12 @@
 		0AF566BD228D4E8B00CF10FD /* Signal+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AF566BB228D4DEC00CF10FD /* Signal+Extensions.swift */; };
 		1A947C5EC814177EDCDE94E8 /* Pods_Store_norske_leksikon_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88AAC25E7CD00FD60E8E6C52 /* Pods_Store_norske_leksikon_iOS.framework */; };
 		62F5F6022A1F7C490033DEEE /* lex-assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ECE5647E2A1F7A5D0053FE75 /* lex-assets.xcassets */; };
+		7417D27612A54B7C25C04CEE /* Pods_Store_norske_leksikon_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88AAC25E7CD00FD60E8E6C52 /* Pods_Store_norske_leksikon_iOS.framework */; };
 		9DCD318FFC555C7E3F7D7C55 /* Pods_SNLTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9369F29DDCEEC9F469DC02A8 /* Pods_SNLTests.framework */; };
+		B503CB4CF7E250C47160C070 /* Pods_lex_dk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E38D9BF70D387D923CDFDCA /* Pods_lex_dk.framework */; };
 		EC0031DF292CF56100526A68 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = EC0031DE292CF55B00526A68 /* Localizable.strings */; };
 		EC0031EA292F6E2500526A68 /* snl-assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC0031E4292F6DDA00526A68 /* snl-assets.xcassets */; };
 		EC487F97292BC35E001E42D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3EBB1820DCE97D00B7D41D /* AppDelegate.swift */; };
-		EC487F99292BC35E001E42D7 /* Pods_Store_norske_leksikon_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88AAC25E7CD00FD60E8E6C52 /* Pods_Store_norske_leksikon_iOS.framework */; };
 		EC487F9C292BC35E001E42D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A3EBB2220DCE97F00B7D41D /* Assets.xcassets */; };
 		EC487F9E292BC35E001E42D7 /* Store_norske_leksikon_iOSFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F176F625214268290094BB29 /* Store_norske_leksikon_iOSFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EC487FAA292C0FD4001E42D7 /* LexSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC487FA6292C0FC5001E42D7 /* LexSettings.swift */; };
@@ -116,7 +117,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		051E6B6803C7672DAC05EC5B /* Pods-Store-norske-leksikon-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Store-norske-leksikon-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Store-norske-leksikon-iOS/Pods-Store-norske-leksikon-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		0A08EFFF21BFA7A50007A3B1 /* SearchTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		0A08F00021BFA7A50007A3B1 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		0A08F00121BFA7A50007A3B1 /* SearchViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelTests.swift; sourceTree = "<group>"; };
@@ -158,14 +158,18 @@
 		179348452418ED0A0090AD20 /* Store-norske-leksikon-iOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Store-norske-leksikon-iOS.entitlements"; sourceTree = "<group>"; };
 		2CEA771DF236BE6D381E2CBD /* Pods_Store_norske_leksikon_iOSFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Store_norske_leksikon_iOSFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3CD71EF609D9E0479F8F0DC2 /* Pods-Store-norske-leksikon-iOSFramework.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Store-norske-leksikon-iOSFramework.release.xcconfig"; path = "Pods/Target Support Files/Pods-Store-norske-leksikon-iOSFramework/Pods-Store-norske-leksikon-iOSFramework.release.xcconfig"; sourceTree = "<group>"; };
+		4895CDDC1B36CF956FE9BF15 /* Pods-Store-norske-leksikon-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Store-norske-leksikon-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Store-norske-leksikon-iOS/Pods-Store-norske-leksikon-iOS.release.xcconfig"; sourceTree = "<group>"; };
+		4A9E3D8AC18B667E67B28192 /* Pods-Store-norske-leksikon-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Store-norske-leksikon-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Store-norske-leksikon-iOS/Pods-Store-norske-leksikon-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		58F7BEFA6E14E05ED24EA6E3 /* Pods-Store-norske-leksikon-iOSFramework.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Store-norske-leksikon-iOSFramework.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Store-norske-leksikon-iOSFramework/Pods-Store-norske-leksikon-iOSFramework.debug.xcconfig"; sourceTree = "<group>"; };
+		6665420F94FECC67A2ACC7C7 /* Pods-lex.dk.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lex.dk.release.xcconfig"; path = "Pods/Target Support Files/Pods-lex.dk/Pods-lex.dk.release.xcconfig"; sourceTree = "<group>"; };
 		6FC6E755AE422F7AD4B34C9E /* Pods-SNLTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SNLTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SNLTests/Pods-SNLTests.debug.xcconfig"; sourceTree = "<group>"; };
-		755985687B3CD75585F4AE4E /* Pods-Store-norske-leksikon-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Store-norske-leksikon-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Store-norske-leksikon-iOS/Pods-Store-norske-leksikon-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		8191F5E1D1854712E4C4DFD7 /* Pods_Store_norske_leksikon_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Store_norske_leksikon_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		836693BBF656BDD67797F9A1 /* Pods-SNLTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SNLTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SNLTests/Pods-SNLTests.release.xcconfig"; sourceTree = "<group>"; };
 		88AAC25E7CD00FD60E8E6C52 /* Pods_Store_norske_leksikon_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Store_norske_leksikon_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E38D9BF70D387D923CDFDCA /* Pods_lex_dk.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_lex_dk.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9369F29DDCEEC9F469DC02A8 /* Pods_SNLTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SNLTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B03AA059A94C96FEC8525D1 /* Pods_Store_norske_leksikon_iOSApi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Store_norske_leksikon_iOSApi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3A49AA0E7D9C05E9D9407D4 /* Pods-lex.dk.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-lex.dk.debug.xcconfig"; path = "Pods/Target Support Files/Pods-lex.dk/Pods-lex.dk.debug.xcconfig"; sourceTree = "<group>"; };
 		C9FD84C954B7DCEC470DE92A /* Pods-Store-norske-leksikon-iOSApi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Store-norske-leksikon-iOSApi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Store-norske-leksikon-iOSApi/Pods-Store-norske-leksikon-iOSApi.debug.xcconfig"; sourceTree = "<group>"; };
 		DD96DD2D8C97B9712F2A1B1A /* Pods-Store-norske-leksikon-iOSApi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Store-norske-leksikon-iOSApi.release.xcconfig"; path = "Pods/Target Support Files/Pods-Store-norske-leksikon-iOSApi/Pods-Store-norske-leksikon-iOSApi.release.xcconfig"; sourceTree = "<group>"; };
 		EC0031D6292CF53C00526A68 /* nb */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = nb; path = "nb.lproj/LaunchScreen-SNL.storyboard"; sourceTree = "<group>"; };
@@ -208,6 +212,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A947C5EC814177EDCDE94E8 /* Pods_Store_norske_leksikon_iOS.framework in Frameworks */,
+				7417D27612A54B7C25C04CEE /* Pods_Store_norske_leksikon_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,7 +228,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EC487F99292BC35E001E42D7 /* Pods_Store_norske_leksikon_iOS.framework in Frameworks */,
+				B503CB4CF7E250C47160C070 /* Pods_lex_dk.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -367,6 +372,7 @@
 				2CEA771DF236BE6D381E2CBD /* Pods_Store_norske_leksikon_iOSFramework.framework */,
 				8191F5E1D1854712E4C4DFD7 /* Pods_Store_norske_leksikon_iOSTests.framework */,
 				9369F29DDCEEC9F469DC02A8 /* Pods_SNLTests.framework */,
+				8E38D9BF70D387D923CDFDCA /* Pods_lex_dk.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -374,14 +380,16 @@
 		6626B3C1CB64608DFFD8BA1B /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				051E6B6803C7672DAC05EC5B /* Pods-Store-norske-leksikon-iOS.debug.xcconfig */,
-				755985687B3CD75585F4AE4E /* Pods-Store-norske-leksikon-iOS.release.xcconfig */,
 				C9FD84C954B7DCEC470DE92A /* Pods-Store-norske-leksikon-iOSApi.debug.xcconfig */,
 				DD96DD2D8C97B9712F2A1B1A /* Pods-Store-norske-leksikon-iOSApi.release.xcconfig */,
 				58F7BEFA6E14E05ED24EA6E3 /* Pods-Store-norske-leksikon-iOSFramework.debug.xcconfig */,
 				3CD71EF609D9E0479F8F0DC2 /* Pods-Store-norske-leksikon-iOSFramework.release.xcconfig */,
 				6FC6E755AE422F7AD4B34C9E /* Pods-SNLTests.debug.xcconfig */,
 				836693BBF656BDD67797F9A1 /* Pods-SNLTests.release.xcconfig */,
+				4A9E3D8AC18B667E67B28192 /* Pods-Store-norske-leksikon-iOS.debug.xcconfig */,
+				4895CDDC1B36CF956FE9BF15 /* Pods-Store-norske-leksikon-iOS.release.xcconfig */,
+				B3A49AA0E7D9C05E9D9407D4 /* Pods-lex.dk.debug.xcconfig */,
+				6665420F94FECC67A2ACC7C7 /* Pods-lex.dk.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -499,12 +507,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EC487FA0292BC35E001E42D7 /* Build configuration list for PBXNativeTarget "lex.dk" */;
 			buildPhases = (
-				EC487F95292BC35E001E42D7 /* [CP] Check Pods Manifest.lock */,
+				9D17E15C26F381D61DC1AD0E /* [CP] Check Pods Manifest.lock */,
 				EC487F96292BC35E001E42D7 /* Sources */,
 				EC487F98292BC35E001E42D7 /* Frameworks */,
 				EC487F9A292BC35E001E42D7 /* Resources */,
 				EC487F9D292BC35E001E42D7 /* Embed Frameworks */,
-				EC487F9F292BC35E001E42D7 /* [CP] Embed Pods Frameworks */,
+				2CB9D02B99D5BC5E005596F8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -617,6 +625,23 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		2CB9D02B99D5BC5E005596F8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-lex.dk/Pods-lex.dk-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-lex.dk/Pods-lex.dk-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-lex.dk/Pods-lex.dk-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		7FE436DE848BAD2C1523CE55 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -632,6 +657,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Store-norske-leksikon-iOS/Pods-Store-norske-leksikon-iOS-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9D17E15C26F381D61DC1AD0E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-lex.dk-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B0263E28FE30A638AF7E413B /* [CP] Check Pods Manifest.lock */ = {
@@ -671,41 +718,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SNLTests/Pods-SNLTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EC487F95292BC35E001E42D7 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Store-norske-leksikon-iOS-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		EC487F9F292BC35E001E42D7 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Store-norske-leksikon-iOS/Pods-Store-norske-leksikon-iOS-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Store-norske-leksikon-iOS/Pods-Store-norske-leksikon-iOS-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Store-norske-leksikon-iOS/Pods-Store-norske-leksikon-iOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD8C8472F7421BDAC18A1285 /* [CP] Check Pods Manifest.lock */ = {
@@ -1026,7 +1038,7 @@
 		};
 		0A3EBB3620DCE97F00B7D41D /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 051E6B6803C7672DAC05EC5B /* Pods-Store-norske-leksikon-iOS.debug.xcconfig */;
+			baseConfigurationReference = 4A9E3D8AC18B667E67B28192 /* Pods-Store-norske-leksikon-iOS.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1053,7 +1065,7 @@
 		};
 		0A3EBB3720DCE97F00B7D41D /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 755985687B3CD75585F4AE4E /* Pods-Store-norske-leksikon-iOS.release.xcconfig */;
+			baseConfigurationReference = 4895CDDC1B36CF956FE9BF15 /* Pods-Store-norske-leksikon-iOS.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1120,7 +1132,7 @@
 		};
 		EC487FA1292BC35E001E42D7 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 051E6B6803C7672DAC05EC5B /* Pods-Store-norske-leksikon-iOS.debug.xcconfig */;
+			baseConfigurationReference = B3A49AA0E7D9C05E9D9407D4 /* Pods-lex.dk.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1150,7 +1162,7 @@
 		};
 		EC487FA2292BC35E001E42D7 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 755985687B3CD75585F4AE4E /* Pods-Store-norske-leksikon-iOS.release.xcconfig */;
+			baseConfigurationReference = 6665420F94FECC67A2ACC7C7 /* Pods-lex.dk.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;

@@ -15,7 +15,9 @@ private func _fetchSearchHistory() -> [AutocompleteResult] {
 
 private func addToSearchHistory(_ article: AutocompleteResult) {
     var articles = _fetchSearchHistory()
-    articles.insert(article, at: 0)
+    if !articles.contains(article){
+        articles.insert(article, at: 0)
+    }
     articles.persist()
 }
 
