@@ -201,7 +201,7 @@ public final class BrowsingViewModel {
                     .flatMapError { _ in .empty }
             }
         
-        let startVoiceOver = Signal.combineLatest(voiceoverString.skipNil(), title)
+        let startVoiceOver: Signal<String, NoError> = Signal.combineLatest(voiceoverString.skipNil(), title)
             .map { "\($1) \($0)" }
         
 

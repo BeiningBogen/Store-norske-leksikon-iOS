@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -35,7 +35,6 @@
 		0A8D956C2292883400B3B106 /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A8D956B2292883400B3B106 /* TestHelpers.swift */; };
 		0A946A0A21BDB4DE00CABC5C /* WKWebview+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A946A0921BDB4DE00CABC5C /* WKWebview+Extension.swift */; };
 		0A946A0F21BDC24700CABC5C /* BrowsingViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB39D8221B5CC28007235D1 /* BrowsingViewModelTests.swift */; };
-		0A946A1321BDC40900CABC5C /* lemen.examplehtml in Resources */ = {isa = PBXBuildFile; fileRef = 0A946A1121BDC40900CABC5C /* lemen.examplehtml */; };
 		0AB39D8C21B5CC52007235D1 /* BrowsingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB39D8121B5CC28007235D1 /* BrowsingViewModel.swift */; };
 		0AB39D8D21B5CC57007235D1 /* BrowsingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB39D8321B5CC28007235D1 /* BrowsingViewController.swift */; };
 		0AC5F56523158ADF0038923B /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC5F56423158ADF0038923B /* String+Extension.swift */; };
@@ -59,6 +58,7 @@
 		EC8F9B74292F9B9600E6086E /* SplashScreen+lex.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8F9B72292F9B7A00E6086E /* SplashScreen+lex.swift */; };
 		ECD859DE2934D75900704838 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD859DD2934D75900704838 /* URL.swift */; };
 		ECD859E02934E15800704838 /* SplashScreenProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD859DF2934E15800704838 /* SplashScreenProtocol.swift */; };
+		ECE493672C18694E00D16DBA /* Secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = ECE493662C18694E00D16DBA /* Secrets.plist */; };
 		ECF41D1C29365699008E4765 /* LaunchScreen-lex.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECF41D1E29365699008E4765 /* LaunchScreen-lex.storyboard */; };
 		ECF6541E28F9585500B1241F /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF6541B28F956F700B1241F /* Color.swift */; };
 		F11FF8A4213981B200344836 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3EBB1820DCE97D00B7D41D /* AppDelegate.swift */; };
@@ -147,7 +147,6 @@
 		0A817FF022A6CEBE00DA3981 /* Codable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Codable+Extension.swift"; sourceTree = "<group>"; };
 		0A8D956B2292883400B3B106 /* TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelpers.swift; sourceTree = "<group>"; };
 		0A946A0921BDB4DE00CABC5C /* WKWebview+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WKWebview+Extension.swift"; sourceTree = "<group>"; };
-		0A946A1121BDC40900CABC5C /* lemen.examplehtml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = lemen.examplehtml; sourceTree = "<group>"; };
 		0AB39D8121B5CC28007235D1 /* BrowsingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowsingViewModel.swift; sourceTree = "<group>"; };
 		0AB39D8221B5CC28007235D1 /* BrowsingViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowsingViewModelTests.swift; sourceTree = "<group>"; };
 		0AB39D8321B5CC28007235D1 /* BrowsingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowsingViewController.swift; sourceTree = "<group>"; };
@@ -183,6 +182,7 @@
 		EC8F9B72292F9B7A00E6086E /* SplashScreen+lex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SplashScreen+lex.swift"; sourceTree = "<group>"; };
 		ECD859DD2934D75900704838 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		ECD859DF2934E15800704838 /* SplashScreenProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenProtocol.swift; sourceTree = "<group>"; };
+		ECE493662C18694E00D16DBA /* Secrets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Secrets.plist; sourceTree = "<group>"; };
 		ECE5647E2A1F7A5D0053FE75 /* lex-assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "lex-assets.xcassets"; sourceTree = "<group>"; };
 		ECF41D1A2936565E008E4765 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ECF41D1B29365692008E4765 /* da */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = da; path = "da.lproj/LaunchScreen-SNL.storyboard"; sourceTree = "<group>"; };
@@ -270,6 +270,7 @@
 				0A6F45F420F9EF8B0062D5BE /* Library */,
 				0A22B2E720E586C4008E1F35 /* Store-norske-leksikon-iOSFramework.h */,
 				EC0031DE292CF55B00526A68 /* Localizable.strings */,
+				ECE493662C18694E00D16DBA /* Secrets.plist */,
 				0A22B2E820E586C4008E1F35 /* Info.plist */,
 			);
 			path = Framework;
@@ -311,7 +312,6 @@
 			isa = PBXGroup;
 			children = (
 				0A542F0821C7994C0041139F /* Templates.swift */,
-				0A946A1121BDC40900CABC5C /* lemen.examplehtml */,
 				0A42D3EE2114390A000CD37C /* Helpers */,
 				0A3EBB3220DCE97F00B7D41D /* Info.plist */,
 			);
@@ -580,6 +580,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECE493672C18694E00D16DBA /* Secrets.plist in Resources */,
 				0A3EBB2620DCE97F00B7D41D /* LaunchScreen-SNL.storyboard in Resources */,
 				EC0031EA292F6E2500526A68 /* snl-assets.xcassets in Resources */,
 				0A3EBB2320DCE97F00B7D41D /* Assets.xcassets in Resources */,
@@ -590,7 +591,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A946A1321BDC40900CABC5C /* lemen.examplehtml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
