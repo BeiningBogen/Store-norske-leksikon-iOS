@@ -1,19 +1,20 @@
 import UIKit
 import CoreData
 import Store_norske_leksikon_iOSFramework
-
+import MobileConsentsSDK
+import Combine
 import SDWebImage
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var cookiePopupCancellable: AnyCancellable?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         /*Do not run the application when the tests are running.*/
         if ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil { return true }
-        
-        Current.appSettings = AppSettings(speechSynthesizedLanguage: TargetSpecificSettings.speechSynthesizedLanguage, searchBaseURL: TargetSpecificSettings.searchBaseURL, domTitleToBeStripped: TargetSpecificSettings.domTitleToBeStripped)
+        Current.appSettings = AppSettings(speechSynthesizedLanguage: TargetSpecificSettings.speechSynthesizedLanguage, searchBaseURL: TargetSpecificSettings.searchBaseURL, domTitleToBeStripped: TargetSpecificSettings.domTitleToBeStripped, mobileCookieConsentValues: MobileCookieConsentValues.readSecrets())
         
         UIApplication.shared.statusBarStyle = .lightContent
         self.window = UIWindow(frame: UIScreen.main.bounds)
@@ -38,6 +39,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = tabbarController
         window?.makeKeyAndVisible()
         browsingViewController.splashScreen = SplashScreen.show(inWindow: window)!
+        showCookiePopup(in: browsingViewController)
+        observeCookieConsentPopup(in: browsingViewController)
+   
         
         Current.api = Api.init(serverConfig: ServerConfig.init(baseURL: URL.init(string: TargetSpecificSettings.baseURL)!, basicHTTPAuth: nil))
         browsingViewController.vm.inputs.configureObserver.send(value: URL.init(string: TargetSpecificSettings.baseURL)!.requestWithAppVersionHeader())
@@ -69,4 +73,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
+}
+
+extension AppDelegate {
+    
+    func showCookiePopup(in vc: BrowsingViewController) {
+        /// Mobile consents SDK does not support being attached to the framework, only works inside the real target, there fore needs to be
+        if let values = MobileCookieConsentValues.readSecrets() {
+            let consents = MobileConsents(clientID: values.clientID, clientSecret: values.clientSecret, solutionId: values.solutionID, enableNetworkLogger: true)
+            after(1.2) {
+                consents.showPrivacyPopUpIfNeeded(onViewController: vc)
+            }
+        }
+    }
+    
+    func observeCookieConsentPopup(in vc: BrowsingViewController) {
+        cookiePopupCancellable = AppNotification.Publisher.didShowCookieConsentPopup().sink { _ in
+            if let values = MobileCookieConsentValues.readSecrets() {
+                let consents = MobileConsents(clientID: values.clientID, clientSecret: values.clientSecret, solutionId: values.solutionID, enableNetworkLogger: true)
+                consents.showPrivacyPopUp(onViewController: vc)
+            }
+        }
+            
+    }
 }

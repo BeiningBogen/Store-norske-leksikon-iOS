@@ -56,6 +56,11 @@ public class BrowsingViewController : UIViewController {
         vm.inputs.didTapMoreActionsButtonObserver.send(value: ())
     }
     
+    @objc
+    func didTapCookieConsentButton() {
+        vm.inputs.didTapShowCookiePopupObserver.send(value: ())
+    }
+    
     func setupViews() {
         
         view.addSubview(webView)
@@ -111,11 +116,11 @@ public class BrowsingViewController : UIViewController {
             self?.webView.removeHeaderAndFooter()
         }
         
-        outputs.addDOMLoadStripScript.observeValues { [ weak self ] in
+        outputs.addDOMLoadStripScript.observeValues { [weak self] in
             self?.webView.removeHeaderAndFooterOnDOMLoad()
         }
         
-        outputs.addMoreButton.observeValues { [ weak self ] in
+        outputs.addMoreButton.observeValues { [weak self] in
             guard let s = self else { return }
             let shareButton = UIBarButtonItem.init(title: "Mer".localized(key: "navbar_more"), style: .plain, target: self, action: #selector(s.didTapShareButton))
             s.navigationItem.rightBarButtonItem = shareButton
@@ -192,6 +197,15 @@ public class BrowsingViewController : UIViewController {
             }
         }
         
+        outputs.showCookieConsentButton.observeValues {
+            let shareButton = UIBarButtonItem.init(title: "Cookie-instillinger".localized(key: "cookie_settings"), style: .plain, target: self, action: #selector(self.didTapCookieConsentButton))
+            self.navigationItem.rightBarButtonItem = shareButton
+        }
+        
+        outputs.showCookieConsentPopup.observeValuesForUI {
+            AppNotification.Post.showCookieConsentPopup()
+        }
+
     }
 
     @objc func showSearchField() {

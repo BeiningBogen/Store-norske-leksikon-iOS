@@ -36,7 +36,6 @@
 		0A946A0A21BDB4DE00CABC5C /* WKWebview+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A946A0921BDB4DE00CABC5C /* WKWebview+Extension.swift */; };
 		0A946A0F21BDC24700CABC5C /* BrowsingViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB39D8221B5CC28007235D1 /* BrowsingViewModelTests.swift */; };
 		0AB39D8C21B5CC52007235D1 /* BrowsingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB39D8121B5CC28007235D1 /* BrowsingViewModel.swift */; };
-		0AB39D8D21B5CC57007235D1 /* BrowsingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB39D8321B5CC28007235D1 /* BrowsingViewController.swift */; };
 		0AC5F56523158ADF0038923B /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AC5F56423158ADF0038923B /* String+Extension.swift */; };
 		0AE50ACE21C82C490030F6F7 /* SearchTableViewCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AE50ACD21C82C490030F6F7 /* SearchTableViewCellViewModelTests.swift */; };
 		0AE50AD121C84C140030F6F7 /* Store_norske_leksikon_iOSFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = F176F625214268290094BB29 /* Store_norske_leksikon_iOSFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -58,7 +57,14 @@
 		EC8F9B74292F9B9600E6086E /* SplashScreen+lex.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC8F9B72292F9B7A00E6086E /* SplashScreen+lex.swift */; };
 		ECD859DE2934D75900704838 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD859DD2934D75900704838 /* URL.swift */; };
 		ECD859E02934E15800704838 /* SplashScreenProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECD859DF2934E15800704838 /* SplashScreenProtocol.swift */; };
-		ECE493672C18694E00D16DBA /* Secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = ECE493662C18694E00D16DBA /* Secrets.plist */; };
+		ECE4937D2C18738300D16DBA /* BrowsingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AB39D8321B5CC28007235D1 /* BrowsingViewController.swift */; };
+		ECE4937E2C18772000D16DBA /* Secrets.plist in Resources */ = {isa = PBXBuildFile; fileRef = ECE493662C18694E00D16DBA /* Secrets.plist */; };
+		ECE4937F2C18775A00D16DBA /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE4936B2C186B9A00D16DBA /* APIKeys.swift */; };
+		ECE493802C18775B00D16DBA /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE4936B2C186B9A00D16DBA /* APIKeys.swift */; };
+		ECE493822C1877BA00D16DBA /* MobileCookieConsentValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE4936E2C186CC600D16DBA /* MobileCookieConsentValues.swift */; };
+		ECE493862C1879A400D16DBA /* MobileConsentsSDK in Frameworks */ = {isa = PBXBuildFile; productRef = ECE493852C1879A400D16DBA /* MobileConsentsSDK */; };
+		ECE493882C1879AE00D16DBA /* MobileConsentsSDK in Frameworks */ = {isa = PBXBuildFile; productRef = ECE493872C1879AE00D16DBA /* MobileConsentsSDK */; };
+		ECE4938B2C19A3FC00D16DBA /* Notification.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECE493892C199DE400D16DBA /* Notification.swift */; };
 		ECF41D1C29365699008E4765 /* LaunchScreen-lex.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ECF41D1E29365699008E4765 /* LaunchScreen-lex.storyboard */; };
 		ECF6541E28F9585500B1241F /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECF6541B28F956F700B1241F /* Color.swift */; };
 		F11FF8A4213981B200344836 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A3EBB1820DCE97D00B7D41D /* AppDelegate.swift */; };
@@ -183,6 +189,9 @@
 		ECD859DD2934D75900704838 /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		ECD859DF2934E15800704838 /* SplashScreenProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenProtocol.swift; sourceTree = "<group>"; };
 		ECE493662C18694E00D16DBA /* Secrets.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Secrets.plist; sourceTree = "<group>"; };
+		ECE4936B2C186B9A00D16DBA /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
+		ECE4936E2C186CC600D16DBA /* MobileCookieConsentValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MobileCookieConsentValues.swift; sourceTree = "<group>"; };
+		ECE493892C199DE400D16DBA /* Notification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notification.swift; sourceTree = "<group>"; };
 		ECE5647E2A1F7A5D0053FE75 /* lex-assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "lex-assets.xcassets"; sourceTree = "<group>"; };
 		ECF41D1A2936565E008E4765 /* nb */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = nb; path = nb.lproj/Localizable.strings; sourceTree = "<group>"; };
 		ECF41D1B29365692008E4765 /* da */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = da; path = "da.lproj/LaunchScreen-SNL.storyboard"; sourceTree = "<group>"; };
@@ -212,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A947C5EC814177EDCDE94E8 /* Pods_Store_norske_leksikon_iOS.framework in Frameworks */,
+				ECE493882C1879AE00D16DBA /* MobileConsentsSDK in Frameworks */,
 				7417D27612A54B7C25C04CEE /* Pods_Store_norske_leksikon_iOS.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -228,6 +238,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECE493862C1879A400D16DBA /* MobileConsentsSDK in Frameworks */,
 				B503CB4CF7E250C47160C070 /* Pods_lex_dk.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,8 +280,8 @@
 				F1ABCB2E2188B54700D0BD9B /* valueCell */,
 				0A6F45F420F9EF8B0062D5BE /* Library */,
 				0A22B2E720E586C4008E1F35 /* Store-norske-leksikon-iOSFramework.h */,
-				EC0031DE292CF55B00526A68 /* Localizable.strings */,
 				ECE493662C18694E00D16DBA /* Secrets.plist */,
+				EC0031DE292CF55B00526A68 /* Localizable.strings */,
 				0A22B2E820E586C4008E1F35 /* Info.plist */,
 			);
 			path = Framework;
@@ -298,6 +309,7 @@
 			isa = PBXGroup;
 			children = (
 				0A3EBB1820DCE97D00B7D41D /* AppDelegate.swift */,
+				ECE4936E2C186CC600D16DBA /* MobileCookieConsentValues.swift */,
 				0A3EBB2220DCE97F00B7D41D /* Assets.xcassets */,
 				ECE5647E2A1F7A5D0053FE75 /* lex-assets.xcassets */,
 				EC0031E4292F6DDA00526A68 /* snl-assets.xcassets */,
@@ -347,6 +359,8 @@
 				0AC5F56423158ADF0038923B /* String+Extension.swift */,
 				0A946A0921BDB4DE00CABC5C /* WKWebview+Extension.swift */,
 				ECF6541B28F956F700B1241F /* Color.swift */,
+				ECE4936B2C186B9A00D16DBA /* APIKeys.swift */,
+				ECE493892C199DE400D16DBA /* Notification.swift */,
 			);
 			path = Library;
 			sourceTree = "<group>";
@@ -458,6 +472,8 @@
 			dependencies = (
 			);
 			name = "Store-norske-leksikon-iOSFramework";
+			packageProductDependencies = (
+			);
 			productName = "Store-norske-leksikon-iOSFramework";
 			productReference = F176F625214268290094BB29 /* Store_norske_leksikon_iOSFramework.framework */;
 			productType = "com.apple.product-type.framework";
@@ -479,6 +495,9 @@
 				0A22B2F920E586C5008E1F35 /* PBXTargetDependency */,
 			);
 			name = "Store-norske-leksikon-iOS";
+			packageProductDependencies = (
+				ECE493872C1879AE00D16DBA /* MobileConsentsSDK */,
+			);
 			productName = "Store-norske-leksikon-iOS";
 			productReference = F176F623214268290094BB29 /* Store-norske-leksikon-iOS.app */;
 			productType = "com.apple.product-type.application";
@@ -520,6 +539,9 @@
 				EC487F93292BC35E001E42D7 /* PBXTargetDependency */,
 			);
 			name = lex.dk;
+			packageProductDependencies = (
+				ECE493852C1879A400D16DBA /* MobileConsentsSDK */,
+			);
 			productName = "Store-norske-leksikon-iOS";
 			productReference = EC487FA3292BC35E001E42D7 /* lex.dk.app */;
 			productType = "com.apple.product-type.application";
@@ -555,6 +577,9 @@
 				da,
 			);
 			mainGroup = 0A3EBB0C20DCE97D00B7D41D;
+			packageReferences = (
+				ECE493842C1879A400D16DBA /* XCRemoteSwiftPackageReference "ios-release" */,
+			);
 			productRefGroup = 0A3EBB0C20DCE97D00B7D41D;
 			projectDirPath = "";
 			projectRoot = "";
@@ -580,7 +605,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				ECE493672C18694E00D16DBA /* Secrets.plist in Resources */,
 				0A3EBB2620DCE97F00B7D41D /* LaunchScreen-SNL.storyboard in Resources */,
 				EC0031EA292F6E2500526A68 /* snl-assets.xcassets in Resources */,
 				0A3EBB2320DCE97F00B7D41D /* Assets.xcassets in Resources */,
@@ -598,6 +622,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECE4937E2C18772000D16DBA /* Secrets.plist in Resources */,
 				62F5F6022A1F7C490033DEEE /* lex-assets.xcassets in Resources */,
 				EC487F9C292BC35E001E42D7 /* Assets.xcassets in Resources */,
 				ECF41D1C29365699008E4765 /* LaunchScreen-lex.storyboard in Resources */,
@@ -750,11 +775,12 @@
 				0A08F00921BFA7A50007A3B1 /* SearchTableViewModel.swift in Sources */,
 				ECD859DE2934D75900704838 /* URL.swift in Sources */,
 				0A3F232022A812EA00C66FE0 /* SearchHistoryDataSource.swift in Sources */,
+				ECE4937D2C18738300D16DBA /* BrowsingViewController.swift in Sources */,
 				0A774B2820FE2F3A00B83EFE /* OperatorOverload.swift in Sources */,
 				0A29BB842273272700A96B20 /* Article.swift in Sources */,
 				0AC5F56523158ADF0038923B /* String+Extension.swift in Sources */,
 				ECD859E02934E15800704838 /* SplashScreenProtocol.swift in Sources */,
-				0AB39D8D21B5CC57007235D1 /* BrowsingViewController.swift in Sources */,
+				ECE493822C1877BA00D16DBA /* MobileCookieConsentValues.swift in Sources */,
 				0A29BB822273272700A96B20 /* Service.swift in Sources */,
 				ECF6541E28F9585500B1241F /* Color.swift in Sources */,
 				0A946A0A21BDB4DE00CABC5C /* WKWebview+Extension.swift in Sources */,
@@ -773,6 +799,7 @@
 				0A29BB832273272700A96B20 /* ServiceType.swift in Sources */,
 				0A08F00521BFA7A50007A3B1 /* SearchTableViewCellViewModel.swift in Sources */,
 				0A817FF222A6CEDB00DA3981 /* Codable+Extension.swift in Sources */,
+				ECE4938B2C19A3FC00D16DBA /* Notification.swift in Sources */,
 				0A4AD9F72295962900E4FDE3 /* ModalLoader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -781,6 +808,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ECE493802C18775B00D16DBA /* APIKeys.swift in Sources */,
 				EC8F9B71292F9B6C00E6086E /* SplashScreen+SNL.swift in Sources */,
 				EC487FB3292C1413001E42D7 /* SNLSettings.swift in Sources */,
 				F11FF8A4213981B200344836 /* AppDelegate.swift in Sources */,
@@ -807,6 +835,7 @@
 			files = (
 				EC8F9B74292F9B9600E6086E /* SplashScreen+lex.swift in Sources */,
 				EC487FAA292C0FD4001E42D7 /* LexSettings.swift in Sources */,
+				ECE4937F2C18775A00D16DBA /* APIKeys.swift in Sources */,
 				EC487F97292BC35E001E42D7 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1239,6 +1268,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		ECE493842C1879A400D16DBA /* XCRemoteSwiftPackageReference "ios-release" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/cookie-information/ios-release";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.5.5;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		ECE493852C1879A400D16DBA /* MobileConsentsSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ECE493842C1879A400D16DBA /* XCRemoteSwiftPackageReference "ios-release" */;
+			productName = MobileConsentsSDK;
+		};
+		ECE493872C1879AE00D16DBA /* MobileConsentsSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ECE493842C1879A400D16DBA /* XCRemoteSwiftPackageReference "ios-release" */;
+			productName = MobileConsentsSDK;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0A3EBB0D20DCE97D00B7D41D /* Project object */;
 }
