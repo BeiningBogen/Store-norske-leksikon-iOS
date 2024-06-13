@@ -1168,7 +1168,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = "Store-norske-leksikon-iOS-lex.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 26;
+				CURRENT_PROJECT_VERSION = 28;
 				DEVELOPMENT_TEAM = XR4X27GD6H;
 				INFOPLIST_FILE = "Store-norske-leksikon-iOS copy-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = lex.dk;
@@ -1177,7 +1177,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = dk.lex.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1198,7 +1198,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = "Store-norske-leksikon-iOS-lex.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 26;
+				CURRENT_PROJECT_VERSION = 28;
 				DEVELOPMENT_TEAM = XR4X27GD6H;
 				INFOPLIST_FILE = "Store-norske-leksikon-iOS copy-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = lex.dk;
@@ -1207,7 +1207,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = dk.lex.app;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
