@@ -255,8 +255,8 @@ public final class BrowsingViewModel {
                 stopVoiceOver: stopVoiceOver,
                 addMoreButton: addMoreButton,
                 showExternalLinkAlert: showExternalLinkAlert,
-                showCookieConsentPopup: showCookieConsentPopup,
-                showCookieConsentButton: showCookieConsentButton
+                showCookieConsentButton: showCookieConsentButton,
+                showCookieConsentPopup: showCookieConsentPopup
         )
         
     }
