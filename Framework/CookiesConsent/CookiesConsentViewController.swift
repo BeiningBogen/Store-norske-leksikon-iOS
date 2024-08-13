@@ -18,7 +18,8 @@ public class CookiesConsentViewController: UIViewController {
             title: "Cookies".localized(
                 key: "tab_cookies"
             ),
-            image: UIImage.init(named: "globe_earth"),
+
+            image: UIImage(named: "TabBar/Cookies")?.resized(newSize: CGSize(width: 24, height: 24)),
             tag: 0
         )
     }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		06F3EBD02C6B626400E2674F /* CookiesConsentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F3EBCD2C6B625800E2674F /* CookiesConsentViewController.swift */; };
+		06F3EBD62C6B7EA500E2674F /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F3EBD32C6B7DFF00E2674F /* UIImage+Resize.swift */; };
 		0A08F00521BFA7A50007A3B1 /* SearchTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A08EFFF21BFA7A50007A3B1 /* SearchTableViewCellViewModel.swift */; };
 		0A08F00621BFA7A50007A3B1 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A08F00021BFA7A50007A3B1 /* SearchViewController.swift */; };
 		0A08F00821BFA7A50007A3B1 /* SearchTableViewDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A08F00221BFA7A50007A3B1 /* SearchTableViewDatasource.swift */; };
@@ -125,6 +126,7 @@
 
 /* Begin PBXFileReference section */
 		06F3EBCD2C6B625800E2674F /* CookiesConsentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookiesConsentViewController.swift; sourceTree = "<group>"; };
+		06F3EBD32C6B7DFF00E2674F /* UIImage+Resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
 		0A08EFFF21BFA7A50007A3B1 /* SearchTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCellViewModel.swift; sourceTree = "<group>"; };
 		0A08F00021BFA7A50007A3B1 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		0A08F00121BFA7A50007A3B1 /* SearchViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModelTests.swift; sourceTree = "<group>"; };
@@ -256,6 +258,14 @@
 			path = CookiesConsent;
 			sourceTree = "<group>";
 		};
+		06F3EBD22C6B7DF800E2674F /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				06F3EBD32C6B7DFF00E2674F /* UIImage+Resize.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		0A08F00A21BFA7BA0007A3B1 /* Browsing */ = {
 			isa = PBXGroup;
 			children = (
@@ -282,6 +292,7 @@
 		0A22B2E620E586C4008E1F35 /* Framework */ = {
 			isa = PBXGroup;
 			children = (
+				06F3EBD22C6B7DF800E2674F /* Helpers */,
 				06F3EBD12C6B627500E2674F /* CookiesConsent */,
 				F1DAC40221429AA700801657 /* Playgrounds */,
 				ECF6541828F84AF700B1241F /* SplashScreen */,
@@ -807,6 +818,7 @@
 				0A7E4C1721D135B500931C65 /* SearchToolBar.swift in Sources */,
 				0AF566BD228D4E8B00CF10FD /* Signal+Extensions.swift in Sources */,
 				0A08F00821BFA7A50007A3B1 /* SearchTableViewDatasource.swift in Sources */,
+				06F3EBD62C6B7EA500E2674F /* UIImage+Resize.swift in Sources */,
 				0AB39D8C21B5CC52007235D1 /* BrowsingViewModel.swift in Sources */,
 				0A29BB832273272700A96B20 /* ServiceType.swift in Sources */,
 				0A08F00521BFA7A50007A3B1 /* SearchTableViewCellViewModel.swift in Sources */,
