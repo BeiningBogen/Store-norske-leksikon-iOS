@@ -8,6 +8,7 @@
 
 "tab_explore" = "Utforsk";
 "tab_search" = "Søk";
+"tab_cookies" = "Cookies";
 
 "navbar_more" = "Mer";
 
@@ -36,5 +37,3 @@
 "open_external_link" = "Åpne";
 
 "external_link_alert_title" = "Åpne lenke i nettleser?";
-
-"cookie_settings" = "Cookie-innstillinger";

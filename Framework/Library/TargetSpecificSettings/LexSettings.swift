@@ -19,7 +19,8 @@ struct TargetSpecificSettings {
     
     static let speechSynthesizedLanguage: String = "da-DK"
     static let domTitleToBeStripped: String = "| lex.dk – Den Store Danske"
-    
+    static let displayCookiesButtonInTabBar: Bool = true
+
     static func setupAppearance() {
         
         let customNavBarAppearance = UINavigationBarAppearance()

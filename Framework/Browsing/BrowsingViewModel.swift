@@ -116,8 +116,6 @@ public final class BrowsingViewModel {
         /// Emit when alert for browsing to external link should show
         showExternalLinkAlert: Signal<(Bool, URL?), NoError>,
         
-        showCookieConsentButton: Signal<Void, NoError>,
-        
         showCookieConsentPopup: Signal<Void, NoError>
 
     )
@@ -140,12 +138,7 @@ public final class BrowsingViewModel {
             .filter { $0.0.url != URL.init(string: "https://snl.no")}
             .filter { $0.0.url != URL.init(string: "https://lex.dk")}
             .map { _ in }
-        
-        /// Only show cookie consent popup on main page of lex
-        let showCookieConsentButton = Signal.combineLatest(inputs.configure, inputs.viewDidLoad)
-            .filter { $0.0.url == URL.init(string: "https://lex.dk")}
-            .map { _ in }
-        
+
         let stripHeaderFooter = inputs.didCommitNavigation
         
         let addDOMLoadStripScript = inputs.didCommitNavigation
@@ -255,7 +248,6 @@ public final class BrowsingViewModel {
                 stopVoiceOver: stopVoiceOver,
                 addMoreButton: addMoreButton,
                 showExternalLinkAlert: showExternalLinkAlert,
-                showCookieConsentButton: showCookieConsentButton,
                 showCookieConsentPopup: showCookieConsentPopup
         )
         
