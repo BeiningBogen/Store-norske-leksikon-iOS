@@ -60,6 +60,9 @@ public final class BrowsingViewModel {
         /// Call when webview asks for policy for navigation action
         public let (decidePolicyForNavigationAction, decidePolicyForNavigationActionObserver) = Signal<(action: WKNavigationAction, decisionHandler:(WKNavigationActionPolicy) -> Void), NoError>.pipe()
         
+        ///
+        public let (didTapShowCookiePopupButton, didTapShowCookiePopupObserver) = Signal<Void, NoError>.pipe()
+        
         public init() { }
         
     }
@@ -111,8 +114,10 @@ public final class BrowsingViewModel {
         addMoreButton: Signal<Void, NoError>,
         
         /// Emit when alert for browsing to external link should show
-        showExternalLinkAlert: Signal<(Bool, URL?), NoError>
+        showExternalLinkAlert: Signal<(Bool, URL?), NoError>,
         
+        showCookieConsentPopup: Signal<Void, NoError>
+
     )
     
     enum ArticleLoadingState {
@@ -133,7 +138,7 @@ public final class BrowsingViewModel {
             .filter { $0.0.url != URL.init(string: "https://snl.no")}
             .filter { $0.0.url != URL.init(string: "https://lex.dk")}
             .map { _ in }
-        
+
         let stripHeaderFooter = inputs.didCommitNavigation
         
         let addDOMLoadStripScript = inputs.didCommitNavigation
@@ -201,7 +206,7 @@ public final class BrowsingViewModel {
                     .flatMapError { _ in .empty }
             }
         
-        let startVoiceOver = Signal.combineLatest(voiceoverString.skipNil(), title)
+        let startVoiceOver: Signal<String, NoError> = Signal.combineLatest(voiceoverString.skipNil(), title)
             .map { "\($1) \($0)" }
         
 
@@ -226,6 +231,9 @@ public final class BrowsingViewModel {
         let stopVoiceOver = Signal.merge(browseToNewPage.map { _ in },
                                           inputs.viewWillDisappear )
         
+        let showCookieConsentPopup = inputs.didTapShowCookiePopupButton
+        
+        
         return (title : title,
                 showLoader : showLoader,
                 stripHeaderFooter: stripHeaderFooter,
@@ -239,7 +247,8 @@ public final class BrowsingViewModel {
                 startVoiceOver: startVoiceOver,
                 stopVoiceOver: stopVoiceOver,
                 addMoreButton: addMoreButton,
-                showExternalLinkAlert: showExternalLinkAlert
+                showExternalLinkAlert: showExternalLinkAlert,
+                showCookieConsentPopup: showCookieConsentPopup
         )
         
     }

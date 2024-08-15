@@ -1,0 +1,15 @@
+{
+  "originHash" : "67a979c21fa4abdaf5f979028f7341b1899519284cda487764ec7c8010081df1",
+  "pins" : [
+    {
+      "identity" : "ios-release",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/cookie-information/ios-release",
+      "state" : {
+        "revision" : "d301264d4c29be4ee1af62ca7e067a1346523ff9",
+        "version" : "1.5.5"
+      }
+    }
+  ],
+  "version" : 3
+}

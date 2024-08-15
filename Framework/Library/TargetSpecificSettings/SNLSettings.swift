@@ -13,15 +13,14 @@ import UIKit
 struct TargetSpecificSettings {
     
     static let baseURL: String = "https://snl.no"
+
     /// The base URL used for search API
     static let searchBaseURL: String = "https://snl.no"
     
-    
     static let speechSynthesizedLanguage: String = "nb-NO"
-    
     static let domTitleToBeStripped: String = " – Store norske leksikon"
-    
-    
+    static let displayCookiesButtonInTabBar: Bool = false
+
     static func setupAppearance() {
         
         let customNavBarAppearance = UINavigationBarAppearance()
