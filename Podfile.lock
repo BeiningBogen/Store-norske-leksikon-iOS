@@ -17,7 +17,7 @@ DEPENDENCIES:
   - SDWebImage
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  trunk:
     - Cartography
     - ReactiveCocoa
     - ReactiveSwift
@@ -33,4 +33,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 2591171324ea9c04d6d1666278a191a1d5b5d39b
 
-COCOAPODS: 1.14.3
+COCOAPODS: 1.15.2

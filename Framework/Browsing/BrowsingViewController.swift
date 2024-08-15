@@ -196,12 +196,7 @@ public class BrowsingViewController : UIViewController {
                 self?.present(alert, animated: true, completion: nil)
             }
         }
-        
-        outputs.showCookieConsentButton.observeValues {
-            let shareButton = UIBarButtonItem.init(title: "Cookie-instillinger".localized(key: "cookie_settings"), style: .plain, target: self, action: #selector(self.didTapCookieConsentButton))
-            self.navigationItem.rightBarButtonItem = shareButton
-        }
-        
+
         outputs.showCookieConsentPopup.observeValuesForUI {
             AppNotification.Post.showCookieConsentPopup()
         }

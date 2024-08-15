@@ -10,6 +10,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var cookiePopupCancellable: AnyCancellable?
+    var selectedIndexBeforeCookiesPopup: Int?
+    var tabBarController: UITabBarController?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
         /*Do not run the application when the tests are running.*/
@@ -20,6 +22,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = UIWindow(frame: UIScreen.main.bounds)
         
         let tabbarController = UITabBarController.init(nibName: nil, bundle: nil)
+        tabbarController.delegate = self
+        self.tabBarController = tabbarController
         UITabBar.appearance().tintColor = .secondaryBackground
         TargetSpecificSettings.setupAppearance()
         
@@ -34,6 +38,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let historyViewController = SearchViewController.init(nibName: nil, bundle: nil)
         searchController.navigationItem.searchController = UISearchController.init(searchResultsController: historyViewController)
         tabbarController.addChildViewController(navController)
+
+        if TargetSpecificSettings.displayCookiesButtonInTabBar {
+            let navigationController = UINavigationController(rootViewController: CookiesConsentViewController())
+            tabbarController.addChildViewController(navigationController)
+        }
 
         window?.backgroundColor = .white
         window?.rootViewController = tabbarController
@@ -86,14 +95,44 @@ extension AppDelegate {
             }
         }
     }
-    
+
     func observeCookieConsentPopup(in vc: BrowsingViewController) {
         cookiePopupCancellable = AppNotification.Publisher.didShowCookieConsentPopup().sink { _ in
-            if let values = MobileCookieConsentValues.readSecrets() {
-                let consents = MobileConsents(clientID: values.clientID, clientSecret: values.clientSecret, solutionId: values.solutionID, enableNetworkLogger: true)
-                consents.showPrivacyPopUp(onViewController: vc)
+            guard let values = MobileCookieConsentValues.readSecrets() else {
+                return
             }
+            let consents = MobileConsents(
+                clientID: values.clientID,
+                clientSecret: values.clientSecret,
+                solutionId: values.solutionID,
+                enableNetworkLogger: true
+            )
+            let goBackToSelectedIndex: () -> Void = { [self] in
+                if let selectedIndexBeforeCookiesPopup {
+                    tabBarController?.selectedIndex = selectedIndexBeforeCookiesPopup
+                }
+            }
+            consents.showPrivacyPopUp(
+                customViewType: nil,
+                onViewController: vc,
+                animated: true,
+                completion: { _ in goBackToSelectedIndex() },
+                errorHandler: { _ in goBackToSelectedIndex() }
+            )
         }
             
+    }
+}
+
+extension AppDelegate: UITabBarControllerDelegate {
+    func tabBarController(_ tabBarController: UITabBarController,
+                          shouldSelect viewController: UIViewController) -> Bool {
+        guard let navigationController = viewController as? UINavigationController,
+                navigationController.topViewController is CookiesConsentViewController else {
+            return true
+        }
+        selectedIndexBeforeCookiesPopup = tabBarController.selectedIndex
+        AppNotification.Post.showCookieConsentPopup()
+        return true
     }
 }
