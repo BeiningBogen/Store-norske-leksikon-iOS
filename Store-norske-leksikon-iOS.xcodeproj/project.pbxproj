@@ -185,7 +185,7 @@
 		EC0031E0292CF56400526A68 /* da */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = da; path = da.lproj/Localizable.strings; sourceTree = "<group>"; };
 		EC0031E4292F6DDA00526A68 /* snl-assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "snl-assets.xcassets"; sourceTree = "<group>"; };
 		EC487FA3292BC35E001E42D7 /* lex.dk.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = lex.dk.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		EC487FA4292BC35F001E42D7 /* Store-norske-leksikon-iOS copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "Store-norske-leksikon-iOS copy-Info.plist"; path = "/Users/hakonbogen/Developer/Store-norske-leksikon-iOS/Store-norske-leksikon-iOS copy-Info.plist"; sourceTree = "<absolute>"; };
+		EC487FA4292BC35F001E42D7 /* Store-norske-leksikon-iOS copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Store-norske-leksikon-iOS copy-Info.plist"; sourceTree = "<group>"; };
 		EC487FA6292C0FC5001E42D7 /* LexSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LexSettings.swift; sourceTree = "<group>"; };
 		EC487FA8292C0FCD001E42D7 /* SNLSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNLSettings.swift; sourceTree = "<group>"; };
 		EC8F9B70292F9B6C00E6086E /* SplashScreen+SNL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SplashScreen+SNL.swift"; sourceTree = "<group>"; };
