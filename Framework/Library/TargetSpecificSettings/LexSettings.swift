@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Store_norske_leksikon_iOSFramework
 
 /// Settigns for lex.dk app
 struct TargetSpecificSettings {
@@ -20,6 +21,8 @@ struct TargetSpecificSettings {
     static let speechSynthesizedLanguage: String = "da-DK"
     static let domTitleToBeStripped: String = "| lex.dk – Den Store Danske"
     static let displayCookiesButtonInTabBar: Bool = true
+
+    static let preferedLoaderType = ModalLoaderType.lottie
 
     static func setupAppearance() {
         

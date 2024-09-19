@@ -15,6 +15,7 @@ fileprivate class BundleClass {}
 
 public class BrowsingViewController : UIViewController {
 
+    public let modalLoaderType: ModalLoaderType
     public let vm = BrowsingViewModel()
     public var outputs: BrowsingViewModel.Outputs!
     public var splashScreen: SplashScreenProtocol?
@@ -24,17 +25,15 @@ public class BrowsingViewController : UIViewController {
     let webView: WKWebView
     let speech = AVSpeechSynthesizer.init()
     
-
-    override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+    public init(modalLoaderType: ModalLoaderType) {
+        self.modalLoaderType = modalLoaderType
         webView = WKWebView.init(frame: .zero, configuration: WKWebViewConfiguration.init())
+        super.init(nibName: nil, bundle: nil)
         outputs = vm.outputs()
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
 
-    required public init?(coder aDecoder: NSCoder) {
-        webView = WKWebView.init(frame: .zero, configuration: WKWebViewConfiguration.init())
-        outputs = vm.outputs()
-        super.init(coder: aDecoder)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     override public func viewDidLoad() {
@@ -96,9 +95,10 @@ public class BrowsingViewController : UIViewController {
         }
         
         outputs.browseToNewPage.observeValues { [weak self] request in
-            let viewController = BrowsingViewController.init(nibName: nil, bundle: nil)
+            guard let self else { return }
+            let viewController = BrowsingViewController(modalLoaderType: modalLoaderType)
             viewController.vm.inputs.configureObserver.send(value: request)
-            self?.navigationController?.pushViewController(viewController, animated: true)
+            self.navigationController?.pushViewController(viewController, animated: true)
         }
         
         outputs.title.observeValues { [weak self] title in
@@ -127,11 +127,11 @@ public class BrowsingViewController : UIViewController {
         }
         
         outputs.showSearchController.observeValues { [ weak self ] in
-            
-            let vc = SearchViewController.init(nibName: nil, bundle: nil)
+            guard let self else { return }
+            let vc = SearchViewController(modalLoaderType: modalLoaderType)
             let searchController = UISearchController.init(searchResultsController: vc)
             searchController.searchBar.delegate = vc
-            self?.present(searchController, animated: true, completion: nil)
+            self.present(searchController, animated: true, completion: nil)
 
             vc.didSelectArticleHandler = { [weak self] article in
                 self?.vm.inputs.didSearchForArticleObserver.send(value: article)
@@ -140,7 +140,7 @@ public class BrowsingViewController : UIViewController {
         }
         
         outputs.showLoader.observeValuesForUI { [weak self] value in
-            ModalLoader.showOrHide(value: value, inView: self?.view, type: .singleImageSpinning)
+            ModalLoader.showOrHide(value: value, inView: self?.view, type: .lottie)
             if value == false {
                 self?.splashScreen?.animateFadeout()
             }

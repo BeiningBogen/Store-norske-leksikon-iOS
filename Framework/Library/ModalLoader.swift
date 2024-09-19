@@ -3,10 +3,12 @@ import Foundation
 import UIKit
 import Cartography
 import QuartzCore
+import Lottie
 
-enum ModalLoaderType {
+public enum ModalLoaderType {
     case singleImageSpinning
     case multipleImagesSpinning
+    case lottie
 }
 
 class ModalLoader: UIView {
@@ -22,12 +24,14 @@ class ModalLoader: UIView {
         if view.viewWithTag(ModalLoader.viewTag) != nil {
             return
         }
-        
+
         switch type {
-            case .singleImageSpinning:
-                createSingleImageLoader(inView: view)
-            case .multipleImagesSpinning:
-                createMultipleImagesLoader(inView: view)
+        case .singleImageSpinning:
+            createSingleImageLoader(inView: view)
+        case .multipleImagesSpinning:
+            createMultipleImagesLoader(inView: view)
+        case .lottie:
+            createLottieLoader(inView: view)
         }
 
     }
@@ -56,9 +60,27 @@ class ModalLoader: UIView {
         
         loader.tag = viewTag
         rotateAnimation(imageView: imageView)
-        
     }
-    
+
+    private static func createLottieLoader(inView view: UIView) {
+        let loader = ModalLoader()
+        view.addSubview(loader)
+        loader.backgroundColor = .clear
+        loader.alpha = 1
+
+        let lottie = LottieAnimationView(name: "splashscreen_lex")
+        lottie.translatesAutoresizingMaskIntoConstraints = false
+        loader.addSubview(lottie)
+
+        constrain(view, loader, lottie) { view, loader, lottie in
+            loader.center == view.center
+            lottie.center == loader.center
+        }
+        lottie.loopMode = .loop
+        lottie.play()
+        loader.tag = viewTag
+    }
+
     static func rotateAnimation(imageView: UIImageView, duration: CFTimeInterval = 2.0) {
         let rotateAnimation = CABasicAnimation(keyPath: "transform.rotation")
         rotateAnimation.fromValue = 0.0

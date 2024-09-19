@@ -27,15 +27,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITabBar.appearance().tintColor = .secondaryBackground
         TargetSpecificSettings.setupAppearance()
         
-        let browsingViewController = BrowsingViewController.init(nibName: nil, bundle: nil)
+        let browsingViewController = BrowsingViewController(modalLoaderType: TargetSpecificSettings.preferedLoaderType)
         let navControllerBrowsing = UINavigationController.init(rootViewController: browsingViewController)
         
         tabbarController.addChildViewController(navControllerBrowsing)
-        let searchController = SearchHistoryViewController.init(style: .grouped)
+        let searchController = SearchHistoryViewController(modalLoaderType: TargetSpecificSettings.preferedLoaderType)
         let navController = UINavigationController.init(rootViewController: searchController)
         navController.navigationBar.prefersLargeTitles = true
         
-        let historyViewController = SearchViewController.init(nibName: nil, bundle: nil)
+        let historyViewController = SearchViewController(modalLoaderType: TargetSpecificSettings.preferedLoaderType)
         searchController.navigationItem.searchController = UISearchController.init(searchResultsController: historyViewController)
         tabbarController.addChildViewController(navController)
 

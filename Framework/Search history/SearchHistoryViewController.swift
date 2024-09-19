@@ -12,22 +12,19 @@ import Cartography
 
 public class SearchHistoryViewController : UITableViewController, UISearchBarDelegate {
     
-    
+    public let modalLoaderType: ModalLoaderType
     public let vm = SearchHistoryViewModel()
     var outputs: SearchHistoryViewModel.Outputs!
     let dataSource = SearchTableViewDataSource()
     var didSelectArticleHandler: ((Article) -> ())?
     
-    override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        outputs = vm.outputs()
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    }
-    public override init(style: UITableViewStyle) {
-        super.init(style: style)
+    public init(modalLoaderType: ModalLoaderType) {
+        self.modalLoaderType = modalLoaderType
+        super.init(style: .grouped)
         outputs = vm.outputs()
         tabBarItem = UITabBarItem.init(title: "Søk".localized(key: "tab_search"), image: UIImage.init(named: "search"), tag: 0)
     }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -43,10 +40,11 @@ public class SearchHistoryViewController : UITableViewController, UISearchBarDel
             }
         }
         outputs.openArticle.observeValues{ [weak self] article in
-            let viewController = BrowsingViewController.init(nibName: nil, bundle: nil)
+            guard let self else { return }
+            let viewController = BrowsingViewController(modalLoaderType: modalLoaderType)
             viewController.vm.inputs.configureObserver.send(value: URLRequest.init(url: URL(string: article.articleURL)!))
-            self?.navigationController?.pushViewController(viewController, animated: true)
-            self?.navigationController?.navigationBar.prefersLargeTitles = false
+            self.navigationController?.pushViewController(viewController, animated: true)
+            self.navigationController?.navigationBar.prefersLargeTitles = false
         }
         vm.inputs.viewDidLoadObserver.send(value: ())
     }
@@ -103,7 +101,7 @@ public class SearchHistoryViewController : UITableViewController, UISearchBarDel
         
         searchViewController.didSelectArticleHandler = { article in
             
-            let viewController = BrowsingViewController.init(nibName: nil, bundle: nil)
+            let viewController = BrowsingViewController(modalLoaderType: self.modalLoaderType)
             viewController.vm.inputs.configureObserver.send(value: URLRequest.init(url: URL(string: article.articleURL)!))
             self.navigationController?.pushViewController(viewController, animated: true)
             self.navigationController?.navigationBar.prefersLargeTitles = false
