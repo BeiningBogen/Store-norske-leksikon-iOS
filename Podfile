@@ -19,18 +19,23 @@ target 'SNLTests' do
   pod "ReactiveSwift"
 end
 
+def lottie
+    pod 'lottie-ios', '~> 4.5'
+end
+
 target 'Store-norske-leksikon-iOSFramework' do
     pod "Cartography"
     pod "ReactiveCocoa"
     pod "ReactiveSwift"
     pod "Result"
     pod "SDWebImage"
+    lottie
 end
 
 target 'lex.dk' do
-  pod "Cartography"
-  pod 'lottie-ios', '~> 4.5'
-  end
+    pod "Cartography"
+    lottie
+end
 
 post_install do |installer|
     installer.generated_projects.each do |project|
