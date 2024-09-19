@@ -8,22 +8,14 @@
 
 import Foundation
 import UIKit
-import Cartography
-import CoreGraphics
 import Store_norske_leksikon_iOSFramework
-
-
+import Lottie
 
 public class SplashScreen: UIView, SplashScreenProtocol {
-//    static func show(inWindow: UIWindow?) -> UIView? {
-//        <#code#>
-//    }
-    
-    
-    let logo1 = UIImageView.init(image: UIImage.init(named: "lex"))
-    let logo2 = UIImageView.init(image: UIImage.init(named: "dk"))
-    
-    
+
+    fileprivate lazy var starAnimationView = LottieAnimationView(name: "splashscreen_lex")
+    fileprivate var animationIsDone = false
+
     private struct Constants {
         /// Time before the loader shows
         static let delayBeforeStartingAnimation: Double = 0.1
@@ -40,7 +32,11 @@ public class SplashScreen: UIView, SplashScreenProtocol {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .primaryBackground
+        starAnimationView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(starAnimationView)
+        starAnimationView.topAnchor.constraint(equalTo: topAnchor, constant: 306).isActive = true
+        starAnimationView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        backgroundColor = UIColor(white: 241.0 / 255.0, alpha: 1.0)
     }
     
     public static func show(inWindow window: UIWindow?) -> SplashScreenProtocol? {
@@ -48,87 +44,23 @@ public class SplashScreen: UIView, SplashScreenProtocol {
             return nil
         }
         
-        let splashScreen = SplashScreen.init(frame: .zero)
+        let splashScreen = SplashScreen.init(frame: window.frame)
         window.addSubview(splashScreen)
-        splashScreen.addSubview(splashScreen.logo1)
-        splashScreen.addSubview(splashScreen.logo2)
-        
-        
-        constrain(splashScreen, window) { selfView, view in
-            selfView.left == view.left
-            selfView.top == view.top
-            selfView.bottom == view.bottom
-            selfView.right == view.right
-        }
-        
-        /// Logo permanent constraints
-        constrain(splashScreen, splashScreen.logo1, splashScreen.logo2) { selfView, logo1, logo2 in
-            logo1.centerY == selfView.centerY - 50
-            logo2.centerY == selfView.centerY - 50
-        }
-        
-        /// Logo text animated constraint
-        let logo1AnimationConstraint = constrain(splashScreen, splashScreen.logo1, splashScreen.logo2) { selfView, logo1, logo2 in
-            logo1.right == selfView.left
-        }
-        let logo2AnimationConstraint = constrain(splashScreen, splashScreen.logo1, splashScreen.logo2) { selfView, logo1, logo2 in
-            logo2.left == selfView.right
-        }
-        
-            
+
         after(Constants.delayBeforeStartingAnimation) {
-            if splashScreen.superview != nil {
-                splashScreen.setNeedsUpdateConstraints()
-                
-                constrain(splashScreen, splashScreen.logo1, splashScreen.logo2, replace: logo1AnimationConstraint) { selfView, logo1, logo2 in
-                    logo1.centerX == selfView.centerX - 40
-                }
-                
-                UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut) {
-                    splashScreen.layoutIfNeeded()
-                    splashScreen.logo1.alpha = 1
-                } completion: { _ in
-                    UIView.animate(withDuration: 0.2, delay: 0, options: .curveEaseInOut) {
-                        constrain(splashScreen, splashScreen.logo1, splashScreen.logo2, replace: logo2AnimationConstraint) { selfView, logo1, logo2 in
-                            logo2.left == logo1.right + 5
-                        }
-                        splashScreen.layoutIfNeeded()
-                    }
-                }
-            }
-        }
-        
-        after(Constants.maximumTimeToShowSplashScreen) {
-            if splashScreen.superview != nil {
+            splashScreen.starAnimationView.play { completed in
+                splashScreen.animationIsDone = true
                 splashScreen.animateFadeout()
             }
         }
         return splashScreen
     }
-    
-    func transitionToSpinner() {
-        UIView.animate(withDuration: 0.2, animations: {
-            self.logo1.alpha = 0
-//            self.logoText.alpha = 0
-            
-        }) { _ in
-            
-        }
-    }
 
     public func animateFadeout() {
-        if self.logo1.alpha == 1 {
-            UIView.animate(withDuration: Constants.logoFadeoutDuration, delay: 0.2, options: .curveEaseInOut, animations: {
-                self.logo1.alpha = 0
-                self.logo2.alpha = 0
-            }) { _ in
-                UIView.animate(withDuration: Constants.backgroundFadeoutDuration, animations: {
-                    self.backgroundColor = .clear
-                }) { _ in
-                    self.removeFromSuperview()
-                }
-            }
-        } else {
+        guard animationIsDone else { return }
+        UIView.animate(withDuration: Constants.logoFadeoutDuration) {
+            self.starAnimationView.alpha = 0
+        } completion: { _ in
             UIView.animate(withDuration: Constants.backgroundFadeoutDuration, animations: {
                 self.backgroundColor = .clear
             }) { _ in
