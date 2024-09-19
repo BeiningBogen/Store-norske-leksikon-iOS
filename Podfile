@@ -29,6 +29,7 @@ end
 
 target 'lex.dk' do
   pod "Cartography"
+  pod 'lottie-ios', '~> 4.5'
   end
 
 post_install do |installer|
