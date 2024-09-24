@@ -24,7 +24,10 @@ public class BrowsingViewController : UIViewController {
     
     let webView: WKWebView
     let speech = AVSpeechSynthesizer.init()
-    
+
+    private lazy var toolbar = createToolbar()
+    private lazy var webBackButton = createBackButton()
+    private lazy var webForwardButton = createForwardButton()
     public init(modalLoaderType: ModalLoaderType) {
         self.modalLoaderType = modalLoaderType
         webView = WKWebView.init(frame: .zero, configuration: WKWebViewConfiguration.init())
@@ -62,21 +65,26 @@ public class BrowsingViewController : UIViewController {
     
     func setupViews() {
         
+        webView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(webView)
         webView.navigationDelegate = self
         webView.scrollView.showsHorizontalScrollIndicator = false
         webView.scrollView.alwaysBounceHorizontal = false
         webView.scrollView.isDirectionalLockEnabled = true
         webView.setCustomUserAgent()
+        view.addSubview(toolbar)
 
     }
 
     func setupConstraints() {
-        constrain(view, webView) { (vp, webViewProxy) in
+        constrain(view, webView, toolbar) { (vp, webViewProxy, toolbar) in
             webViewProxy.left == vp.left
             webViewProxy.right == vp.right
             webViewProxy.top == vp.top
-            webViewProxy.bottom == vp.bottom
+            webViewProxy.bottom == toolbar.top
+            toolbar.left == vp.left
+            toolbar.right == vp.right
+            toolbar.bottom == vp.safeAreaLayoutGuide.bottom
         }
     }
 
@@ -202,18 +210,80 @@ public class BrowsingViewController : UIViewController {
             AppNotification.Post.showCookieConsentPopup()
         }
 
+        outputs.enableWebGoBack.observeValuesForUI { [weak self] isEnabled in
+            self?.webBackButton.isEnabled = isEnabled
+        }
+
+        outputs.enableWebGoForward.observeValuesForUI { [weak self] isEnabled in
+            self?.webForwardButton.isEnabled = isEnabled
+        }
+
     }
 
     @objc func showSearchField() {
         vm.inputs.didTapSearchButtonObserver.send(value: ())
     }
-    
+
+    // MARK: - Private
+
+    private func createToolbar() -> UIToolbar {
+        // ???: (edouard siegel) 2024-09-24 Setting the height to something bigger than the buttons layout instead prevents
+        // some autolayout warning issue. cf https://stackoverflow.com/a/58524360
+        let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 35))
+        toolbar.translatesAutoresizingMaskIntoConstraints = false
+        let refresh = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(refreshWebView))
+        if #available(iOS 14.0, *) {
+            let spacer = UIBarButtonItem(systemItem: .flexibleSpace)
+            toolbar.setItems([webBackButton, spacer, refresh, spacer, webForwardButton], animated: false)
+        } else {
+            toolbar.setItems([webBackButton, refresh, webForwardButton], animated: false)
+        }
+        toolbar.tintColor = .primaryTextColor
+        return toolbar
+    }
+
+    private func createBackButton() -> UIBarButtonItem {
+        let button = UIBarButtonItem(
+            image: UIImage(named: "CircledLeftArrow"),
+            style: .plain,
+            target: self,
+            action: #selector(goBackInWebStack)
+        )
+        button.isEnabled = false
+        return button
+    }
+
+    private func createForwardButton() -> UIBarButtonItem {
+        let button = UIBarButtonItem(
+            image: UIImage(named: "CircledRightArrow"),
+            style: .plain,
+            target: self,
+            action: #selector(goForwardInWebStack)
+        )
+        button.isEnabled = false
+        return button
+    }
+
+    @objc private func goBackInWebStack() {
+        webView.goBack()
+    }
+
+    @objc private func refreshWebView() {
+        webView.reload()
+    }
+
+    @objc private func goForwardInWebStack() {
+        webView.goForward()
+    }
+
+
 }
 
 extension BrowsingViewController : WKNavigationDelegate {
 
     public func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
         vm.inputs.didFailNavigationObserver.send(value: ())
+        vm.inputs.didUpdateNavigationObserver.send(value: (webView.canGoBack, webView.canGoForward))
     }
     
     public func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
@@ -226,6 +296,7 @@ extension BrowsingViewController : WKNavigationDelegate {
     
     public func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         vm.inputs.didFinishNavigationObserver.send(value: ())
+        vm.inputs.didUpdateNavigationObserver.send(value: (webView.canGoBack, webView.canGoForward))
     }
     
     public func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
