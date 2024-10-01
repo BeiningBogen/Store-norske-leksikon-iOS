@@ -68,7 +68,7 @@ class ModalLoader: UIView {
         loader.backgroundColor = .clear
         loader.alpha = 1
 
-        let lottie = LottieAnimationView(name: "splashscreen_lex")
+        let lottie = LottieAnimationView(name: "loader-lottie")
         lottie.translatesAutoresizingMaskIntoConstraints = false
         loader.addSubview(lottie)
 

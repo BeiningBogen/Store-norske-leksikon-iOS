@@ -36,7 +36,7 @@ public class SplashScreen: UIView, SplashScreenProtocol {
         addSubview(starAnimationView)
         starAnimationView.topAnchor.constraint(equalTo: topAnchor, constant: 306).isActive = true
         starAnimationView.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        backgroundColor = UIColor(white: 241.0 / 255.0, alpha: 1.0)
+        backgroundColor = UIColor(named: "SplashBackground")
     }
     
     public static func show(inWindow window: UIWindow?) -> SplashScreenProtocol? {

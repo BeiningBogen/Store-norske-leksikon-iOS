@@ -19,7 +19,7 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" name="PrimaryBackground"/>
+                        <color key="backgroundColor" name="SplashBackground"/>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout" top="YES"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" barStyle="black" translucent="NO" prompted="NO"/>
@@ -32,8 +32,8 @@
     </scenes>
     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
-        <namedColor name="PrimaryBackground">
-            <color red="0.0" green="0.41176470588235292" blue="0.92156862745098034" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <namedColor name="SplashBackground">
+            <color red="0.91764705882352937" green="0.94509803921568625" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		065336442C9C1FDE006EB0AA /* splashscreen_lex.json in Resources */ = {isa = PBXBuildFile; fileRef = 065336422C9C1DCC006EB0AA /* splashscreen_lex.json */; };
+		066DFD102CAC328A00E1DB5F /* loader-lottie.json in Resources */ = {isa = PBXBuildFile; fileRef = 066DFD0E2CAC328700E1DB5F /* loader-lottie.json */; };
 		06F3EBD02C6B626400E2674F /* CookiesConsentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F3EBCD2C6B625800E2674F /* CookiesConsentViewController.swift */; };
 		06F3EBD62C6B7EA500E2674F /* UIImage+Resize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06F3EBD32C6B7DFF00E2674F /* UIImage+Resize.swift */; };
 		0A08F00521BFA7A50007A3B1 /* SearchTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A08EFFF21BFA7A50007A3B1 /* SearchTableViewCellViewModel.swift */; };
@@ -127,6 +128,7 @@
 
 /* Begin PBXFileReference section */
 		065336422C9C1DCC006EB0AA /* splashscreen_lex.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = splashscreen_lex.json; sourceTree = "<group>"; };
+		066DFD0E2CAC328700E1DB5F /* loader-lottie.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "loader-lottie.json"; sourceTree = "<group>"; };
 		06F3EBCD2C6B625800E2674F /* CookiesConsentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookiesConsentViewController.swift; sourceTree = "<group>"; };
 		06F3EBD32C6B7DFF00E2674F /* UIImage+Resize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Resize.swift"; sourceTree = "<group>"; };
 		0A08EFFF21BFA7A50007A3B1 /* SearchTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCellViewModel.swift; sourceTree = "<group>"; };
@@ -252,6 +254,25 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		066DFD112CAC32AD00E1DB5F /* Lex Assets */ = {
+			isa = PBXGroup;
+			children = (
+				ECE5647E2A1F7A5D0053FE75 /* lex-assets.xcassets */,
+				066DFD0E2CAC328700E1DB5F /* loader-lottie.json */,
+				ECF41D1E29365699008E4765 /* LaunchScreen-lex.storyboard */,
+			);
+			path = "Lex Assets";
+			sourceTree = "<group>";
+		};
+		066DFD122CAC32B500E1DB5F /* SNL Assets */ = {
+			isa = PBXGroup;
+			children = (
+				EC0031E4292F6DDA00526A68 /* snl-assets.xcassets */,
+				0A3EBB2420DCE97F00B7D41D /* LaunchScreen-SNL.storyboard */,
+			);
+			path = "SNL Assets";
+			sourceTree = "<group>";
+		};
 		06F3EBD12C6B627500E2674F /* CookiesConsent */ = {
 			isa = PBXGroup;
 			children = (
@@ -335,10 +356,8 @@
 				0A3EBB1820DCE97D00B7D41D /* AppDelegate.swift */,
 				ECE4936E2C186CC600D16DBA /* MobileCookieConsentValues.swift */,
 				0A3EBB2220DCE97F00B7D41D /* Assets.xcassets */,
-				ECE5647E2A1F7A5D0053FE75 /* lex-assets.xcassets */,
-				EC0031E4292F6DDA00526A68 /* snl-assets.xcassets */,
-				ECF41D1E29365699008E4765 /* LaunchScreen-lex.storyboard */,
-				0A3EBB2420DCE97F00B7D41D /* LaunchScreen-SNL.storyboard */,
+				066DFD122CAC32B500E1DB5F /* SNL Assets */,
+				066DFD112CAC32AD00E1DB5F /* Lex Assets */,
 				0A3EBB2720DCE97F00B7D41D /* Info.plist */,
 			);
 			path = SNL;
@@ -649,6 +668,7 @@
 			files = (
 				ECE4937E2C18772000D16DBA /* Secrets.plist in Resources */,
 				62F5F6022A1F7C490033DEEE /* lex-assets.xcassets in Resources */,
+				066DFD102CAC328A00E1DB5F /* loader-lottie.json in Resources */,
 				EC487F9C292BC35E001E42D7 /* Assets.xcassets in Resources */,
 				ECF41D1C29365699008E4765 /* LaunchScreen-lex.storyboard in Resources */,
 				065336442C9C1FDE006EB0AA /* splashscreen_lex.json in Resources */,
