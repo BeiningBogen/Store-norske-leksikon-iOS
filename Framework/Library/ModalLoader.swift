@@ -9,6 +9,15 @@ public enum ModalLoaderType {
     case singleImageSpinning
     case multipleImagesSpinning
     case lottie
+
+    var shouldShrinkWhenFading: Bool {
+        switch self {
+        case .singleImageSpinning, .multipleImagesSpinning:
+            return true
+        case .lottie:
+            return false
+        }
+    }
 }
 
 class ModalLoader: UIView {
@@ -158,14 +167,16 @@ class ModalLoader: UIView {
         }
     }
     
-    static func hide(inView view: UIView?) {
+    static func hide(inView view: UIView?, shrinkWhileFading: Bool = false) {
         guard let view = view else { return }
         
         let loader = view.viewWithTag(ModalLoader.viewTag) as? ModalLoader
         
         UIView.animate(withDuration: 0.33, delay: 0.0, options: UIViewAnimationOptions.curveLinear, animations: {
             
-            loader?.transform = CGAffineTransform.init(scaleX: 0.2, y: 0.2)
+            if shrinkWhileFading {
+                loader?.transform = CGAffineTransform.init(scaleX: 0.2, y: 0.2)
+            }
             loader?.alpha = 0
             
         }) { isComplete in
@@ -197,7 +208,7 @@ extension ModalLoader {
         if value {
             ModalLoader.show(inView: inView, type: type)
         } else {
-            ModalLoader.hide(inView: inView)
+            ModalLoader.hide(inView: inView, shrinkWhileFading: type.shouldShrinkWhenFading)
         }
     }
     

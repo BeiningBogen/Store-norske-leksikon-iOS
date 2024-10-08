@@ -140,9 +140,10 @@ public class BrowsingViewController : UIViewController {
         }
         
         outputs.showLoader.observeValuesForUI { [weak self] value in
-            ModalLoader.showOrHide(value: value, inView: self?.view, type: .lottie)
+            guard let self else { return }
+            ModalLoader.showOrHide(value: value, inView: view, type: modalLoaderType)
             if value == false {
-                self?.splashScreen?.animateFadeout()
+                splashScreen?.animateFadeout()
             }
         }
         
