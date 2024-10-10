@@ -82,7 +82,8 @@ class ModalLoader: UIView {
         loader.addSubview(lottie)
 
         constrain(view, loader, lottie) { view, loader, lottie in
-            loader.center == view.center
+            loader.centerX == view.centerX
+            loader.centerY == view.centerY - 60
             lottie.center == loader.center
         }
         lottie.loopMode = .loop
