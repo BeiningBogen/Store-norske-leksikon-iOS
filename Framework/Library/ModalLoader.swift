@@ -3,10 +3,21 @@ import Foundation
 import UIKit
 import Cartography
 import QuartzCore
+import Lottie
 
-enum ModalLoaderType {
+public enum ModalLoaderType {
     case singleImageSpinning
     case multipleImagesSpinning
+    case lottie
+
+    var shouldShrinkWhenFading: Bool {
+        switch self {
+        case .singleImageSpinning, .multipleImagesSpinning:
+            return true
+        case .lottie:
+            return false
+        }
+    }
 }
 
 class ModalLoader: UIView {
@@ -22,12 +33,14 @@ class ModalLoader: UIView {
         if view.viewWithTag(ModalLoader.viewTag) != nil {
             return
         }
-        
+
         switch type {
-            case .singleImageSpinning:
-                createSingleImageLoader(inView: view)
-            case .multipleImagesSpinning:
-                createMultipleImagesLoader(inView: view)
+        case .singleImageSpinning:
+            createSingleImageLoader(inView: view)
+        case .multipleImagesSpinning:
+            createMultipleImagesLoader(inView: view)
+        case .lottie:
+            createLottieLoader(inView: view)
         }
 
     }
@@ -56,9 +69,28 @@ class ModalLoader: UIView {
         
         loader.tag = viewTag
         rotateAnimation(imageView: imageView)
-        
     }
-    
+
+    private static func createLottieLoader(inView view: UIView) {
+        let loader = ModalLoader()
+        view.addSubview(loader)
+        loader.backgroundColor = .clear
+        loader.alpha = 1
+
+        let lottie = LottieAnimationView(name: "loader-lottie")
+        lottie.translatesAutoresizingMaskIntoConstraints = false
+        loader.addSubview(lottie)
+
+        constrain(view, loader, lottie) { view, loader, lottie in
+            loader.centerX == view.centerX
+            loader.centerY == view.centerY - 60
+            lottie.center == loader.center
+        }
+        lottie.loopMode = .loop
+        lottie.play()
+        loader.tag = viewTag
+    }
+
     static func rotateAnimation(imageView: UIImageView, duration: CFTimeInterval = 2.0) {
         let rotateAnimation = CABasicAnimation(keyPath: "transform.rotation")
         rotateAnimation.fromValue = 0.0
@@ -136,14 +168,16 @@ class ModalLoader: UIView {
         }
     }
     
-    static func hide(inView view: UIView?) {
+    static func hide(inView view: UIView?, shrinkWhileFading: Bool = false) {
         guard let view = view else { return }
         
         let loader = view.viewWithTag(ModalLoader.viewTag) as? ModalLoader
         
         UIView.animate(withDuration: 0.33, delay: 0.0, options: UIViewAnimationOptions.curveLinear, animations: {
             
-            loader?.transform = CGAffineTransform.init(scaleX: 0.2, y: 0.2)
+            if shrinkWhileFading {
+                loader?.transform = CGAffineTransform.init(scaleX: 0.2, y: 0.2)
+            }
             loader?.alpha = 0
             
         }) { isComplete in
@@ -175,7 +209,7 @@ extension ModalLoader {
         if value {
             ModalLoader.show(inView: inView, type: type)
         } else {
-            ModalLoader.hide(inView: inView)
+            ModalLoader.hide(inView: inView, shrinkWhileFading: type.shouldShrinkWhenFading)
         }
     }
     

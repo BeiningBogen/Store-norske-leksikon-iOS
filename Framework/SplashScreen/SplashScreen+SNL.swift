@@ -107,16 +107,6 @@ public class SplashScreen: UIView, SplashScreenProtocol {
         return splashScreen
     }
     
-    func transitionToSpinner() {
-        UIView.animate(withDuration: 0.2, animations: {
-            self.logo.alpha = 0
-            self.logoText.alpha = 0
-            
-        }) { _ in
-            
-        }
-    }
-
     public func animateFadeout() {
         if self.logo.alpha == 1 {
             UIView.animate(withDuration: Constants.logoFadeoutDuration, delay: 0, options: .curveEaseInOut, animations: {
