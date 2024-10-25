@@ -62,7 +62,9 @@ public final class BrowsingViewModel {
         
         ///
         public let (didTapShowCookiePopupButton, didTapShowCookiePopupObserver) = Signal<Void, NoError>.pipe()
-        
+
+        public let (didUpdateNavigation, didUpdateNavigationObserver) = Signal<(Bool, Bool), NoError>.pipe()
+
         public init() { }
         
     }
@@ -116,7 +118,9 @@ public final class BrowsingViewModel {
         /// Emit when alert for browsing to external link should show
         showExternalLinkAlert: Signal<(Bool, URL?), NoError>,
         
-        showCookieConsentPopup: Signal<Void, NoError>
+        showCookieConsentPopup: Signal<Void, NoError>,
+        enableWebGoBack: Signal<Bool, NoError>,
+        enableWebGoForward: Signal<Bool, NoError>
 
     )
     
@@ -232,8 +236,10 @@ public final class BrowsingViewModel {
                                           inputs.viewWillDisappear )
         
         let showCookieConsentPopup = inputs.didTapShowCookiePopupButton
-        
-        
+
+        let enableWebGoBack = inputs.didUpdateNavigation.map { $0.0 }
+        let enableWebGoForward = inputs.didUpdateNavigation.map { $0.1 }
+
         return (title : title,
                 showLoader : showLoader,
                 stripHeaderFooter: stripHeaderFooter,
@@ -248,9 +254,10 @@ public final class BrowsingViewModel {
                 stopVoiceOver: stopVoiceOver,
                 addMoreButton: addMoreButton,
                 showExternalLinkAlert: showExternalLinkAlert,
-                showCookieConsentPopup: showCookieConsentPopup
+                showCookieConsentPopup: showCookieConsentPopup,
+                enableWebGoBack: enableWebGoBack,
+                enableWebGoForward: enableWebGoForward
         )
-        
     }
     
 }
