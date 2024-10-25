@@ -14,7 +14,8 @@ import Result
 import Cartography
 
 final public class SearchViewController: UITableViewController, UISearchBarDelegate {
-    
+
+    public let modalLoaderType: ModalLoaderType
     public let vm = SearchViewModel()
     var outputs: SearchViewModel.Outputs!
     let dataSource = SearchHistoryTableViewDataSource()
@@ -22,17 +23,13 @@ final public class SearchViewController: UITableViewController, UISearchBarDeleg
     var clearOrCancelSearchHandler: (() -> ())?
     
     var didSelectArticleHandler: ((AutocompleteResult) -> ())?
-    
-    public override init(style: UITableViewStyle) {
-        super.init(style: style)
+
+    public init(modalLoaderType: ModalLoaderType) {
+        self.modalLoaderType = modalLoaderType
+        super.init(nibName: nil, bundle: nil)
         outputs = vm.outputs()
     }
-    
-    override public init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        outputs = vm.outputs()
-    }
-    
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -93,7 +90,8 @@ final public class SearchViewController: UITableViewController, UISearchBarDeleg
         }
         
         outputs!.showLoader.observeValuesForUI { [weak self] shouldShowLoader in
-            ModalLoader.showOrHide(value: shouldShowLoader, inView: self?.view, type: .singleImageSpinning)
+            guard let self else { return }
+            ModalLoader.showOrHide(value: shouldShowLoader, inView: self.view, type: self.modalLoaderType)
         }
         
         outputs.dismissKeyboard.observeValues { [weak self] _ in

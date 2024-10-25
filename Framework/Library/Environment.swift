@@ -24,7 +24,7 @@ public struct Environment {
 
 public struct AppSettings {
     
-    public init(speechSynthesizedLanguage: String = "nb-NO", searchBaseURL: String = "https://snl.no", domTitleToBeStripped: String = " – Store norske leksikon ") {
+    public init(speechSynthesizedLanguage: String = "nb-NO", searchBaseURL: String = "https://snl.no", domTitleToBeStripped: String = " – Store norske leksikon ", mobileCookieConsentValues: MobileCookieConsentValues? = nil) {
         self.speechSynthesizedLanguage = speechSynthesizedLanguage
         self.searchBaseURL = searchBaseURL
         self.domTitleToBeStripped = domTitleToBeStripped
@@ -36,6 +36,8 @@ public struct AppSettings {
     public var domTitleToBeStripped: String
     
     public var searchBaseURL: String
+    
+    public var mobileCookieConsentValues: MobileCookieConsentValues?
     
 }
 
