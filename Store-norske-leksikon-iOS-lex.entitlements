@@ -5,7 +5,20 @@
 	<key>com.apple.developer.associated-domains</key>
 	<array>
 		<string>applinks:lex.dk</string>
-		<string>applinks:*.lex.dk</string>
+        <string>applinks:biografiskleksikon.lex.dk</string>
+        <string>applinks:bornelitteratur.lex.dk</string>
+        <string>applinks:danmarkshistorien.lex.dk</string>
+        <string>applinks:danmarksoldtid.lex.dk</string>
+        <string>applinks:dansklitteraturshistorie.lex.dk</string>
+        <string>applinks:denstoredanske.lex.dk</string>
+        <string>applinks:kvindebiografiskleksikon.lex.dk</string>
+        <string>applinks:mytologi.lex.dk</string>
+        <string>applinks:naturenidanmark.lex.dk</string>
+        <string>applinks:pattedyratlas.lex.dk</string>
+        <string>applinks:symbolleksikon.lex.dk</string>
+        <string>applinks:teaterleksikon.lex.dk</string>
+        <string>applinks:trap.lex.dk</string>
+        <string>applinks:om.lex.dk</string>
 	</array>
 </dict>
 </plist>

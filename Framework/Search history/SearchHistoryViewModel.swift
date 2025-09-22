@@ -12,7 +12,7 @@ import Result
 
 public final class SearchHistoryViewModel {
     
-    public struct Inputs {
+    public class Inputs {
         
         /// Call when the view did load.
         public let (viewDidLoad, viewDidLoadObserver) = Signal<(), NoError>.pipe()
